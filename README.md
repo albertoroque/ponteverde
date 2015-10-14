@@ -12,6 +12,9 @@ Wisley Pereira
 Thyago Augusto
 Wesley Lossani
 
+
+---------------- GUIA DE UTILIZAÇÃO GIT -----------------------
+
 LINK DOWNLOAS GIT
 https://git-scm.com/download/win
 
@@ -47,7 +50,7 @@ git status (apresenta todos os arquivos que forma alterados)
  
  REGRA( NÃO FAZER "PUSH" SE PROJETO NÃO FOR REBUILDADO COM SUCESSO)
  
- 
+ ------------------------------------------------------------------------------
  
  
 
