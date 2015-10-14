@@ -13,6 +13,6 @@ Thyago Augusto
 Wesley Lossani
 
 COMANDOS 
-Na pasta C:/Projetos
+Na pasta C:/Projetos - 
 git clone https://github.com/albertoroque/ponteverde.git
 
