@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-green.min.css" />  
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Ponte Verde</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/busca.jpg">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PonteVerde">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/busca.jpg">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- for FF, Chrome, Opera -->
+  <link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+
+  <!-- for IE -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" >
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    
+    <link rel="stylesheet" href="style.css" content="text/css">
+</head>
+
+<body>
+	<!-- Uses a transparent header that draws on top of the layout's background -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">PonteVerde<img src="images/logo.png"></span>
+      
+      <!-- Add spacer, to align navigation to the right -->
+      <div class=	"mdl-layout-spacer"></div>
+
+      <!-- PESQUISA BOX -->  
+      <a href="busca.html">
+        <button class="mdl-button mdl-js-button" style="color:white;">
+          <i class="material-icons">search</i>          
+        </button>
+      </a>
+      
+      
+      <!-- BOTAO BOLINHA -->
+      <!-- Right aligned menu below button -->
+  		<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+  		  <i class="material-icons">more_vert</i>
+  		</button>
+
+  		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+  		    for="demo-menu-lower-right">
+  		  <a href="perfil.html"><li class="mdl-menu__item">Meu Perfil</li></a>
+                        		  <li class="mdl-menu__item">Configurações</li>
+                        		  <li class="mdl-menu__item">Sair...</li>		 
+  		</ul>  
+    </div>
+  </header>
+  
+  <!-- MENU GAVETA -->
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">
+    	<img  src="images/foto2.jpg" class="demo-avatar">
+    	<p class="demo-avatar-name">Alberto</p>
+      <div id="mdl-layout-notifications">      
+        <span class="material-icons mdl-badge" data-badge="1">flag</span>      
+        <span class="material-icons mdl-badge" data-badge="30">add_shopping_cart</span>
+        <span class="material-icons mdl-badge">room</span>        
+      </div>
+    </span>
+    <nav class="mdl-navigation">    
+      <a class="mdl-navigation__link" href="index.html"><i class="material-icons" role="presentation">home</i>Navegue</a>
+      <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons" role="presentation">perm_identity</i> Meu Perfil</a>
+      <a class="mdl-navigation__link" href="mylojas.html"><i class="material-icons" role="presentation">store</i> Minhas Lojas</a>
+      <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">shopping_cart</i> Promoções</a>
+      <a class="mdl-navigation__link" href="busca.html"><i class="material-icons" role="presentation">find_in_page</i> Buscar</a>
+    </nav>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="mdl-layout__content">
+  		<div id="main-card" class="card-content mdl-grid">
+      
+      <!-- FILTRO DOS DADOS -->
+      <div id="content-filter" class="mdl-cell mdl-cell--12-col mdl-layout__header-row mdl-typography--display-4">
+      <div class="mdl-layout-spacer"></div>         
+        <h6>Na minha cidade</h6> 
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons" style="margin-top:5px;">keyboard_arrow_down</i>
+        </button>
+        <ul id="content-filter-menu" class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+          <a href=""><li class="mdl-menu__item "><i class="material-icons" role="presentation">gps_fixed</i> Lojas mais próximas</li></a>
+          <a href=""><li class="mdl-menu__item"><i class="material-icons" role="presentation">hdr_weak</i> No meu bairro</li></a>          
+          <a href=""><li class="mdl-menu__item"><i class="material-icons" role="presentation">lens</i> Na minhas cidade</li></a>
+        </ul>        
+      </div>  			
+  			
+        <!-- CARD -->                
+  		  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">            
+            <!-- logo -->
+            <a href="loja.html">
+              <center>
+                <div 
+                  class="home-card-logo mdl-button--icon mdl-js-ripple-effect" 
+                  style="background-image: url(images/logo-loja1.jpg);" 
+                  class="mdl-shadow--6dp">
+                </div>
+              </center>
+            </a>
+    			    <!-- media -->
+            <div class="mdl-card__media">              
+              <img src="images/wall-loja.jpg">              
+            </div>            
+            <!-- titulo -->
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Portal dos Orgânicos</h4>
+            </div>            
+            <!-- texto -->
+            <div class="mdl-card__supporting-text">
+            	<i class="material-icons">room</i>
+                <span class="mdl-typography--font-light mdl-typography--subhead"> Rua da Loja, 890 - São Paulo</span> 
+              <br>
+              <p class="mdl-typography--font-light mdl-typography--subhead">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              </p>               
+            </div>                                        
+        </div>
+
+         <!-- CARD -->                
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">            
+            <!-- logo -->
+            <a href="loja.html">
+              <center>
+                <div 
+                  class="home-card-logo mdl-button--icon mdl-js-ripple-effect" 
+                  style="background-image: url(images/foto-loja.jpg);" 
+                  class="mdl-shadow--6dp">
+                </div>
+              </center>
+            </a>
+            <!-- media -->
+            <div class="mdl-card__media">              
+                <img src="images/loja4.jpg">             
+            </div>
+            <!-- titulo -->
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Portal dos Orgânicos</h4>
+            </div>            
+            <!-- texto -->
+            <div class="mdl-card__supporting-text">
+              <i class="material-icons">room</i>
+                <span class="mdl-typography--font-light mdl-typography--subhead"> Rua da Loja, 890 - São Paulo</span> 
+              <br>
+              <p class="mdl-typography--font-light mdl-typography--subhead">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              </p>               
+            </div>                                        
+        </div>  
+
+          <!-- CARD -->                
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">            
+            <!-- logo -->
+            <a href="loja.html">
+              <center>
+                <div 
+                  class="home-card-logo mdl-button--icon mdl-js-ripple-effect" 
+                  style="background-image: url(images/logo-loja1.jpg);" 
+                  class="mdl-shadow--6dp">
+                </div>
+              </center>
+            </a>
+            <!-- media -->
+            <div class="mdl-card__media">              
+                <img src="images/loja3.jpg">             
+            </div>
+            <!-- titulo -->
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Portal dos Orgânicos</h4>
+            </div>            
+            <!-- texto -->
+            <div class="mdl-card__supporting-text">
+              <i class="material-icons">room</i>
+                <span class="mdl-typography--font-light mdl-typography--subhead"> Rua da Loja, 890 - São Paulo</span> 
+              <br>
+              <p class="mdl-typography--font-light mdl-typography--subhead">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              </p>               
+            </div>                                        
+        </div>  
+
+         <!-- CARD -->                
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">            
+            <!-- logo -->
+            <a href="loja.html">
+              <center>
+                <div 
+                  class="home-card-logo mdl-button--icon mdl-js-ripple-effect" 
+                  style="background-image: url(images/foto-loja.jpg);"  
+                  class="mdl-shadow--6dp">
+                </div>
+              </center>
+            </a>
+            <!-- media -->
+            <div class="mdl-card__media">              
+                <img src="images/loja.jpg">              
+            </div>
+            <!-- titulo -->
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Portal dos Orgânicos</h4>
+            </div>            
+            <!-- texto -->
+            <div class="mdl-card__supporting-text">
+              <i class="material-icons">room</i>
+                <span class="mdl-typography--font-light mdl-typography--subhead"> Rua da Loja, 890 - São Paulo</span> 
+              <br>
+              <p class="mdl-typography--font-light mdl-typography--subhead">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              </p>               
+            </div>                                        
+        </div> 
+
+         <!-- CARD -->                
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">            
+            <!-- logo -->
+            <a href="loja.html">
+              <center>
+                <div 
+                  class="home-card-logo mdl-button--icon mdl-js-ripple-effect" 
+                  style="background-image: url(images/logo-loja1.jpg);" 
+                  class="mdl-shadow--6dp">
+                </div>
+              </center>
+            </a>
+            <!-- media -->
+            <div class="mdl-card__media">              
+                <img src="images/loja2.jpg">              
+            </div>
+            <!-- titulo -->
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Portal dos Orgânicos</h4>
+            </div>            
+            <!-- texto -->
+            <div class="mdl-card__supporting-text">
+              <i class="material-icons">room</i>
+                <span class="mdl-typography--font-light mdl-typography--subhead"> Rua da Loja, 890 - São Paulo</span> 
+              <br>
+              <p class="mdl-typography--font-light mdl-typography--subhead">
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+              </p>               
+            </div>                                        
+        </div>  
+            
+
+        <!--  END CARD CONTENT -->
+  		</div>
+  </main>
+</div>
+</body>
+</html>

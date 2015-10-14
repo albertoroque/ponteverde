@@ -1,0 +1,246 @@
+
+<html lang="pt-br">
+<head>	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-green.min.css" />  
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Ponte Verde</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/busca.jpg">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PonteVerde">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/busca.jpg">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- for FF, Chrome, Opera -->
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+
+	<!-- for IE -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" >
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    
+    <link rel="stylesheet" href="style.css" content="text/css">
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer mdl-layout--fixed-tabs">
+	  <header class="mdl-layout__header">
+	    <div class="mdl-layout__header-row">
+	      <!-- Title -->
+	      <span id="logo" class="mdl-layout-title">Minhas Lojas</span>
+	      
+	      <!-- Add spacer, to align navigation to the right -->
+	      <div class="mdl-layout-spacer"></div>	     
+
+	      <!-- BOTAO BOLINHA -->
+	      <!-- Right aligned menu below button -->
+			<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+			  <i class="material-icons">more_vert</i>
+			</button>
+
+			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+			    for="demo-menu-lower-right">
+			  <li class="mdl-menu__item">Meu Perfil</li>
+			  <li class="mdl-menu__item">Logout</li>
+			  <li class="mdl-menu__item">Notificações</li>		 
+			</ul>  
+	    </div>	    	    
+	  </header>
+	  
+	  <!-- MENU GAVETA -->
+	  <div class="mdl-layout__drawer">
+	    <span class="mdl-layout-title" id="p-layout-title">	    	
+	    	<h3 id="p-nome"> <i class="material-icons">arrow_back</i> Alberto</h3>
+	    	<h6>alberto@mail.com</h6>			
+	    </span>
+	    <nav class="mdl-navigation">
+	      <a class="mdl-navigation__link" href="index.html"><i class="material-icons" role="presentation">home</i>Navegue</a>
+	      <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons" role="presentation">perm_identity</i> Meu Perfil</a>
+	      <a class="mdl-navigation__link" href="mylojas.html"><i class="material-icons" role="presentation">store</i> Minhas Lojas</a>
+	      <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">shopping_cart</i> Promoções</a>
+	      <a class="mdl-navigation__link" href="busca.html"><i class="material-icons" role="presentation">find_in_page</i> Buscar</a>
+	    </nav>
+	  </div>
+
+	  <!-- CONTEÚDO -->
+	<main class="mdl-layout__content">				
+		  <div class="page-content">
+		  <!-- Your content goes here -->
+		  	<div class="mdl-grid" id="perfil-grid">
+				<div class="mdl-cell mdl-cell--12-col">
+
+				<!-- FILTRO DOS DADOS -->
+			      <div id="content-filter" class="mdl-cell mdl-cell--12-col mdl-layout__header-row mdl-typography--display-4">
+			      <div class="mdl-layout-spacer"></div>         
+			        <h6>Na minha cidade</h6> 
+			        <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+			            <i class="material-icons" style="margin-top:5px;">keyboard_arrow_down</i>
+			        </button>
+			        <ul id="content-filter-menu" class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+			          <a href=""><li class="mdl-menu__item "><i class="material-icons" role="presentation">gps_fixed</i> Lojas mais próximas</li></a>
+			          <a href=""><li class="mdl-menu__item"><i class="material-icons" role="presentation">hdr_weak</i> No meu bairro</li></a>          
+			          <a href=""><li class="mdl-menu__item"><i class="material-icons" role="presentation">lens</i> Na minhas cidade</li></a>
+			        </ul>        
+			      </div>
+			      <!-- end filtro dos dados -->
+
+					<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/logo-loja1.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Portal dos Orgânicos</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/loja2.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Verde pra Vida</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/loja3.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">GreenLife</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/loja4.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Seja Saudável</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/logo-loja1.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Ponte Verde</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/logo-loja1.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Portal dos Orgânicos</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/loja2.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Verde pra Vida</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/loja3.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">GreenLife</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/loja4.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Seja Saudável</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card ml-list-card">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/logo-loja1.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1 ml-list-card-text-1">Ponte Verde</p>				   							   			
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				</div>
+			</div>
+		  </div>			
+	</main>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<html lang="pt-br">
+<head>	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-green.min.css" />  
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Ponte Verde</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/busca.jpg">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PonteVerde">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/busca.jpg">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- for FF, Chrome, Opera -->
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+
+	<!-- for IE -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" >
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    
+    <link rel="stylesheet" href="style.css" content="text/css">
+</head>
+<body>
+
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header  mdl-layout--fixed-tabs">
+		<header id="b-header" class="mdl-layout__header">
+		  <div id="b-header-search">
+			<i id="b-header-icon" class="material-icons">search</i>
+			<form action="#" id="b-header-form">
+				<input id="b-h-search-input" placeholder="Buscar por lojas, pessoas e serviços..."></input>
+			</form>						
+		  </div>					    				
+
+			<!-- MENU TAB -->
+			<div id="b-h-tab" class="mdl-layout__tab-bar mdl-js-ripple-effect">
+				<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Lojas</a>
+				<a href="#fixed-tab-2" class="mdl-layout__tab">Pessoas</a>
+				<a href="#fixed-tab-3" class="mdl-layout__tab">Serviços</a>	    	
+			</div>
+		</header>
+	  	 
+
+	  <!-- CONTEÚDO -->
+	<main class="mdl-layout__content">
+
+		<!-- BOTAO PARA RETORNAR -->
+		<a href="index.html">
+			<button id="b-back" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+			  <i class="material-icons">arrow_back</i>
+			</button>
+		</a>
+
+		<!-- LOJAS ------------------------------------------------------------------------------ -->
+		<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1" >
+		  <div class="page-content">
+		  	<!-- Your content goes here -->
+		  	<div class="mdl-grid" id="perfil-grid">
+				<div class="mdl-cell mdl-cell--12-col">
+
+				   <!-- ação de busca por geo location-->
+				   <button id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
+					 <i class="material-icons">room</i>lojas mais próximas
+				   </button>
+
+				   <br>
+				   <!-- LISTA -->
+				   <div id="b-list">
+				   		<!-- cards da busca -->
+				   		<div class="b-list-card mdl-shadow--2dp">
+				   			<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/busca.jpg')">				   				
+				   			</div>
+				   			<div class="b-list-card-text">
+				   				<p class="b-list-card-text-1">Orgânicos Tata da Tutu</p>				   			
+				   				<p class="b-list-card-text-2"><i class="material-icons">directions</i> Av. Benjamin Harris, 1750</p>
+				   			</div>
+				   			<div class="b-list-card-bt">
+				   				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								  Ir até a página
+								</button>
+				   			</div>
+				   		</div>
+
+				   		<!-- cards da busca -->
+				   		<div class="b-list-card mdl-shadow--2dp">
+				   			<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/busca.jpg')">				   				
+				   			</div>
+				   			<div class="b-list-card-text">
+				   				<p class="b-list-card-text-1">Orgânicos Tata da Tutu</p>				   			
+				   				<p class="b-list-card-text-2"><i class="material-icons">directions</i> Av. Benjamin Harris, 1750</p>
+				   			</div>
+				   			<div class="b-list-card-bt">
+				   				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								  Ir até a página
+								</button>
+				   			</div>
+				   		</div>
+
+				   		<!-- cards da busca -->
+				   		<div class="b-list-card mdl-shadow--2dp">
+				   			<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/busca.jpg')">				   				
+				   			</div>
+				   			<div class="b-list-card-text">
+				   				<p class="b-list-card-text-1">Orgânicos Tata da Tutu</p>				   			
+				   				<p class="b-list-card-text-2"><i class="material-icons">directions</i> Av. Benjamin Harris, 1750</p>
+				   			</div>
+				   			<div class="b-list-card-bt">
+				   				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								  Ir até a página
+								</button>
+				   			</div>
+				   		</div>
+
+				   		<!-- cards da busca -->
+				   		<div class="b-list-card mdl-shadow--2dp">
+				   			<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/busca.jpg')">				   				
+				   			</div>
+				   			<div class="b-list-card-text">
+				   				<p class="b-list-card-text-1">Orgânicos Tata da Tutu</p>				   			
+				   				<p class="b-list-card-text-2"><i class="material-icons">directions</i> Av. Benjamin Harris, 1750</p>
+				   			</div>
+				   			<div class="b-list-card-bt">
+				   				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								  Ir até a página
+								</button>
+				   			</div>
+				   		</div>
+
+				   		<!-- cards da busca -->
+				   		<div class="b-list-card mdl-shadow--2dp">
+				   			<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/busca.jpg')">				   				
+				   			</div>
+				   			<div class="b-list-card-text">
+				   				<p class="b-list-card-text-1">Orgânicos Tata da Tutu</p>				   			
+				   				<p class="b-list-card-text-2"><i class="material-icons">directions</i> Av. Benjamin Harris, 1750</p>
+				   			</div>
+				   			<div class="b-list-card-bt">
+				   				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								  Ir até a página
+								</button>
+				   			</div>
+				   		</div>
+
+				   		<!-- cards da busca -->
+				   		<div class="b-list-card mdl-shadow--2dp">
+				   			<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/busca.jpg')">				   				
+				   			</div>
+				   			<div class="b-list-card-text">
+				   				<p class="b-list-card-text-1">Orgânicos Tata da Tutu</p>				   			
+				   				<p class="b-list-card-text-2"><i class="material-icons">directions</i> Av. Benjamin Harris, 1750</p>
+				   			</div>
+				   			<div class="b-list-card-bt">
+				   				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								  Ir até a página
+								</button>
+				   			</div>
+				   		</div>
+				   </div>
+				</div>
+		  	</div>
+		  </div>
+		</section>
+
+		<!-- PESSOAS ------------------------------------------------------------------------------------- -->
+		<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+		  <div class="page-content">
+		  <!-- Your content goes here -->
+		  	<div class="mdl-grid" id="perfil-grid">
+				<div class="mdl-cell mdl-cell--12-col">
+					
+					<!-- cards da busca -->
+				   	<div class="b-list-card mdl-shadow--2dp">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/default.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1">Letícia Saudável</p>				   			
+				   			<p class="b-list-card-text-2"><i class="material-icons">face</i> Esportista</p>
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card mdl-shadow--2dp">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/default.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1">Letícia Saudável</p>				   			
+				   			<p class="b-list-card-text-2"><i class="material-icons">face</i> Personal Trainer</p>
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				   	<!-- cards da busca -->
+				   	<div class="b-list-card mdl-shadow--2dp">
+				   		<div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/default.jpg')">				   				
+				   		</div>
+				   		<div class="b-list-card-text">
+				   			<p class="b-list-card-text-1">Letícia Saudável</p>				   			
+				   			<p class="b-list-card-text-2"><i class="material-icons">face</i> Alimentação Saudável</p>
+				   		</div>
+				   		<div class="b-list-card-bt">
+				   			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							  Ir até a página
+							</button>
+				   		</div>
+				   	</div>
+
+				</div>
+			</div>
+		  </div>
+		</section>
+
+
+		<!--SERVIÇOS --------------------------------------------------------------------------------- -->
+		<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+		   <div class="page-content"><!-- Your content goes here -->
+		   <h2>Serviços</h2>
+		   </div>
+		</section>	
+	</main>
+
+	</div>
+</body>
+</html>

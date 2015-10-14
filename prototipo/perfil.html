@@ -1,0 +1,158 @@
+<html lang="pt-br">
+<head>	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-green.min.css" />  
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Ponte Verde</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/busca.jpg">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PonteVerde">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/busca.jpg">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- for FF, Chrome, Opera -->
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+
+	<!-- for IE -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" >
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    
+    <link rel="stylesheet" href="style.css" content="text/css">
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+	  <header class="mdl-layout__header">
+	    <div class="mdl-layout__header-row">
+	      <!-- Title -->
+	       <span class="mdl-layout-title">PonteVerde<img src="images/logo.png"></span>
+	      
+	      <!-- Add spacer, to align navigation to the right -->
+	      <div class="mdl-layout-spacer"></div>
+
+	      <!-- PESQUISA BOX -->
+	      <a href="busca.html">
+	      	<button class="mdl-button mdl-js-button" style="color:white;">
+        		<i class="material-icons">search</i>          
+      	  	</button>
+      	  </a>
+
+	      <!-- BOTAO BOLINHA -->
+	      <!-- Right aligned menu below button -->
+			<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+			  <i class="material-icons">more_vert</i>
+			</button>
+
+			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+			    for="demo-menu-lower-right">
+			  <li class="mdl-menu__item">Meu Perfil</li>
+			  <li class="mdl-menu__item">Logout</li>
+			  <li class="mdl-menu__item">Notificações</li>		 
+			</ul>  
+	    </div>
+	  </header>
+	  
+	  <!-- MENU GAVETA -->
+	  <div class="mdl-layout__drawer">
+	    <span class="mdl-layout-title" id="p-layout-title">	    	
+	    	<h3 id="p-nome"> <i class="material-icons">arrow_back</i> Alberto</h3>
+	    	<h6>alberto@mail.com</h6>
+			<div id="mdl-layout-notifications">      
+	        	<span class="material-icons mdl-badge" data-badge="1">flag</span>      
+	        	<span class="material-icons mdl-badge" data-badge="30">add_shopping_cart</span>
+	        	<span class="material-icons mdl-badge">room</span>        
+	      	</div>
+	    </span>
+	    <nav class="mdl-navigation">
+	      <a class="mdl-navigation__link" href="index.html"><i class="material-icons" role="presentation">home</i>Navegue</a>
+	      <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons" role="presentation">perm_identity</i> Meu Perfil</a>
+	      <a class="mdl-navigation__link" href="mylojas.html"><i class="material-icons" role="presentation">store</i> Minhas Lojas</a>
+	      <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">shopping_cart</i> Promoções</a>
+	      <a class="mdl-navigation__link" href="busca.html"><i class="material-icons" role="presentation">find_in_page</i> Buscar</a>
+	    </nav>
+	  </div>
+
+	  <!-- CONTEÚDO -->
+	<main class="mdl-layout__content">
+
+		<!-- BOTAO PARA RETORNAR -->
+		<a href="config-perfil.html">
+			<button id="b-back" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+			  <i class="material-icons">settings</i>
+			</button>
+		</a>
+
+		<div class="mdl-grid" id="perfil-grid">
+			<div class="mdl-cell mdl-cell--12-col" id="perfil-col-12">
+				<div id="wallpaper-perfil" style="background-image: url(images/wall2.jpg);"  class="mdl-shadow--4dp">			
+				</div>
+				<center>
+					<div id="foto-perfil" style="background-image: url(images/foto2.jpg); " class="mdl-shadow--6dp"></div>
+					<h3 id="title-perfil">Alberto Roque</h3>
+					<h3 id="subtitle-perfil">Seguindo 400</h3>
+				</center>				
+			</div>
+			<div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet p-control" >
+				<p>	<i class="material-icons" role="presentation">place</i>	Av. Ciscato BlueScreen, 1750</p>
+			</div>
+			<div class="mdl-cell mdl-cell--4-col  mdl-cell--8-col-tablet p-control p-control-hide" >
+				<a href="twitter.com">
+				   <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
+			           <span class="visuallyhidden">Twitter</span>
+			        </button>
+		        </a>
+		        <a href="facebook.com">
+			        <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+			          <span class="visuallyhidden">Facebook</span>
+			        </button>
+		        </a>
+		        <a href="google.plus.com">
+			       <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
+			        <span class="visuallyhidden">Google Plus</span>
+			      </button>
+		        </a>
+			</div>
+
+			<!-- MENU PAGES -->
+			<div  id="p-pages-menu">
+				<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+				  <div class="mdl-tabs__tab-bar">
+				      <a href="#starks-panel" class="mdl-tabs__tab is-active">	
+				      	Lojas Favoritas
+				      </a>
+				      <a href="#lannisters-panel" class="mdl-tabs__tab">
+				      	Produtos Favoritos
+				      </a>
+				      <a href="#targaryens-panel" class="mdl-tabs__tab">
+				      	Promos Visitadas
+				      </a>
+				  </div>
+
+				  <div class="mdl-tabs__panel is-active" id="starks-panel">
+				    
+				  </div>
+				  <div class="mdl-tabs__panel" id="lannisters-panel">
+				    
+				  </div>
+				  <div class="mdl-tabs__panel" id="targaryens-panel">
+				    
+				  </div>							 
+				</div>						
+			</div>	
+		</div>
+	</main>
+</body>
+</html>
