@@ -33,26 +33,26 @@ git clone https://github.com/albertoroque/ponteverde.git
 (obs) está pasta será indexada ao repositório GIT, então toda alteração feita tu vai clica com botão direito NELA e vai seguir os procedimentos abaixo.
 
 -------------------------------------------------------------------------------------------
-|| GITBASH sobre a pasta C:/PROJETOS/PONTEVERDES
+|| GITBASH sobre a pasta C:/PROJETOS/PONTEVERDES																																						
 || 
-|| git status (apresenta todos os arquivos que forma alterados)
+|| git status (apresenta todos os arquivos que forma alterados)																																							
 || 
-||  --git checkout . (ignorar todos as suas alterações caso você tenha feito bostas malignas)
+||  --git checkout . (ignorar todos as suas alterações caso você tenha feito bostas malignas)																														
 ||  
-|| git add --all (salvar todas as suas alterações e marcar os arquivos que vão subir)
+|| git add --all (salvar todas as suas alterações e marcar os arquivos que vão subir)																																																																										
 ||  
-|| git commit -m "comentário da alteração #(número da ISSUE não obrigatório)"
+|| git commit -m "comentário da alteração #(número da ISSUE não obrigatório)"																																											
 ||  
-|| git pull (carrega todas as alterações do repositório e resolver os MERGES)
+|| git pull (carrega todas as alterações do repositório e resolver os MERGES)																																
 ||  
-||   -- em caso de MERGE CONFLICT
-||     1 - abrir o projeto e tentar executar e fazer o rebuild
-||     2 - abrir os erros e apagar os HEADS (tags de marcação de erro) do projeto, eliminando as duplicações caso aconteçam
-||  
-||  git push (faz upload de todas as suas alterações)
-||  
-||  REGRA( NÃO FAZER "PUSH" SE PROJETO NÃO FOR REBUILDADO COM SUCESSO)
-||  
+||   -- em caso de MERGE CONFLICT																																															
+||     1 - abrir o projeto e tentar executar e fazer o rebuild																																			
+||     2 - abrir os erros e apagar os HEADS (tags de marcação de erro) do projeto, eliminando as duplicações caso aconteçam															
+||  																																											
+||  git push (faz upload de todas as suas alterações)																																										
+||  																																																
+||  REGRA( NÃO FAZER "PUSH" SE PROJETO NÃO FOR REBUILDADO COM SUCESSO)																																								
+||  																																														
  ------------------------------------------------------------------------------
  
  
