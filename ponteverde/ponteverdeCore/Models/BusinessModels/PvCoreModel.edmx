@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PvCoreModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bairro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idCidade" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cidade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="idPais" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsername" Type="bigint" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fotowall" Type="text" Nullable="false" />
+          <Property Name="fotoperfil" Type="text" Nullable="false" />
+          <Property Name="cep" Type="varchar" MaxLength="45" />
+          <Property Name="logradouro" Type="varchar" MaxLength="100" />
+          <Property Name="numero" Type="varchar" MaxLength="25" />
+          <Property Name="lat" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="long" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="idBairro" Type="bigint" Nullable="false" />
+          <Property Name="statusPublico" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsername" Type="bigint" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="fotowall" Type="text" Nullable="false" />
+          <Property Name="fotoperfil" Type="text" Nullable="false" />
+          <Property Name="cep" Type="varchar" MaxLength="45" />
+          <Property Name="logradouro" Type="varchar" MaxLength="100" />
+          <Property Name="numero" Type="varchar" MaxLength="25" />
+          <Property Name="lat" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="long" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="cnpj" Type="int" />
+          <Property Name="idBairro" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lojafavorita">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idLoja" Type="bigint" Nullable="false" />
+          <Property Name="idCliente" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="100" />
+          <Property Name="preco" Type="float" Nullable="false" />
+          <Property Name="idLoja" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="produtofavorito">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProduto" Type="bigint" Nullable="false" />
+          <Property Name="idLojaFavorita" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="45" />
+          <Property Name="tipo" Type="enum" />
+        </EntityType>
+        <Association Name="fk_idBairro_id">
+          <End Role="bairro" Type="Self.bairro" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bairro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="idBairro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdBairroLoja">
+          <End Role="bairro" Type="Self.bairro" Multiplicity="1" />
+          <End Role="loja" Type="Self.loja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bairro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loja">
+              <PropertyRef Name="idBairro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idCidade_id">
+          <End Role="cidade" Type="Self.cidade" Multiplicity="1" />
+          <End Role="bairro" Type="Self.bairro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cidade">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bairro">
+              <PropertyRef Name="idCidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idCliente_id">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lojafavorita">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idLoja_id">
+          <End Role="loja" Type="Self.loja" Multiplicity="1" />
+          <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lojafavorita">
+              <PropertyRef Name="idLoja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idLojaProduto_id">
+          <End Role="loja" Type="Self.loja" Multiplicity="1" />
+          <End Role="produto" Type="Self.produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produto">
+              <PropertyRef Name="idLoja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idPais_id">
+          <End Role="pais" Type="Self.pais" Multiplicity="1" />
+          <End Role="cidade" Type="Self.cidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cidade">
+              <PropertyRef Name="idPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idProduto_id">
+          <End Role="produto" Type="Self.produto" Multiplicity="1" />
+          <End Role="produtofavorito" Type="Self.produtofavorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produtofavorito">
+              <PropertyRef Name="idProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idUsername">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="idUsername" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idUsernameLoja_id">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="loja" Type="Self.loja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loja">
+              <PropertyRef Name="idUsername" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ProdutoFavorito_LojaFavorita1">
+          <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="1" />
+          <End Role="produtofavorito" Type="Self.produtofavorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lojafavorita">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produtofavorito">
+              <PropertyRef Name="idLojaFavorita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PvCoreModelStoreContainer">
+          <EntitySet Name="bairro" EntityType="Self.bairro" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="cidade" EntityType="Self.cidade" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="loja" EntityType="Self.loja" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="lojafavorita" EntityType="Self.lojafavorita" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="pais" EntityType="Self.pais" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="produto" EntityType="Self.produto" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="produtofavorito" EntityType="Self.produtofavorito" Schema="ponteverde" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="ponteverde" store:Type="Tables" />
+          <AssociationSet Name="fk_idBairro_id" Association="Self.fk_idBairro_id">
+            <End Role="bairro" EntitySet="bairro" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdBairroLoja" Association="Self.fk_IdBairroLoja">
+            <End Role="bairro" EntitySet="bairro" />
+            <End Role="loja" EntitySet="loja" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idCidade_id" Association="Self.fk_idCidade_id">
+            <End Role="cidade" EntitySet="cidade" />
+            <End Role="bairro" EntitySet="bairro" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idCliente_id" Association="Self.fk_idCliente_id">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="lojafavorita" EntitySet="lojafavorita" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idLoja_id" Association="Self.fk_idLoja_id">
+            <End Role="loja" EntitySet="loja" />
+            <End Role="lojafavorita" EntitySet="lojafavorita" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idLojaProduto_id" Association="Self.fk_idLojaProduto_id">
+            <End Role="loja" EntitySet="loja" />
+            <End Role="produto" EntitySet="produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idPais_id" Association="Self.fk_idPais_id">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="cidade" EntitySet="cidade" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idProduto_id" Association="Self.fk_idProduto_id">
+            <End Role="produto" EntitySet="produto" />
+            <End Role="produtofavorito" EntitySet="produtofavorito" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idUsername" Association="Self.fk_idUsername">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idUsernameLoja_id" Association="Self.fk_idUsernameLoja_id">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="loja" EntitySet="loja" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ProdutoFavorito_LojaFavorita1" Association="Self.fk_ProdutoFavorito_LojaFavorita1">
+            <End Role="lojafavorita" EntitySet="lojafavorita" />
+            <End Role="produtofavorito" EntitySet="produtofavorito" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PvCoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bairro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idCidade" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_idBairro_id" FromRole="bairro" ToRole="cliente" />
+          <NavigationProperty Name="loja" Relationship="Self.fk_IdBairroLoja" FromRole="bairro" ToRole="loja" />
+          <NavigationProperty Name="cidade" Relationship="Self.fk_idCidade_id" FromRole="bairro" ToRole="cidade" />
+        </EntityType>
+        <EntityType Name="cidade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPais" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="bairro" Relationship="Self.fk_idCidade_id" FromRole="cidade" ToRole="bairro" />
+          <NavigationProperty Name="pais" Relationship="Self.fk_idPais_id" FromRole="cidade" ToRole="pais" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsername" Type="Int64" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fotowall" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fotoperfil" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cep" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="logradouro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" />
+          <Property Name="long" Type="Decimal" />
+          <Property Name="idBairro" Type="Int64" Nullable="false" />
+          <Property Name="statusPublico" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bairro" Relationship="Self.fk_idBairro_id" FromRole="cliente" ToRole="bairro" />
+          <NavigationProperty Name="lojafavorita" Relationship="Self.fk_idCliente_id" FromRole="cliente" ToRole="lojafavorita" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_idUsername" FromRole="cliente" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="loja">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsername" Type="Int64" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fotowall" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fotoperfil" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cep" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="logradouro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Decimal" />
+          <Property Name="long" Type="Decimal" />
+          <Property Name="cnpj" Type="Int32" />
+          <Property Name="idBairro" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="bairro" Relationship="Self.fk_IdBairroLoja" FromRole="loja" ToRole="bairro" />
+          <NavigationProperty Name="lojafavorita" Relationship="Self.fk_idLoja_id" FromRole="loja" ToRole="lojafavorita" />
+          <NavigationProperty Name="produto" Relationship="Self.fk_idLojaProduto_id" FromRole="loja" ToRole="produto" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_idUsernameLoja_id" FromRole="loja" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="lojafavorita">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idLoja" Type="Int64" Nullable="false" />
+          <Property Name="idCliente" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_idCliente_id" FromRole="lojafavorita" ToRole="cliente" />
+          <NavigationProperty Name="loja" Relationship="Self.fk_idLoja_id" FromRole="lojafavorita" ToRole="loja" />
+          <NavigationProperty Name="produtofavorito" Relationship="Self.fk_ProdutoFavorito_LojaFavorita1" FromRole="lojafavorita" ToRole="produtofavorito" />
+        </EntityType>
+        <EntityType Name="pais">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cidade" Relationship="Self.fk_idPais_id" FromRole="pais" ToRole="cidade" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="preco" Type="Single" Nullable="false" />
+          <Property Name="idLoja" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="loja" Relationship="Self.fk_idLojaProduto_id" FromRole="produto" ToRole="loja" />
+          <NavigationProperty Name="produtofavorito" Relationship="Self.fk_idProduto_id" FromRole="produto" ToRole="produtofavorito" />
+        </EntityType>
+        <EntityType Name="produtofavorito">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProduto" Type="Int64" Nullable="false" />
+          <Property Name="idLojaFavorita" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="lojafavorita" Relationship="Self.fk_ProdutoFavorito_LojaFavorita1" FromRole="produtofavorito" ToRole="lojafavorita" />
+          <NavigationProperty Name="produto" Relationship="Self.fk_idProduto_id" FromRole="produtofavorito" ToRole="produto" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_idUsername" FromRole="usuario" ToRole="cliente" />
+          <NavigationProperty Name="loja" Relationship="Self.fk_idUsernameLoja_id" FromRole="usuario" ToRole="loja" />
+        </EntityType>
+        <Association Name="fk_idBairro_id">
+          <End Role="bairro" Type="Self.bairro" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bairro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="idBairro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_IdBairroLoja">
+          <End Role="bairro" Type="Self.bairro" Multiplicity="1" />
+          <End Role="loja" Type="Self.loja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bairro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loja">
+              <PropertyRef Name="idBairro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idCidade_id">
+          <End Role="cidade" Type="Self.cidade" Multiplicity="1" />
+          <End Role="bairro" Type="Self.bairro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cidade">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bairro">
+              <PropertyRef Name="idCidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idPais_id">
+          <End Role="pais" Type="Self.pais" Multiplicity="1" />
+          <End Role="cidade" Type="Self.cidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pais">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cidade">
+              <PropertyRef Name="idPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idCliente_id">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lojafavorita">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idUsername">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="idUsername" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idLoja_id">
+          <End Role="loja" Type="Self.loja" Multiplicity="1" />
+          <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lojafavorita">
+              <PropertyRef Name="idLoja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idLojaProduto_id">
+          <End Role="loja" Type="Self.loja" Multiplicity="1" />
+          <End Role="produto" Type="Self.produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loja">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produto">
+              <PropertyRef Name="idLoja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idUsernameLoja_id">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="loja" Type="Self.loja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loja">
+              <PropertyRef Name="idUsername" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ProdutoFavorito_LojaFavorita1">
+          <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="1" />
+          <End Role="produtofavorito" Type="Self.produtofavorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lojafavorita">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produtofavorito">
+              <PropertyRef Name="idLojaFavorita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_idProduto_id">
+          <End Role="produto" Type="Self.produto" Multiplicity="1" />
+          <End Role="produtofavorito" Type="Self.produtofavorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produtofavorito">
+              <PropertyRef Name="idProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PvCoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bairro" EntityType="Self.bairro" />
+          <EntitySet Name="cidade" EntityType="Self.cidade" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="loja" EntityType="Self.loja" />
+          <EntitySet Name="lojafavorita" EntityType="Self.lojafavorita" />
+          <EntitySet Name="pais" EntityType="Self.pais" />
+          <EntitySet Name="produto" EntityType="Self.produto" />
+          <EntitySet Name="produtofavorito" EntityType="Self.produtofavorito" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="fk_idBairro_id" Association="Self.fk_idBairro_id">
+            <End Role="bairro" EntitySet="bairro" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_IdBairroLoja" Association="Self.fk_IdBairroLoja">
+            <End Role="bairro" EntitySet="bairro" />
+            <End Role="loja" EntitySet="loja" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idCidade_id" Association="Self.fk_idCidade_id">
+            <End Role="cidade" EntitySet="cidade" />
+            <End Role="bairro" EntitySet="bairro" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idPais_id" Association="Self.fk_idPais_id">
+            <End Role="pais" EntitySet="pais" />
+            <End Role="cidade" EntitySet="cidade" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idCliente_id" Association="Self.fk_idCliente_id">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="lojafavorita" EntitySet="lojafavorita" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idUsername" Association="Self.fk_idUsername">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idLoja_id" Association="Self.fk_idLoja_id">
+            <End Role="loja" EntitySet="loja" />
+            <End Role="lojafavorita" EntitySet="lojafavorita" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idLojaProduto_id" Association="Self.fk_idLojaProduto_id">
+            <End Role="loja" EntitySet="loja" />
+            <End Role="produto" EntitySet="produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idUsernameLoja_id" Association="Self.fk_idUsernameLoja_id">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="loja" EntitySet="loja" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ProdutoFavorito_LojaFavorita1" Association="Self.fk_ProdutoFavorito_LojaFavorita1">
+            <End Role="lojafavorita" EntitySet="lojafavorita" />
+            <End Role="produtofavorito" EntitySet="produtofavorito" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idProduto_id" Association="Self.fk_idProduto_id">
+            <End Role="produto" EntitySet="produto" />
+            <End Role="produtofavorito" EntitySet="produtofavorito" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PvCoreModelStoreContainer" CdmEntityContainer="PvCoreEntities">
+          <EntitySetMapping Name="bairro">
+            <EntityTypeMapping TypeName="PvCoreModel.bairro">
+              <MappingFragment StoreEntitySet="bairro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="idCidade" ColumnName="idCidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cidade">
+            <EntityTypeMapping TypeName="PvCoreModel.cidade">
+              <MappingFragment StoreEntitySet="cidade">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="idPais" ColumnName="idPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="PvCoreModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idUsername" ColumnName="idUsername" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="fotowall" ColumnName="fotowall" />
+                <ScalarProperty Name="fotoperfil" ColumnName="fotoperfil" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="idBairro" ColumnName="idBairro" />
+                <ScalarProperty Name="statusPublico" ColumnName="statusPublico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loja">
+            <EntityTypeMapping TypeName="PvCoreModel.loja">
+              <MappingFragment StoreEntitySet="loja">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idUsername" ColumnName="idUsername" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="fotowall" ColumnName="fotowall" />
+                <ScalarProperty Name="fotoperfil" ColumnName="fotoperfil" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="cnpj" ColumnName="cnpj" />
+                <ScalarProperty Name="idBairro" ColumnName="idBairro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lojafavorita">
+            <EntityTypeMapping TypeName="PvCoreModel.lojafavorita">
+              <MappingFragment StoreEntitySet="lojafavorita">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idLoja" ColumnName="idLoja" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pais">
+            <EntityTypeMapping TypeName="PvCoreModel.pais">
+              <MappingFragment StoreEntitySet="pais">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produto">
+            <EntityTypeMapping TypeName="PvCoreModel.produto">
+              <MappingFragment StoreEntitySet="produto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="preco" ColumnName="preco" />
+                <ScalarProperty Name="idLoja" ColumnName="idLoja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produtofavorito">
+            <EntityTypeMapping TypeName="PvCoreModel.produtofavorito">
+              <MappingFragment StoreEntitySet="produtofavorito">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+                <ScalarProperty Name="idLojaFavorita" ColumnName="idLojaFavorita" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="PvCoreModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
