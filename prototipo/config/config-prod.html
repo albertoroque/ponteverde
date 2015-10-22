@@ -1,0 +1,158 @@
+<html lang="pt-br">
+<head>	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-green.min.css" />  
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Ponte Verde</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/busca.jpg">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PonteVerde">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/busca.jpg">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- for FF, Chrome, Opera -->
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+
+	<!-- for IE -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" >
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    
+    <link rel="stylesheet" href="style2.css" content="text/css">
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	  <header class="mdl-layout__header">
+	    <div class="mdl-layout__header-row">
+	      <!-- Title -->
+	      <span id="title-config"class="mdl-layout-title"> <a  href="perfil.html"><i class="material-icons">arrow_back</i></a> Editar Perfil<img src="../images/logo.png"></span>
+	      
+	      <!-- Add spacer, to align navigation to the right -->
+	      <div class="mdl-layout-spacer"></div>
+
+	      <!-- PESQUISA BOX -->
+	      <a href="config-prod.html">
+	      	<button class="mdl-button mdl-js-button" style="color:white;">
+        		<i class="material-icons">add</i> ADD PROD          
+      	  	</button>
+      	  </a>	      
+	    </div>
+	  </header>
+	  	
+	  <!-- CONTEÚDO -->
+	<main class="mdl-layout__content">
+		
+		<div class="mdl-grid" id="perfil-grid">
+			<div class="mdl-cell mdl-cell--12-col">
+				<div id="wallpaper-perfil" style="background-image: url(../images/loja2.jpg);"  class="mdl-shadow--4dp">			
+				</div>
+				    <div id="foto-perfil" style="background-image: url(../images/foto-loja.jpg); " class="mdl-shadow--6dp"></div>					
+					<div id="actions-perfil">
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+						  TROCAR FOTO PERFIL
+						</button>					
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+						  TROCAR WALLPAPER
+						</button>											
+					</div>
+			</div>
+			
+			<br><br><br><br>
+
+			<!-- MENU PAGES -->
+			<div id="p-pages-menu">
+				<br><br><br>
+
+				<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+				  <div class="mdl-tabs__tab-bar">				      
+				      <a href="#lannisters-panel" class="mdl-tabs__tab is-active">
+				      	Produtos
+				      </a>
+				      <a href="#targaryens-panel" class="mdl-tabs__tab">
+				      	Dados
+				      </a>
+				  </div>
+				
+				  <!-- PRODUTOS --------------------------------------------------------------------------------------- -->
+				  <div class="mdl-tabs__panel is-active" id="lannisters-panel">
+				  	<div  class="mdl-grid">								
+						<!-- produto -->
+						<div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod" >
+							<div class="l-prod-img">
+								<img src="images/prod/prod1.jpg">	
+							</div>
+							<div class="l-prod-desc">
+								<h5>Tomate</h5>
+								<h6>R$ 3,99 Kg</h6>
+							</div>
+						</div>											
+
+						<!-- produto -->
+						<div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod" >
+							<div class="l-prod-img">
+								<img src="images/prod/prod2.jpg">	
+							</div>
+							<div class="l-prod-desc">
+								<h5>Tomate</h5>
+								<h6>R$ 3,99 Kg</h6>
+							</div>
+						</div>											
+
+						<!-- produto -->
+						<div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod" >
+							<div class="l-prod-img">
+								<img src="images/prod/prod3.jpg">	
+							</div>
+							<div class="l-prod-desc">
+								<h5>Tomate</h5>
+								<h6>R$ 3,99 Kg</h6>
+							</div>
+						</div>											
+
+						<!-- produto -->
+						<div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod" >
+							<div class="l-prod-img">
+								<img src="images/prod/prod4.jpg">	
+							</div>
+							<div class="l-prod-desc">
+								<h5>Tomate</h5>
+								<h6>R$ 3,99 Kg</h6>
+							</div>
+						</div>											
+						<!-- produto -->
+						<div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod" >
+							<div class="l-prod-img">
+								<img src="images/prod/prod5.jpg">	
+							</div>
+							<div class="l-prod-desc">
+								<h5>Tomate</h5>
+								<h6>R$ 3,99 Kg</h6>
+							</div>
+						</div>																										
+					</div>				    
+				  </div>
+
+				  <!-- PROMOS --------------------------------------------------------------------------------------- -->
+				  <div class="mdl-tabs__panel" id="targaryens-panel">
+				    
+				  </div>							 
+				</div>						
+			</div>	
+		</div>
+	</main>
+	</div>
+</body>
+</html>
