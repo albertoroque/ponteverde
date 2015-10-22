@@ -99,6 +99,7 @@
     <Compile Include="Models\BusinessModels\_produtofavorito.cs" />
     <Compile Include="Models\BusinessModels\_usuario.cs" />
     <Compile Include="Models\Repositories\Interfaces\IBairroRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IBaseRepository.cs" />
     <Compile Include="Models\Repositories\Interfaces\ICidadeRepository.cs" />
     <Compile Include="Models\Repositories\Interfaces\IClienteRepository.cs" />
     <Compile Include="Models\Repositories\Interfaces\IEntity.cs" />

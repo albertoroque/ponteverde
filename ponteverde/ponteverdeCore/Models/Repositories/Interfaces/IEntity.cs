@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ponteverdeCore.Models.Repositories.Interfaces
 {
-    class IEntity
+    public interface IEntity
     {
+        long id { get; set; }
     }
 }
