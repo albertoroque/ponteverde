@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\PonteVerdeContext.cs" />
     <Compile Include="Models\BusinessModels\bairro.cs">
       <DependentUpon>PvCoreModel.tt</DependentUpon>
     </Compile>
@@ -88,14 +89,40 @@
     <Compile Include="Models\BusinessModels\usuario.cs">
       <DependentUpon>PvCoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BusinessModels\_bairro.cs" />
+    <Compile Include="Models\BusinessModels\_cidade.cs" />
+    <Compile Include="Models\BusinessModels\_cliente.cs" />
+    <Compile Include="Models\BusinessModels\_loja.cs" />
+    <Compile Include="Models\BusinessModels\_lojafavorita.cs" />
+    <Compile Include="Models\BusinessModels\_pais.cs" />
+    <Compile Include="Models\BusinessModels\_produto.cs" />
+    <Compile Include="Models\BusinessModels\_produtofavorito.cs" />
+    <Compile Include="Models\BusinessModels\_usuario.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IBairroRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\ICidadeRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IClienteRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IEntity.cs" />
+    <Compile Include="Models\Repositories\Interfaces\ILojaFavoritaRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\ILojaRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IPaisRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IProdutoFavoritoRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IProdutoRepository.cs" />
+    <Compile Include="Models\Repositories\Interfaces\IUsuarioRepository.cs" />
+    <Compile Include="Models\Repositories\Source\AbstractCoreRepository.cs" />
+    <Compile Include="Models\Repositories\Source\BairroRepository.cs" />
+    <Compile Include="Models\Repositories\Source\BaseRepository.cs" />
+    <Compile Include="Models\Repositories\Source\CidadeRepository.cs" />
+    <Compile Include="Models\Repositories\Source\ClienteRepository.cs" />
+    <Compile Include="Models\Repositories\Source\CoreRepository.cs" />
+    <Compile Include="Models\Repositories\Source\LojaFavoritaRepository.cs" />
+    <Compile Include="Models\Repositories\Source\LojaRepository.cs" />
+    <Compile Include="Models\Repositories\Source\PaisRepository.cs" />
+    <Compile Include="Models\Repositories\Source\ProdutoFavoritoRepository.cs" />
+    <Compile Include="Models\Repositories\Source\ProdutoRepository.cs" />
+    <Compile Include="Models\Repositories\Source\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Models\BusinessControllers\" />
-    <Folder Include="Models\Repositories\Interfaces\" />
-    <Folder Include="Models\Repositories\Source\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="Models\BusinessModels\PvCoreModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
