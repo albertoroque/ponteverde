@@ -258,26 +258,33 @@ header > div.mdl-layout__drawer-button > i{
 	/******************* PRODUTO DETALHE *****/
 
 	#prod-images{
-		width: 100%;
+		width: 50%;
 		height: 500px;
-		background-color: red;
+		background-color: yellow;
 		margin: 0 auto;
 	}
 
 	#owl-demo .item{
-	  background: #42bdc2;
-	  padding: 30px 0px;
-	  margin: 10px;
-	  color: #FFF;
-	  -webkit-border-radius: 3px;
-	  -moz-border-radius: 3px;
-	  border-radius: 3px;
-	  text-align: center;
+	  margin: 3px;
+	}
+	#owl-demo .item img{
+	  display: block;
+	  width: 100%;
+	  height: 100%;
 	}
 
+
+	@media screen and (max-width: 1324px){
+		#prod-images{
+			width: 70%;
+			height: 500px;			
+		}
+	}
 	@media screen and (max-width: 720px){
 		#prod-images{
+			width: 100%;
 			height: 300px;			
 		}
 	}
+
 

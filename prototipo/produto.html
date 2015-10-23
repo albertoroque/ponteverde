@@ -47,15 +47,19 @@
 	<!-- Include js plugin -->
 	<script src="carousel/owl-carousel/owl.carousel.js"></script>
 
-
-
-    <script type="text/javascript">
+    <script>
 		$(document).ready(function() {
 		 
 		  $("#owl-demo").owlCarousel({
-		    navigation : true
-		  });
-		 
+		     navigation : false,
+		     slideSpeed : 500,
+		     paginationSpeed : 500,
+		     singleItem : true,
+		     autoPlay: 5000,
+		     items : 4,
+      		 itemsDesktop : [1199,3],
+      		 itemsDesktopSmall : [979,3]
+		  });		 
 		});
 	</script>
 </head>
@@ -87,23 +91,20 @@
 	  <!-- CONTEÚDO -->
 	<main class="mdl-layout__content">	
 		<div id="prod-images">
-			<div id="demo">
-		        <div id="owl-demo" class="owl-carousel">		          
-		          <div class="item"><h1>1</h1></div>
-		          <div class="item"><h1>2</h1></div>
-		          <div class="item"><h1>3</h1></div>
-		          <div class="item"><h1>4</h1></div>
-		          <div class="item"><h1>5</h1></div>
-		          <div class="item"><h1>6</h1></div>
-		          <div class="item"><h1>7</h1></div>
-		          <div class="item"><h1>8</h1></div>
-		          <div class="item"><h1>9</h1></div>
-		          <div class="item"><h1>10</h1></div>
-		          <div class="item"><h1>11</h1></div>
-		          <div class="item"><h1>12</h1></div>
-
+			<!--SLIDER OWN-->
+			 <div id="demo">
+		        <div class="container">
+		          <div class="row">
+		            <div class="span12">
+		              <div id="owl-demo" class="owl-carousel">
+		                <div class="item"><img src="images/loja.jpg"></div>
+		                <div class="item"><img src="images/loja.jpg"></div>
+		                <div class="item"><img src="images/loja.jpg"></div>		                
+		              </div>
+		            </div>
+		          </div>
 		        </div>
-   			 </div>
+    		</div>
 		</div>
 		<div class="mdl-grid" id="perfil-grid">
 									
