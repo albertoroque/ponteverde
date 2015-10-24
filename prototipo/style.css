@@ -113,7 +113,7 @@
 	}
 
 	#main-card{
-
+		background-color: #F9F9F9;
 	}
 
 	#content-filter{
@@ -209,7 +209,20 @@
 			box-shadow: 0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2);
 			cursor: pointer;						
 		}
+		
+	#index-load{
+		clear: both;
+		width: 100%;
+		margin: 0 auto;
+		background-color:;
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
 
+	#i-b-load{
+		margin: 0 auto !important;
+		width: 400px;
+	}
 
 	/* VISUAL PARA CELULAR*/
 	@media screen and (max-width: 480px){
@@ -254,7 +267,27 @@
       .mdl-card__supporting-text > p{
         margin-top: -4px;
       }
+
+      #i-b-load{
+      	width:200px;
+      }
 	}
+
+	
+
+
+/*-------------------------------------------FOOTER*/
+footer{
+	clear: both;
+	width: 100%;	
+}
+
+.footer-title{
+	margin: 0 auto;
+	text-align: center;
+}
+
+
 
 
 /*------------------------------------------ PERFIL*/
