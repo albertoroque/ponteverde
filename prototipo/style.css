@@ -513,6 +513,12 @@ div#desc-perfil{
 			margin: 0;
 			padding: 0;
 		}
+
+		.l-prod-desc a{
+			text-decoration: none;
+			color: #333;
+
+		}
 		.l-prod-desc h5{
 			margin: 0;
 			padding: 0;

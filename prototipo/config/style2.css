@@ -48,6 +48,17 @@
 		
 	}
 
+/*-------------------------------------------FOOTER*/
+footer{
+	clear: both;
+	width: 100%;
+	margin-top: 100px;	
+}
+
+.footer-title{
+	margin: 0 auto;
+	text-align: center;
+}
 
 /*------------------------------------------ PERFIL*/
 
@@ -257,15 +268,18 @@ header > div.mdl-layout__drawer-button > i{
 
 	/******************* PRODUTO DETALHE *****/
 
+	#prod-content{
+		width: 100%;
+	}
 	#prod-images{
 		width: 50%;
 		height: 500px;
-		background-color: yellow;
+		background-color:;
 		margin: 0 auto;
 	}
 
 	#owl-demo .item{
-	  margin: 3px;
+	  margin: 0px;
 	}
 	#owl-demo .item img{
 	  display: block;
@@ -273,6 +287,26 @@ header > div.mdl-layout__drawer-button > i{
 	  height: 100%;
 	}
 
+	#perfil-grid{
+		width: 100%;
+		min-height: 400px;
+		margin-top: 40px;		
+	}
+
+	#perfil-grid h6{
+		margin: 15px 50px;
+		text-transform: uppercase;
+	}
+
+	.buttom-googleplay-category{
+		margin: 10px;
+		padding: 2px 10px;
+		border-radius: 15px;
+		background-color: rgb(0,150,136);
+		color: white;
+		width: auto;
+		display: inline-block;	
+	}
 
 	@media screen and (max-width: 1324px){
 		#prod-images{
