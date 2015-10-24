@@ -395,7 +395,7 @@ div#desc-perfil{
 }
 
 #p-pages-menu{
-	background-color:red;
+	background-color:;
 	width: 100%;	
 	top: -360px;
 	margin: 0;
@@ -403,14 +403,89 @@ div#desc-perfil{
 	position: relative;
 }
 
+.p-prod{
+	background-color: #f6f6f6;	
+	height: 220px;
+}
+	.p-prod-img{
+		height: 130px;
+		width: 100%;
+		background-color: #f6f6f6;
+		display: block;
+	}
+
+		.p-prod-img img{
+			width: 100%;
+			height: 100%;			
+		}
+
+	.p-prod-desc{
+		height: 70px;
+		width: 100%;
+		background-color:;	
+	}	
+	.p-prod-desc h5{
+			margin: 0;
+			padding: 0;
+			margin-top: 10px;
+			margin-bottom: 8px;
+			font-size: 14px;
+		}
+
+	.p-prod-desc > a {
+		text-decoration: none;	
+	}
+	.p-prod-desc > a > button{
+		background-color: rgb(0,150,136);	
+		font-size: 13px;
+		position: relative;
+		z-index: 999;
+		margin-top: 5px;
+	}
+
+	.p-prod-desc > a > button > i{		
+	}
+
+
 /*LOJAS --------------- */
 .l-green{
 	color: rgb(0, 150, 136);
 }
 
 .l-yellow{
-	color: rgba(255, 227, 12, 1);;
+	color: rgba(255, 227, 12, 1);
 }
+
+.l-prod{
+	background-color: #f4f4f4;
+}
+
+	.l-prod-img{
+		height: 130px;
+		width: 100%;
+		background-color: #f6f6f6;
+	}
+
+		.l-prod-img img{
+			width: 100%;
+			height: 100%;			
+		}
+
+	.l-prod-desc{
+		height: 70px;
+		width: 100%;
+		background-color:;	
+	}	
+		.l-prod-desc h6{
+			margin: 0;
+			padding: 0;
+		}
+		.l-prod-desc h5{
+			margin: 0;
+			padding: 0;
+			margin-top: 10px;
+			margin-bottom: 8px;
+		}
 
 @media screen and (max-width: 720px){
 		#wallpaper-perfil{
@@ -557,8 +632,16 @@ div#desc-perfil{
 
 	#b-back{
 		position: fixed;
-		right: 20px;
+		right: 10px;
 		bottom: 10px;	
+		color: white;
+		z-index: 999;
+	}
+
+	#b-top{
+		position: fixed;
+		right: 20px;
+		top: 70px;	
 		color: white;
 		z-index: 999;
 	}
@@ -641,6 +724,14 @@ div#desc-perfil{
 
 		.b-list-card-bt > button > span{
 			font-size: 10px;
+		}
+
+		#b-top{
+			position: fixed;
+			right: 10px;
+			top: 70px;	
+			color: white;
+			z-index: 999;
 		}
 	}
 
