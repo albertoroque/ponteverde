@@ -480,7 +480,7 @@ div#desc-perfil{
 	}
 
 
-/*LOJAS --------------- */
+/*--------------------------------LOJAS --------------- */
 .l-green{
 	color: rgb(0, 150, 136);
 }
@@ -800,3 +800,84 @@ div#desc-perfil{
 		}
 	}
 
+/*---------------------------------------------------LOGIN */
+#login-body{	
+	background-color: #F9F9F9;
+}
+
+#login-title{	
+	margin-left: -50px;
+}
+
+#login-content{	
+	width: 470px;
+	height: auto;
+	background-color: white;
+	/*box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);	*/
+	margin-top: 20px;
+	padding-bottom: 50px;
+}
+
+#login-form{		
+	margin-left: 80px;
+	margin-top: 30px;
+	background-color:; 
+	width: 520px;
+}
+
+#login-form h5{
+	color: #444;
+}
+
+#login-form h4{
+	text-align: center;
+	margin-left: -80px;
+	color: #444;
+}
+
+#login-button{
+	clear: both;
+	width: 300px;
+	margin-top: 20px;
+}
+
+
+
+
+@media screen and (max-width: 720px){
+	#login-content{	
+		width: 90%;		
+	}
+
+	#login-form{		
+		margin-left: 30px;		
+		width: 100%;
+	}
+
+	#login-form input{
+		width: 100% !important;
+	}
+
+	#login-form > form > div:nth-child(1){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(2){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(3){
+		width: 90%;
+	}
+	
+
+	#login-button{	
+		width: 250px;		
+	}
+
+	#login-form h4{
+		text-align: center;
+		color: #444;
+	}
+
+}
