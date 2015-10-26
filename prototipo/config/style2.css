@@ -194,6 +194,14 @@ header > div.mdl-layout__drawer-button > i{
 	background-color: #f4f4f4;
 }
 
+.l-prod > button{
+	position: absolute;
+	z-index: 99;
+	top: 165px;
+	right: 5px;	
+}
+
+
 	.l-prod-img{
 		height: 130px;
 		width: 100%;
