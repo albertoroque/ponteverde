@@ -221,12 +221,14 @@ header > div.mdl-layout__drawer-button > i{
 		.l-prod-desc h6{
 			margin: 0;
 			padding: 0;
+			font-size: 14px;
+			margin-top: 5px;			
 		}
 		.l-prod-desc h5{
 			margin: 0;
 			padding: 0;
-			margin-top: 10px;
-			margin-bottom: 8px;
+			margin-top: 10px;			
+			font-size: 14px;
 		}
 
 @media screen and (max-width: 720px){
@@ -298,7 +300,7 @@ header > div.mdl-layout__drawer-button > i{
 	#perfil-grid{
 		width: 100%;
 		min-height: 400px;
-		margin-top: 40px;		
+		margin-top: 0px;		
 	}
 
 	#perfil-grid h6{
