@@ -802,7 +802,7 @@ div#desc-perfil{
 
 /*---------------------------------------------------LOGIN */
 #login-body{	
-	background-color: #F9F9F9;
+	background-color: #f4f4f4;
 }
 
 #login-title{	
@@ -844,7 +844,7 @@ div#desc-perfil{
 
 
 
-@media screen and (max-width: 720px){
+@media screen and (max-width: 720px){	
 	#login-content{	
 		width: 90%;		
 	}
@@ -873,6 +873,45 @@ div#desc-perfil{
 
 	#login-button{	
 		width: 250px;		
+	}
+
+	#login-form h4{
+		text-align: center;
+		color: #444;
+	}
+
+}
+
+@media screen and (max-width: 320px){
+
+	#login-content{	
+		width: 95%;		
+	}
+
+	#login-form{		
+		margin-left: 15px;		
+		width: 100%;
+	}
+
+	#login-form input{
+		width: 100% !important;
+	}
+
+	#login-form > form > div:nth-child(1){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(2){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(3){
+		width: 90%;
+	}
+	
+
+	#login-button{	
+		width: 90%;		
 	}
 
 	#login-form h4{
