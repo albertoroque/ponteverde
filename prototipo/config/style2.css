@@ -199,6 +199,7 @@ header > div.mdl-layout__drawer-button > i{
 	z-index: 99;
 	top: 165px;
 	right: 5px;	
+	color: #444;
 }
 
 
@@ -235,7 +236,7 @@ header > div.mdl-layout__drawer-button > i{
 		#wallpaper-perfil{
 			width: 100%;
 			height: 300px;			
-			background-size:100% 100%;
+			background-size:100% 100%;			
 		}
 
 		#foto-perfil{
@@ -252,7 +253,6 @@ header > div.mdl-layout__drawer-button > i{
 		#actions-perfil{
 			top: 180px;	
 		}
-
 
 		.p-control{
 			top:-200px;
@@ -276,6 +276,15 @@ header > div.mdl-layout__drawer-button > i{
 		}
 	}
 
+@media screen and (max-width: 420px){
+	#actions-perfil > button:nth-child(1){
+		margin-bottom: 10px;
+	}	
+	#actions-perfil > button:nth-child(2){
+		margin-bottom: 10px;
+	}	
+}			
+
 	/******************* PRODUTO DETALHE *****/
 
 	#prod-content{
@@ -291,6 +300,7 @@ header > div.mdl-layout__drawer-button > i{
 	#owl-demo .item{
 	  margin: 0px;
 	}
+
 	#owl-demo .item img{
 	  display: block;
 	  width: 100%;
@@ -300,7 +310,7 @@ header > div.mdl-layout__drawer-button > i{
 	#perfil-grid{
 		width: 100%;
 		min-height: 400px;
-		margin-top: 0px;		
+		margin-top: 40px;		
 	}
 
 	#perfil-grid h6{

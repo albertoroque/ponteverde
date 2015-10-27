@@ -882,14 +882,14 @@ div#desc-perfil{
 
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 500px){
 
 	#login-content{	
 		width: 95%;		
 	}
 
 	#login-form{		
-		margin-left: 15px;		
+		margin-left: 27px;		
 		width: 100%;
 	}
 
