@@ -288,7 +288,65 @@ footer{
 }
 
 
+/*-------------------------------------------- BOTOES CATEGORIA */
 
+.div-button-googleplay-category{
+	width: 100%;	
+	height: 63px;
+	top:-200px;			
+	margin-left: 10px;	
+	overflow-x:scroll;
+	overflow-y:hidden;
+	white-space: nowrap;
+	display: block;	
+	padding-bottom: 10px;
+	background-color: ;
+}
+
+
+.div-button-googleplay-category::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #rgba(0,0,0,1);
+		
+}
+
+.div-button-googleplay-category::-webkit-scrollbar
+{
+	width: 5px;
+	height: 5px;	
+}
+
+.div-button-googleplay-category::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #f5f5f5;
+}
+
+.buttom-googleplay-category{
+		margin: 0 5 0 0;
+		padding: 2px 10px;
+		border-radius: 15px;
+		background-color: rgb(0,150,136);
+		color: white;
+		width: auto;
+		display: inline-block;
+		text-transform: uppercase;			
+	}
+
+.buttom-googleplay-category > p{
+	font-size: 12px !important;
+}
+
+
+@media screen and (max-width: 720px){		
+
+		.p-control-category{
+			top:-200px;
+			height: 50px;
+		}	
+	}
 
 /*------------------------------------------ PERFIL*/
 
@@ -393,12 +451,13 @@ div#desc-perfil{
 	top:-345px;
 	position: relative;
 	background-color:;
-	height: 60px;
+	height: 40px;
 }
 
 .p-control p{
-	font-size: 16px;
+	
 }
+
 
 
 .social-btn {
@@ -553,9 +612,9 @@ div#desc-perfil{
 
 		.p-control{
 			top:-200px;
-			height: 30px;
+			height: 40px;
 		}
-
+		
 		.p-control-hide{
 			background-color:;
 			height: 30px;
@@ -570,6 +629,7 @@ div#desc-perfil{
 		.p-pages-menu-loja{
 			top: -180px !important;
 		}
+	
 	}
 
 
