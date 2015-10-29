@@ -287,6 +287,32 @@ footer{
 	text-align: center;
 }
 
+/*-------------------------------------------------FORM MODAL*/
+
+#form-modal{
+	display: none;
+	width: 500px;
+	height: 200px;
+	background-color: white;
+}
+
+	#foto-modal{
+		left: 10px;
+		top: -50px;
+	}
+	
+	#form-modal h2{
+		
+	}
+
+	#form-modal button{
+		right: 10px;
+		bottom: 10px;
+	}
+
+#form-modal-text{
+
+}
 
 /*-------------------------------------------- BOTOES CATEGORIA */
 
