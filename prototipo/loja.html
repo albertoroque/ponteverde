@@ -32,6 +32,20 @@
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
     
     <link rel="stylesheet" href="style.css" content="text/css">
+    
+	<!--  jQuery 1.7+  -->
+	<script src="carousel/jquery-1.9.1.min.js"></script>
+
+    <script src="carousel/jquery.bpopup.min.js"></script>
+
+    <script>
+		$(document).ready(function() {		 
+			$('#b-top').click(function() {
+			  	$('#form-modal').bPopup();	 
+			});
+		});
+	</script>
+
 </head>
 <body>
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
@@ -84,12 +98,10 @@
 	  <!-- CONTEÚDO -->
 	<main class="mdl-layout__content ">
 
-		<!-- BOTAO PARA RETORNAR -->
-		<a href="config-perfil.html">
-			<button id="b-top" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-			  <i class="material-icons">thumb_up</i>
-			</button>
-		</a>
+		<!-- BOTAO PARA RETORNAR -->		
+		<button id="b-top" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+		  <i class="material-icons">thumb_up</i>
+		</button>		
 
 		<div class="mdl-grid" id="perfil-grid">
 			<div class="mdl-cell mdl-cell--12-col" id="perfil-col-12">
@@ -291,12 +303,18 @@
 
 		<!-- end grid -->
 		</div>
+
+	    <!-- FORM FAVORITAR -->
+		<div id="form-modal" style="background-color:orange;" height="100px" width="100px">
+			<h2>FAVORITAR</h2>
+		</div>
+
 		<!-- RODAPE -->
       <footer class="footer">
         <div class="footer-title">
           <h6 style="color:#666;">@ 2015 PONTEVERDE</h6>          
         </div>
-      </footer>
+      </footer>    
 	</main>
 	</div>
 </body>
