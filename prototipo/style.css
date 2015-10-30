@@ -292,27 +292,108 @@ footer{
 #form-modal{
 	display: none;
 	width: 500px;
-	height: 200px;
+	height: 150px;
 	background-color: white;
+	border-radius: 3px;
 }
 
-	#foto-modal{
-		left: 10px;
-		top: -50px;
+	#foto-modal{		
+		height: 130px;
+		width: 130px;
+		border-radius: 65px;	
+		margin: 0 auto;
+		z-index: 2;	
+		position: relative;
+		top: -30;
+		left: -180;
+		background-size:100% 100%;
 	}
 	
-	#form-modal h2{
-		
+	#form-modal h4{
+		float: left;
+		position: absolute;
+		top: -10;
+		right: 130;
+	}
+	#form-modal h6{
+		float: left;
+		position: absolute;
+		top: 30;
+		right: 150;
 	}
 
 	#form-modal button{
-		right: 10px;
-		bottom: 10px;
+		float: right;
+		position: absolute;
+		right: 8;
+		bottom: 8;
 	}
 
-#form-modal-text{
+	#form-modal button > i{
+		margin-right: 5px;
+	}
 
+	#form-modal-cancela{
+		position: absolute;
+		margin-right: 170px;
+		color: rgb(0,150,136);
+	}
+
+@media screen and (max-width: 700px){		
+
+#form-modal{
+	display: none;
+	width: 96%;
+	height: 180px;
+	background-color: white;
+	border-radius: 3px;
 }
+
+	#foto-modal{		
+		height: 110px;
+		width: 110px;
+		border-radius: 55px;	
+		margin: 0 auto;
+		z-index: 2;	
+		position: relative;		
+		left: 0;
+		right: 0;
+		top: -55;
+		background-size:100% 100%;
+	}
+	
+	#form-modal h4{
+		float: left;
+		position: absolute;
+		top: 30;
+		right:0;
+		left: 0;
+		text-align: center;
+	}
+	#form-modal h6{		
+		position: absolute;
+		top: 60;
+		right:0;
+		left: 0;
+		text-align: center;
+	}
+
+	#form-modal button{
+		float: right;
+		position: absolute;
+		right: 8;
+		bottom: 8;
+	}
+
+	#form-modal button > i{
+		margin-right: 5px;
+	}
+
+	#form-modal-cancela{
+		position: absolute;
+		margin-right: 170px;
+	}
+	}
 
 /*-------------------------------------------- BOTOES CATEGORIA */
 

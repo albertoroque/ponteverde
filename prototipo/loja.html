@@ -39,9 +39,14 @@
     <script src="carousel/jquery.bpopup.min.js"></script>
 
     <script>
-		$(document).ready(function() {		 
+		$(document).ready(function() {
+			var bPopup;		 
 			$('#b-top').click(function() {
-			  	$('#form-modal').bPopup();	 
+			  	bPopup = $('#form-modal').bPopup();	 
+			});
+
+			$('#form-modal-cancela').click(function() {
+			  	bPopup.close();	 
 			});
 		});
 	</script>
@@ -306,15 +311,17 @@
 
 	    <!-- FORM FAVORITAR -->
 		<div id="form-modal" class="mdl-shadow--3dp" >			
-			<div id="foto-modal" style="background-image: url(images/foto-loja.jpg); " class="mdl-shadow--6dp"></div>
+			<div id="foto-modal" style="background-image: url(images/favicon.jpg); " class="mdl-shadow--6dp"></div>
 			<div class="form-modal-text">
-				<h2 class=""></h2>
-				<p></p>
-				<button id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
+				<h4>Portal dos Orgânicos</h4>
+				<h6>Deseja favoritar essa loja?</h6>
+				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
 				 <i class="material-icons">thumb_up</i>favoritar loja
 				</button>
+				<button id="form-modal-cancela" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+  					cancelar
+				</button>
 			</div>
-
 		</div>
 
 		<!-- RODAPE -->
