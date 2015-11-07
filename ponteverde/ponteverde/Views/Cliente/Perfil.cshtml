@@ -1,0 +1,257 @@
+﻿@model ponteverde.Models.cliente
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">PonteVerde<img src="~/Content/images/logo.png"></span>
+
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+
+                <!-- PESQUISA BOX -->
+                <a href="busca.html">
+                    <button class="mdl-button mdl-js-button" style="color:white;">
+                        <i class="material-icons">search</i>
+                    </button>
+                </a>
+
+                <!-- BOTAO BOLINHA -->
+                <!-- Right aligned menu below button -->
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="demo-menu-lower-right">
+                    <li class="mdl-menu__item">Meu Perfil</li>
+                    <li class="mdl-menu__item">Logout</li>
+                    <li class="mdl-menu__item">Notificações</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- MENU GAVETA -->
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" id="p-layout-title">
+                <h3 id="p-nome"> <i class="material-icons">arrow_back</i> Alberto</h3>
+                <h6>alberto@mail.com</h6>
+                <div id="mdl-layout-notifications">
+                    <span class="material-icons mdl-badge" data-badge="1">flag</span>
+                    <span class="material-icons mdl-badge" data-badge="30">add_shopping_cart</span>
+                    <span class="material-icons mdl-badge">room</span>
+                </div>
+            </span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="index.html"><i class="material-icons" role="presentation">home</i>Buscar</a>
+                <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons" role="presentation">account_circle</i> Meu Perfil</a>
+                <a class="mdl-navigation__link" href="mylojas.html"><i class="material-icons" role="presentation">store</i>Lojas Favoritas</a>
+                <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">notifications</i> Notificações</a>
+                <a class="mdl-navigation__link" href="busca.html"><i class="material-icons" role="presentation">find_in_page</i> Pesquisar</a>
+            </nav>
+        </div>
+
+        <!-- CONTEÚDO -->
+        <main class="mdl-layout__content">
+
+            <!-- BOTAO PARA RETORNAR -->
+            <a href="config-perfil.html">
+                <button id="b-back" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">settings</i>
+                </button>
+            </a>
+
+            <div class="mdl-grid" id="perfil-grid">
+                <div class="mdl-cell mdl-cell--12-col" id="perfil-col-12">
+                    <div id="wallpaper-perfil" style="background-image: url(../@Model.fotowall);" class="mdl-shadow--4dp"></div>
+                    <center>
+                        <div id="foto-perfil" style="background-image: url(../@Model.fotoperfil); " class="mdl-shadow--6dp"></div>
+                        <h3 id="title-perfil">@Model.nome</h3>
+                        <h3 id="subtitle-perfil">Seguindo 400</h3>
+                    </center>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet p-control">
+                    <p>	<i class="material-icons" role="presentation">place</i>	@Model.logradouro, @Model.numero</p>
+                </div>                
+
+                <!-- MENU PAGES -->
+                <div id="p-pages-menu">
+                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                        <div class="mdl-tabs__tab-bar">
+                            <a href="#starks-panel" class="mdl-tabs__tab is-active">
+                                Lojas Favoritas
+                            </a>
+                            <a href="#lannisters-panel" class="mdl-tabs__tab">
+                                Produtos Favoritos
+                            </a>
+                            <a href="#targaryens-panel" class="mdl-tabs__tab">
+                                Promos Visitadas
+                            </a>
+                        </div>
+
+                        <!-- LOJAS --------------------------------------------------------------------------------------- -->
+                        <div class="mdl-tabs__panel is-active" id="starks-panel">
+                            <div class="mdl-grid">
+
+                                <!-- loja -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
+                                    <div class="p-prod-img">
+                                        <img src="images/loja2.jpg">
+                                    </div>
+                                    <div class="p-prod-desc">
+                                        <h5>Portal Orgânicos</h5>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">directions_car</i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">book</i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- loja -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
+                                    <div class="p-prod-img">
+                                        <img src="images/loja3.jpg">
+                                    </div>
+                                    <div class="p-prod-desc">
+                                        <h5>Portal Orgânicos</h5>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">directions_car</i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">book</i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- loja -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
+                                    <div class="p-prod-img">
+                                        <img src="images/loja4.jpg">
+                                    </div>
+                                    <div class="p-prod-desc">
+                                        <h5>Portal Orgânicos</h5>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">directions_car</i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">book</i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- loja -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
+                                    <div class="p-prod-img">
+                                        <img src="images/foto-loja.jpg">
+                                    </div>
+                                    <div class="p-prod-desc">
+                                        <h5>Portal Orgânicos</h5>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">directions_car</i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                                <i class="material-icons">book</i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRODUTOS --------------------------------------------------------------------------------------- -->
+                        <div class="mdl-tabs__panel" id="lannisters-panel">
+                            <div class="mdl-grid">
+                                <!-- produto -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
+                                    <div class="l-prod-img">
+                                        <img src="images/prod/prod1.jpg">
+                                    </div>
+                                    <div class="l-prod-desc">
+                                        <h5>Tomate</h5>
+                                        <h6>R$ 3,99 Kg</h6>
+                                    </div>
+                                </div>
+
+                                <!-- produto -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
+                                    <div class="l-prod-img">
+                                        <img src="images/prod/prod2.jpg">
+                                    </div>
+                                    <div class="l-prod-desc">
+                                        <h5>Tomate</h5>
+                                        <h6>R$ 3,99 Kg</h6>
+                                    </div>
+                                </div>
+
+                                <!-- produto -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
+                                    <div class="l-prod-img">
+                                        <img src="images/prod/prod3.jpg">
+                                    </div>
+                                    <div class="l-prod-desc">
+                                        <h5>Tomate</h5>
+                                        <h6>R$ 3,99 Kg</h6>
+                                    </div>
+                                </div>
+
+                                <!-- produto -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
+                                    <div class="l-prod-img">
+                                        <img src="images/prod/prod4.jpg">
+                                    </div>
+                                    <div class="l-prod-desc">
+                                        <h5>Tomate</h5>
+                                        <h6>R$ 3,99 Kg</h6>
+                                    </div>
+                                </div>
+                                <!-- produto -->
+                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
+                                    <div class="l-prod-img">
+                                        <img src="images/prod/prod5.jpg">
+                                    </div>
+                                    <div class="l-prod-desc">
+                                        <h5>Tomate</h5>
+                                        <h6>R$ 3,99 Kg</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PROMOS --------------------------------------------------------------------------------------- -->
+                        <div class="mdl-tabs__panel" id="targaryens-panel">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- RODAPE -->
+            <footer class="footer">
+                <div class="footer-title">
+                    <h6 style="color:#666;">+ 2015 PONTEVERDE</h6>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+

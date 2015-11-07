@@ -117,7 +117,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,7 +136,6 @@
     <Compile Include="Models\cliente.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\IPrimary.cs" />
     <Compile Include="Models\loja.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
@@ -189,8 +190,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\busca.jpg" />
+    <Content Include="Content\images\default.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\favicon.jpg" />
+    <Content Include="Content\images\foto-loja.jpg" />
+    <Content Include="Content\images\foto2.jpg" />
+    <Content Include="Content\images\logo-loja1.jpg" />
+    <Content Include="Content\images\logo-small.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\loja.jpg" />
+    <Content Include="Content\images\loja2.jpg" />
+    <Content Include="Content\images\loja3.jpg" />
+    <Content Include="Content\images\loja4.jpg" />
+    <Content Include="Content\images\prod\prod1.jpg" />
+    <Content Include="Content\images\prod\prod2.jpg" />
+    <Content Include="Content\images\prod\prod3.jpg" />
+    <Content Include="Content\images\prod\prod4.jpg" />
+    <Content Include="Content\images\prod\prod5.jpg" />
+    <Content Include="Content\images\prod\prod6.jpg" />
+    <Content Include="Content\images\prod\prod7.jpg" />
+    <Content Include="Content\images\prod\tomate1.jpg" />
+    <Content Include="Content\images\prod\tomate2.jpg" />
+    <Content Include="Content\images\prod\tomate3.jpg" />
+    <Content Include="Content\images\wall-loja.jpg" />
+    <Content Include="Content\images\wall2.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -237,13 +261,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Cliente\Perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Loja\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

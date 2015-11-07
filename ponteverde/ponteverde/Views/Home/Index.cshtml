@@ -1,31 +1,73 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model ponteverde.Models.usuario
+
+@{
+    ViewBag.Title = "Login";
+    
+    var ajaxOptions = new AjaxOptions()
+    {       
+        HttpMethod = "POST",                  
+    };
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<body id="login-body">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+       <!-- Title -->
+        <span id="login-title" class="mdl-layout-title">PonteVerde<img src="~/Content/images/logo.png"></span>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- SOBRE NÓS -->
+        <a href="perfil.html">
+           <button class="mdl-button mdl-js-button" style="color:white;">
+            SOBRE NÓS         
+            </button>
+          </a>
+      </div>
+    </header>
+    
+    <main class="mdl-layout__content">
+     <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">    
+        <div id="login-form">
+          <h5>Entrar no PonteVerde</h5>          
+           @using (Ajax.BeginForm("Logar", "Home", ajaxOptions, new { @class = "", role = "form"}))
+           {                          
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">              
+              @Html.TextBoxFor(model => model.username, new { @class = "mdl-textfield__input", id = "sample1 login-input" })
+              <label class="mdl-textfield__label" for="sample1">email ou username</label>                                             
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">              
+              @Html.PasswordFor(model => model.password, new { @class = "mdl-textfield__input", @type="password", id = "sample2 login-input" })
+              <label class="mdl-textfield__label" for="sample2">senha</label>
+            </div>   
+               
+            <p style="color:#ED0021;">@ViewBag.Login</p>     
+            <button id="login-button" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            ENTRAR
+            </button>
+           }
+        </div>
+      </section>
+
+      <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">        
+          <div id="login-form">
+            <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+              <i class="material-icons">account_circle</i> CADASTRAR COMO CLIENTE
+            </button>                  
+            <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+              <i class="material-icons">store</i> CADASTRAR SUA LOJA
+            </button>            
+          </div>        
+      </section>
+
+      <!-- RODAPE -->
+      <footer class="footer">
+        <div class="footer-title">
+          <h6 style="color:#666;">- 2015 PONTEVERDE</h6>          
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>

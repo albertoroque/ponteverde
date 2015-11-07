@@ -6,43 +6,60 @@ using System.Linq;
 using System.Web;
 
 namespace ponteverde.Models
-{
-    [MetadataType(typeof(UsuarioMetadata))]
-    public partial class usuario : Base<usuario, object>
+{    
+    //LÓGICA DE NEGÓCIO
+    public class UsuarioRepository : Base <usuario, object>
     {
-        //CONSTRUTOR
-        public usuario(PvEntities bd) : base(bd){}
+        public UsuarioRepository(PvEntities bd)
+            : base(bd)
+        {
 
+        }        
+
+        public Tuple<usuario, bool, bool, string> ObterConta(string username, string pass)
+        {
+            var conta = base.Obter(x => x.username.Equals(username)).FirstOrDefault();
+
+            bool logado = false;
+            bool cliente = false;
+            if(conta == null)
+            {
+                return new Tuple<usuario, bool, bool, string>(null, logado, cliente, "Conta inexistente. Porfavor, cadastre-se!");
+            }
+            else
+            {  
+                if(conta.password.Equals(pass))
+                {
+                    if (conta.IsCliente)
+                    {
+                        logado = true;
+                        cliente = true;
+                    }
+                    else
+                    {
+                        logado = true;
+                    }
+
+                    return new Tuple<usuario, bool, bool, string>(conta, logado, cliente, "Bem Vindo ao PonteVerde");
+                }
+                else
+                {
+                    return new Tuple<usuario, bool, bool, string>(conta, logado, cliente, "Senha incorreta");
+                }                
+            }                  
+        }
+    }
+
+    //CLASSE PARCIAL
+    [MetadataType(typeof(UsuarioMetadata))]
+    public partial class usuario
+    {
         public bool IsCliente
         {
             get
             {
                 return this.tipo == null ? false : this.tipo.Equals(((int)TipoUsuario.CLIENTE).ToString());
             }
-        }
-
-        public Tuple<bool, bool> ObterConta(string username, string pass)
-        {
-            var conta = base.Obter(x => x.username.Equals(username) && x.password.Equals(pass)).FirstOrDefault();
-
-            bool logado = false;
-            bool cliente = false;
-
-            if(conta == null)
-            {
-
-            }
-            else
-            if (IsCliente)
-            {
-                logado = true;
-                cliente = true;
-            }
-            else
-            {
-                logado = true;                
-            }
-            return new Tuple<bool, bool>(logado, cliente);
         }
     }
 

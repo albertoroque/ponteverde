@@ -8,7 +8,7 @@ using System.Web;
 namespace ponteverde.Models
 {
     public class Base<TPrimaryEntity, TDependentEntity> 
-        where TPrimaryEntity : class , IPrimary 
+        where TPrimaryEntity : class
         where TDependentEntity : class
     {
         protected readonly PvEntities bd;
@@ -88,15 +88,9 @@ namespace ponteverde.Models
             }
         }
 
-        public virtual void Editar(TPrimaryEntity Objeto)
+        public virtual void Editar(TPrimaryEntity Objeto, long key)
         {
-            this.Update<TPrimaryEntity>(Objeto, Objeto.id);
-        }
-
-        public virtual void Editar(TPrimaryEntity ObjetoPrimario, TDependentEntity ObjetoDependente)
-        {
-            this.Editar(ObjetoPrimario);
-            this.Update<TDependentEntity>(ObjetoDependente, ObjetoPrimario.id);
+            this.Update<TPrimaryEntity>(Objeto, key);
         }
 
         private void Update<T>(T model, long key) where T : class

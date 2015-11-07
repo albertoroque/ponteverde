@@ -3,28 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ponteverde.Models;
 
 namespace ponteverde.Controllers
-{
+{  
+      
     public class HomeController : Controller
-    {
+    {        
+        PvEntities bd = new PvEntities();
+        
+
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult About()
+                
+        public ActionResult Logar(string username, string password)
         {
-            ViewBag.Message = "Your application description page.";
+            UsuarioRepository iUsuario = new UsuarioRepository(bd);            
 
-            return View();
-        }
+            var usuario = iUsuario.ObterConta(username, password);
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            if (usuario.Item2)
+            {
+                if(usuario.Item3)
+                {
+                    Session["Userid"] = usuario.Item1.id;                    
+                    return RedirectToAction("Perfil", "Cliente", new { idConta = usuario.Item1.id });
+                }
+                else
+                {
+                    Session["Userid"] = usuario.Item1.id;
+                    return HttpNotFound();
+                }                
+            }
+            else
+            {
+                ViewBag.Login = usuario.Item3;
+                return View("Index");
+            }            
         }
     }
 }

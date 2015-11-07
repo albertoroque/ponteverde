@@ -7,6 +7,28 @@ using System.Web;
 
 namespace ponteverde.Models
 {
+
+
+    public class ClienteRepository : Base <cliente, object>
+    {
+        public ClienteRepository(PvEntities bd)
+            : base(bd)
+        {
+
+        }
+   
+        public cliente ObterPerfil(long id)
+        {
+            return base.Obter(id);
+        }
+
+        public cliente ObterPerfilPorConta(long idConta)
+        {
+            return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();
+        }
+    }
+    
+    
     [MetadataType(typeof(ClienteMetadata))]
     public partial class cliente
     {
