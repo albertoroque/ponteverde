@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc8308a24c52475f9d79001bf1f4aa9c" Name="Diagram1">
+        <EntityTypeShape EntityType="PvModel.bairro" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.categoria" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.cidade" Width="1.5" PointX="1.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.cliente" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.loja" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.lojafavorita" Width="1.5" PointX="11.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.pais" Width="1.5" PointX="1.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.produto" Width="1.5" PointX="13.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.produtofavorito" Width="1.5" PointX="15.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.promocao" Width="1.5" PointX="15.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.servico" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PvModel.usuario" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="PvModel.fk_idBairro_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_IdBairroLoja" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idCidade_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_Categoria_Loja1" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_Produto_Categoria1" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idPais_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idCliente_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idUsername" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idLoja_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idLojaProduto_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idUsernameLoja_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_Servico_Loja1" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_ProdutoFavorito_LojaFavorita1" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_idProduto_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PvModel.fk_Promocao_Produtoid" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
