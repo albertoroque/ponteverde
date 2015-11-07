@@ -8,14 +8,41 @@ using System.Web;
 namespace ponteverde.Models
 {
     [MetadataType(typeof(UsuarioMetadata))]
-    public partial class usuario
+    public partial class usuario : Base<usuario, object>
     {
+        //CONSTRUTOR
+        public usuario(PvEntities bd) : base(bd){}
+
         public bool IsCliente
         {
             get
             {
                 return this.tipo == null ? false : this.tipo.Equals(((int)TipoUsuario.CLIENTE).ToString());
             }
+        }
+
+        public Tuple<bool, bool> ObterConta(string username, string pass)
+        {
+            var conta = base.Obter(x => x.username.Equals(username) && x.password.Equals(pass)).FirstOrDefault();
+
+            bool logado = false;
+            bool cliente = false;
+
+            if(conta == null)
+            {
+
+            }
+            else
+            if (IsCliente)
+            {
+                logado = true;
+                cliente = true;
+            }
+            else
+            {
+                logado = true;                
+            }
+            return new Tuple<bool, bool>(logado, cliente);
         }
     }
 
@@ -40,6 +67,9 @@ namespace ponteverde.Models
         [DataType(DataType.EmailAddress, ErrorMessage = "E-mail inválido.")]       
         [StringLength(255, MinimumLength = 2, ErrorMessage = "O email deve conter 2 caracteres no mínimo e 255 no máximo!")]
         public string email { get; set; }
+
+        [Display(Name = "Tipo da Conta")]  
+        public string tipo { get; set; }
       
     }
 

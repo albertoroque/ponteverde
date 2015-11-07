@@ -18,7 +18,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idLoja" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="cidade">
@@ -403,7 +403,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="categoria1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idLoja" Type="Int64" Nullable="false" />
           <NavigationProperty Name="loja" Relationship="Self.fk_Categoria_Loja1" FromRole="categoria" ToRole="loja" />
           <NavigationProperty Name="produto" Relationship="Self.fk_Produto_Categoria1" FromRole="categoria" ToRole="produto" />
@@ -813,7 +813,7 @@
             <EntityTypeMapping TypeName="PvModel.categoria">
               <MappingFragment StoreEntitySet="categoria">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="categoria1" ColumnName="categoria" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="idLoja" ColumnName="idLoja" />
               </MappingFragment>
             </EntityTypeMapping>

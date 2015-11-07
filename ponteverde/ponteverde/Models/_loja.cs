@@ -48,6 +48,12 @@ namespace ponteverde.Models
         public decimal @long { get; set; }
 
         [Display(Name = "Status do perfil")]
-        public int cnpj { get; set; }        
+        public int cnpj { get; set; }
+
+        [Display(Name="Telefone")]
+        public string telefone { get; set; }
+
+        [Display(Name = "Link do facebook")]
+        public string linkface { get; set; }
     }
 }

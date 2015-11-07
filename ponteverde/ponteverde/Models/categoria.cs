@@ -20,7 +20,7 @@ namespace ponteverde.Models
         }
     
         public long id { get; set; }
-        public string categoria1 { get; set; }
+        public string descricao { get; set; }
         public long idLoja { get; set; }
     
         public virtual loja loja { get; set; }

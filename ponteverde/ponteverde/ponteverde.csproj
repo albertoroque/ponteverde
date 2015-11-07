@@ -124,6 +124,7 @@
     <Compile Include="Models\bairro.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Base.cs" />
     <Compile Include="Models\categoria.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
@@ -133,6 +134,7 @@
     <Compile Include="Models\cliente.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IPrimary.cs" />
     <Compile Include="Models\loja.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
