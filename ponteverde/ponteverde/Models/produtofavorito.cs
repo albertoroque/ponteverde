@@ -17,7 +17,9 @@ namespace ponteverde.Models
         public long id { get; set; }
         public long idProduto { get; set; }
         public long idLojaFavorita { get; set; }
+        public long idCliente { get; set; }
     
+        public virtual cliente cliente { get; set; }
         public virtual lojafavorita lojafavorita { get; set; }
         public virtual produto produto { get; set; }
     }

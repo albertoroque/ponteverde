@@ -36,6 +36,8 @@ namespace ponteverde.Models
         public long idBairro { get; set; }
         public string telefone { get; set; }
         public string linkface { get; set; }
+        public Nullable<int> votacoes { get; set; }
+        public Nullable<float> media_nota { get; set; }
     
         public virtual bairro bairro { get; set; }
         public virtual ICollection<categoria> categoria { get; set; }

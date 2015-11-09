@@ -27,7 +27,7 @@ namespace ponteverde.Models
         public long idLoja { get; set; }
         public long idCategoria { get; set; }
         public decimal prioridade { get; set; }
-        public System.DateTime dataCriacao { get; set; }
+        public int dataCriacao { get; set; }
     
         public virtual categoria categoria { get; set; }
         public virtual loja loja { get; set; }

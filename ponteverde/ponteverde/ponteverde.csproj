@@ -219,24 +219,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\PvModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PvModel.edmx</DependentUpon>
-      <LastGenOutput>PvModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\PvModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PvModel.edmx</DependentUpon>
-      <LastGenOutput>PvModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\PvModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PvModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Models\PvModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PvModel.edmx</DependentUpon>
+      <LastGenOutput>PvModel.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\PvModel.edmx.diagram">
       <DependentUpon>PvModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PvModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PvModel.edmx</DependentUpon>
+      <LastGenOutput>PvModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

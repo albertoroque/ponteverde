@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PvModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PvModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bairro">
           <Key>
             <PropertyRef Name="id" />
@@ -64,6 +64,8 @@
           <Property Name="idBairro" Type="bigint" Nullable="false" />
           <Property Name="telefone" Type="varchar" MaxLength="20" />
           <Property Name="linkface" Type="text" />
+          <Property Name="votacoes" Type="int" />
+          <Property Name="media_nota" Type="float" />
         </EntityType>
         <EntityType Name="lojafavorita">
           <Key>
@@ -91,7 +93,7 @@
           <Property Name="idLoja" Type="bigint" Nullable="false" />
           <Property Name="idCategoria" Type="bigint" Nullable="false" />
           <Property Name="prioridade" Type="decimal" Precision="2" Scale="2" Nullable="false" />
-          <Property Name="dataCriacao" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataCriacao" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="produtofavorito">
           <Key>
@@ -100,6 +102,7 @@
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idProduto" Type="bigint" Nullable="false" />
           <Property Name="idLojaFavorita" Type="bigint" Nullable="false" />
+          <Property Name="idCliente" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="promocao">
           <Key>
@@ -114,8 +117,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titulo" Type="varchar" MaxLength="20" />
-          <Property Name="descricao" Type="varchar" MaxLength="45" />
+          <Property Name="titulo" Type="varchar" MaxLength="50" />
+          <Property Name="descricao" Type="varchar" MaxLength="200" />
           <Property Name="idLoja" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
@@ -200,8 +203,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_idLojaProduto_id">
-          <End Role="loja" Type="Self.loja" Multiplicity="1" />
+        <Association Name="FK_idLoja_Produto_id">
+          <End Role="loja" Type="Self.loja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="produto" Type="Self.produto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="loja">
@@ -269,6 +274,20 @@
             </Principal>
             <Dependent Role="produto">
               <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ProdutoFavorito_Cliente1">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="produtofavorito" Type="Self.produtofavorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produtofavorito">
+              <PropertyRef Name="idCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -345,7 +364,7 @@
             <End Role="loja" EntitySet="loja" />
             <End Role="lojafavorita" EntitySet="lojafavorita" />
           </AssociationSet>
-          <AssociationSet Name="fk_idLojaProduto_id" Association="Self.fk_idLojaProduto_id">
+          <AssociationSet Name="FK_idLoja_Produto_id" Association="Self.FK_idLoja_Produto_id">
             <End Role="loja" EntitySet="loja" />
             <End Role="produto" EntitySet="produto" />
           </AssociationSet>
@@ -369,6 +388,10 @@
             <End Role="categoria" EntitySet="categoria" />
             <End Role="produto" EntitySet="produto" />
           </AssociationSet>
+          <AssociationSet Name="fk_ProdutoFavorito_Cliente1" Association="Self.fk_ProdutoFavorito_Cliente1">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="produtofavorito" EntitySet="produtofavorito" />
+          </AssociationSet>
           <AssociationSet Name="fk_ProdutoFavorito_LojaFavorita1" Association="Self.fk_ProdutoFavorito_LojaFavorita1">
             <End Role="lojafavorita" EntitySet="lojafavorita" />
             <End Role="produtofavorito" EntitySet="produtofavorito" />
@@ -386,7 +409,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="bairro">
           <Key>
             <PropertyRef Name="id" />
@@ -437,6 +460,7 @@
           <NavigationProperty Name="bairro" Relationship="Self.fk_idBairro_id" FromRole="cliente" ToRole="bairro" />
           <NavigationProperty Name="lojafavorita" Relationship="Self.fk_idCliente_id" FromRole="cliente" ToRole="lojafavorita" />
           <NavigationProperty Name="usuario" Relationship="Self.fk_idUsername" FromRole="cliente" ToRole="usuario" />
+          <NavigationProperty Name="produtofavorito" Relationship="Self.fk_ProdutoFavorito_Cliente1" FromRole="cliente" ToRole="produtofavorito" />
         </EntityType>
         <EntityType Name="loja">
           <Key>
@@ -456,10 +480,12 @@
           <Property Name="idBairro" Type="Int64" Nullable="false" />
           <Property Name="telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="linkface" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="votacoes" Type="Int32" />
+          <Property Name="media_nota" Type="Single" />
           <NavigationProperty Name="bairro" Relationship="Self.fk_IdBairroLoja" FromRole="loja" ToRole="bairro" />
           <NavigationProperty Name="categoria" Relationship="Self.fk_Categoria_Loja1" FromRole="loja" ToRole="categoria" />
           <NavigationProperty Name="lojafavorita" Relationship="Self.fk_idLoja_id" FromRole="loja" ToRole="lojafavorita" />
-          <NavigationProperty Name="produto" Relationship="Self.fk_idLojaProduto_id" FromRole="loja" ToRole="produto" />
+          <NavigationProperty Name="produto" Relationship="Self.FK_idLoja_Produto_id" FromRole="loja" ToRole="produto" />
           <NavigationProperty Name="usuario" Relationship="Self.fk_idUsernameLoja_id" FromRole="loja" ToRole="usuario" />
           <NavigationProperty Name="servico" Relationship="Self.fk_Servico_Loja1" FromRole="loja" ToRole="servico" />
         </EntityType>
@@ -493,9 +519,9 @@
           <Property Name="idLoja" Type="Int64" Nullable="false" />
           <Property Name="idCategoria" Type="Int64" Nullable="false" />
           <Property Name="prioridade" Type="Decimal" Nullable="false" />
-          <Property Name="dataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataCriacao" Type="Int32" Nullable="false" />
           <NavigationProperty Name="categoria" Relationship="Self.fk_Produto_Categoria1" FromRole="produto" ToRole="categoria" />
-          <NavigationProperty Name="loja" Relationship="Self.fk_idLojaProduto_id" FromRole="produto" ToRole="loja" />
+          <NavigationProperty Name="loja" Relationship="Self.FK_idLoja_Produto_id" FromRole="produto" ToRole="loja" />
           <NavigationProperty Name="produtofavorito" Relationship="Self.fk_idProduto_id" FromRole="produto" ToRole="produtofavorito" />
           <NavigationProperty Name="promocao" Relationship="Self.fk_Promocao_Produtoid" FromRole="produto" ToRole="promocao" />
         </EntityType>
@@ -506,6 +532,8 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idProduto" Type="Int64" Nullable="false" />
           <Property Name="idLojaFavorita" Type="Int64" Nullable="false" />
+          <Property Name="idCliente" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_ProdutoFavorito_Cliente1" FromRole="produtofavorito" ToRole="cliente" />
           <NavigationProperty Name="lojafavorita" Relationship="Self.fk_ProdutoFavorito_LojaFavorita1" FromRole="produtofavorito" ToRole="lojafavorita" />
           <NavigationProperty Name="produto" Relationship="Self.fk_idProduto_id" FromRole="produtofavorito" ToRole="produto" />
         </EntityType>
@@ -523,8 +551,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titulo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="descricao" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descricao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="idLoja" Type="Int64" Nullable="false" />
           <NavigationProperty Name="loja" Relationship="Self.fk_Servico_Loja1" FromRole="servico" ToRole="loja" />
         </EntityType>
@@ -636,6 +664,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_ProdutoFavorito_Cliente1">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="produtofavorito" Type="Self.produtofavorito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="produtofavorito">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_idLoja_id">
           <End Role="loja" Type="Self.loja" Multiplicity="1" />
           <End Role="lojafavorita" Type="Self.lojafavorita" Multiplicity="*" />
@@ -648,8 +690,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_idLojaProduto_id">
-          <End Role="loja" Type="Self.loja" Multiplicity="1" />
+        <Association Name="FK_idLoja_Produto_id">
+          <End Role="loja" Type="Self.loja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="produto" Type="Self.produto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="loja">
@@ -765,11 +809,15 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="cliente" EntitySet="cliente" />
           </AssociationSet>
+          <AssociationSet Name="fk_ProdutoFavorito_Cliente1" Association="Self.fk_ProdutoFavorito_Cliente1">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="produtofavorito" EntitySet="produtofavorito" />
+          </AssociationSet>
           <AssociationSet Name="fk_idLoja_id" Association="Self.fk_idLoja_id">
             <End Role="loja" EntitySet="loja" />
             <End Role="lojafavorita" EntitySet="lojafavorita" />
           </AssociationSet>
-          <AssociationSet Name="fk_idLojaProduto_id" Association="Self.fk_idLojaProduto_id">
+          <AssociationSet Name="FK_idLoja_Produto_id" Association="Self.FK_idLoja_Produto_id">
             <End Role="loja" EntitySet="loja" />
             <End Role="produto" EntitySet="produto" />
           </AssociationSet>
@@ -862,6 +910,8 @@
                 <ScalarProperty Name="idBairro" ColumnName="idBairro" />
                 <ScalarProperty Name="telefone" ColumnName="telefone" />
                 <ScalarProperty Name="linkface" ColumnName="linkface" />
+                <ScalarProperty Name="votacoes" ColumnName="votacoes" />
+                <ScalarProperty Name="media_nota" ColumnName="media_nota" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -902,6 +952,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idProduto" ColumnName="idProduto" />
                 <ScalarProperty Name="idLojaFavorita" ColumnName="idLojaFavorita" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -17,6 +17,7 @@ namespace ponteverde.Models
         public cliente()
         {
             this.lojafavorita = new HashSet<lojafavorita>();
+            this.produtofavorito = new HashSet<produtofavorito>();
         }
     
         public long id { get; set; }
@@ -35,5 +36,6 @@ namespace ponteverde.Models
         public virtual bairro bairro { get; set; }
         public virtual ICollection<lojafavorita> lojafavorita { get; set; }
         public virtual usuario usuario { get; set; }
+        public virtual ICollection<produtofavorito> produtofavorito { get; set; }
     }
 }
