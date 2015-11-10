@@ -31,19 +31,22 @@ namespace ponteverde.Models
         {
 
             UsuarioRepository iUsuario = new UsuarioRepository(bd);
-            var resultUsuario = iUsuario.CriarUsuario(usuario, true);
+            BairroRepository iBairro = new BairroRepository(bd);
+            var resultUsuario = iUsuario.CriarConta(usuario, true);
             if(resultUsuario.Item2)
             {
                 try
                 {
+                    if()
+
                     cliente.cep = "00000-000";
                     cliente.fotowall = "../Content/images/default/wall.jpg";
                     cliente.fotoperfil = "../Content/images/default/face.jpg";
                     cliente.lat = 0;
                     cliente.@long = 0;
-                    cliente.idBairro = 1;
-                    cliente.logradouro = "Atualizar Logradouro";
-                    cliente.numero = "nº";
+                    
+                    cliente.logradouro = "Seu endereço";
+                    cliente.numero = "nº 0";
                     cliente.statusPublico = ((int)StatusPublicoCliente.PUBLICO).ToString();
                     cliente.idUsername = resultUsuario.Item1.id;
                     base.Criar(cliente);

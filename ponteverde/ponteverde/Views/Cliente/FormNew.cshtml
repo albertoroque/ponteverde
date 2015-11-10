@@ -30,20 +30,29 @@
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.Usuario.email, new { @class = "mdl-textfield__input", id = "sample4 login-input" })
+        @Html.TextBoxFor(model => model.Usuario.email, new { @class = "mdl-textfield__input", id = "sample4 login-input"})
         <label class="mdl-textfield__label" for="sample4">Email</label>
         <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.email)</span>
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.nomeCidade, new { @class = "mdl-textfield__input", id = "sample4 login-input" })
-        <label class="mdl-textfield__label" for="sample4">Cidade</label>
+        @Html.TextBoxFor(model => model.Cliente.cep, new { @class = "mdl-textfield__input", id = "cep" })
+        <label class="mdl-textfield__label" for="sample6">CEP</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Cliente.cep)</span>
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.nomeBairro, new { @class = "mdl-textfield__input", id = "sample5 login-input" })
-        <label class="mdl-textfield__label" for="sample5">Bairro</label>
+        @Html.TextBoxFor(model => model.nomeCidade, new { @class = "mdl-textfield__input", id = "cidade" })
+        <label class="mdl-textfield__label" for="sample7">Cidade</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.nomeCidade)</span>
     </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.nomeBairro, new { @class = "mdl-textfield__input", id = "bairro" })
+        <label class="mdl-textfield__label" for="sample8">Bairro</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.nomeBairro)</span>
+    </div>
+                    
     <p style="color:#de3226;">@ViewBag.Error</p>
         <!-- ERRRMENSAGE -->
         <!-- <span class="mdl-textfield__error">Digits only</span> -->

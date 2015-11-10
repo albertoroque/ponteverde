@@ -1066,6 +1066,10 @@ login-form span{
 	#login-form > form > div:nth-child(6){
 		width: 90%;
 	}
+
+    #login-form > form > div:nth-child(7){
+		width: 90%;
+	}
 	
 
 	#login-button{	

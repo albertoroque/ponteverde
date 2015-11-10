@@ -20,7 +20,6 @@ namespace ponteverde.Controllers
             ClienteRepository iCliente = new ClienteRepository(bd);
 
             var cliente = iCliente.ObterPerfilPorConta(idConta);
-
             return View(cliente);
         }
 

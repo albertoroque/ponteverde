@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,7 +25,7 @@ namespace ponteverde.Models
             bool cliente = false;
             if(conta == null)
             {
-                return new Tuple<usuario, bool, bool, string>(null, logado, cliente, "Conta inexistente. Porfavor, cadastre-se!");
+                return new Tuple<usuario, bool, bool, string>(null, logado, cliente, "Conta inexistente. Por favor, cadastre-se!");
             }
             else
             {  
@@ -49,7 +50,7 @@ namespace ponteverde.Models
             }                  
         }
 
-        public Tuple<usuario, bool> CriarUsuario(usuario usuario, bool isCliente)
+        public Tuple<usuario, bool> CriarConta(usuario usuario, bool isCliente)
         {
             try
             {
@@ -106,17 +107,18 @@ namespace ponteverde.Models
 
         [Display(Name = "Login")]
         [Required(ErrorMessage = "LogIn é obrigatório")]
-        [RegularExpression(@"^(?=[A-Za-z0-9])(?!.*[._()\[\]-]{2})[A-Za-z0-9._()\[\]-]{2,30}$", ErrorMessage = "Username inválido")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Digite um username com 3 caracteres no mínimo!")]
+        [RegularExpression(@"^(?=[A-Za-z0-9])(?!.*[._()\[\]-]{2})[A-Za-z0-9._()\[\]-]{2,30}$", ErrorMessage = "login inválido")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "digite um username com 3 caracteres no mínimo!")]
         public string username { get; set; }
         
         [Display(Name = "Senha")]
-        [Required(ErrorMessage = "Senha é obrigatória")]
-        [StringLength(32, MinimumLength = 6, ErrorMessage = "Digite uma senha de 6 caracteres no mínimo!")]
+        [Required(ErrorMessage = "senha é obrigatória")]
+        [StringLength(32, MinimumLength = 6, ErrorMessage = "digite uma senha de 6 caracteres no mínimo!")]
         public string password { get; set; }
 
         [Display(Name = "Email")]  
-        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail inválido.")]       
+        [DataType(DataType.EmailAddress, ErrorMessage = "e-mail inválido.")]
+        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",ErrorMessage="e-mail inválido")]
         [StringLength(255, MinimumLength = 2, ErrorMessage = "O email deve conter 2 caracteres no mínimo e 255 no máximo!")]
         public string email { get; set; }
 

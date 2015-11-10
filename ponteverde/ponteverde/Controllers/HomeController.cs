@@ -39,7 +39,7 @@ namespace ponteverde.Controllers
             }
             else
             {
-                ViewBag.Login = usuario.Item3;
+                ViewBag.Login = usuario.Item4;
                 return View("Index");
             }            
         }

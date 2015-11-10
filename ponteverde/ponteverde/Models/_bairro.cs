@@ -30,6 +30,14 @@ namespace ponteverde.Models
          {
              return base.Obter(x => x.idCidade.Equals(idCidade));             
          }
+
+         public long ObterBairro(string bairro, string cidade)
+         {             
+             //var bairro = base.Obter(x => (x.nome.Contains(bairro)));
+
+             return bairro.id;
+
+         }
     }
 
     public class BairroMetadata
