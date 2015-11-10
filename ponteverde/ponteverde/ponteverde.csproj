@@ -118,6 +118,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\Dto\ClienteCadastroDto.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +193,8 @@
   <ItemGroup>
     <Content Include="Content\images\busca.jpg" />
     <Content Include="Content\images\default.jpg" />
+    <Content Include="Content\images\default\face.png" />
+    <Content Include="Content\images\default\wall.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\favicon.jpg" />
     <Content Include="Content\images\foto-loja.jpg" />
@@ -264,6 +267,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Cliente\Perfil.cshtml" />
+    <Content Include="Views\Cliente\New.cshtml" />
+    <Content Include="Views\Cliente\FormNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

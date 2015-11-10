@@ -26,6 +26,41 @@ namespace ponteverde.Models
         {
             return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();
         }
+
+        public Tuple<cliente, bool, string> CriarCliente(usuario usuario, cliente cliente)
+        {
+
+            UsuarioRepository iUsuario = new UsuarioRepository(bd);
+            var resultUsuario = iUsuario.CriarUsuario(usuario, true);
+            if(resultUsuario.Item2)
+            {
+                try
+                {
+                    cliente.cep = "00000-000";
+                    cliente.fotowall = "../Content/images/default/wall.jpg";
+                    cliente.fotoperfil = "../Content/images/default/face.jpg";
+                    cliente.lat = 0;
+                    cliente.@long = 0;
+                    cliente.idBairro = 1;
+                    cliente.logradouro = "Atualizar Logradouro";
+                    cliente.numero = "nº";
+                    cliente.statusPublico = ((int)StatusPublicoCliente.PUBLICO).ToString();
+                    cliente.idUsername = resultUsuario.Item1.id;
+                    base.Criar(cliente);
+                    base.Persistir();
+
+                    return new Tuple<cliente, bool, string>(cliente, true, "Bem-vindo ao Ponte Verde");
+                }
+                catch (Exception)
+                {
+                    return new Tuple<cliente, bool, string>(cliente, false, "Desculpe, tivemos um problema.");
+                }                
+            }
+            else
+            {
+                return new Tuple<cliente, bool, string>(null, false, "Esse nome de usuário já existe.");
+            }
+        }
     }
     
     

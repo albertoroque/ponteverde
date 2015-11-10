@@ -1008,6 +1008,24 @@ div#desc-perfil{
 	margin-top: 20px;
 }
 
+.error.field-validation-error{
+    visibility:visible !important;
+    z-index:99;
+    display:block;
+    color: red !important;       
+}
+#form-cliente-new > div:nth-child(2) > span{
+    visibility:visible !important;
+}
+span.field-validation-error{
+    visibility:visible;
+    color: #de3226;
+    margin-bottom:10px;
+}
+
+login-form span{
+    visibility:visible;
+}
 
 
 
@@ -1034,6 +1052,18 @@ div#desc-perfil{
 	}
 
 	#login-form > form > div:nth-child(3){
+		width: 90%;
+	}
+
+    #login-form > form > div:nth-child(4){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(5){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(6){
 		width: 90%;
 	}
 	
@@ -1063,20 +1093,7 @@ div#desc-perfil{
 	#login-form input{
 		width: 100% !important;
 	}
-
-	#login-form > form > div:nth-child(1){
-		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(2){
-		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(3){
-		width: 90%;
-	}
-	
-
+		
 	#login-button{	
 		width: 90%;		
 	}

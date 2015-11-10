@@ -116,5 +116,10 @@ namespace ponteverde.Models
             }
 
         }
+
+        public void Persistir()
+        {
+            bd.SaveChanges();
+        }
     }
 }

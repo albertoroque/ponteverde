@@ -48,6 +48,41 @@ namespace ponteverde.Models
                 }                
             }                  
         }
+
+        public Tuple<usuario, bool> CriarUsuario(usuario usuario, bool isCliente)
+        {
+            try
+            {
+                if (ExisteUsername(usuario.username))
+                {
+                    if (isCliente)
+                    {
+                        usuario.tipo = ((int)TipoUsuario.CLIENTE).ToString();
+                    }
+                    else
+                    {
+                        usuario.tipo = ((int)TipoUsuario.LOJA).ToString();
+                    }
+
+                    base.Criar(usuario);
+                    base.Persistir();
+
+                    return new Tuple<usuario,bool>(usuario, true);
+                }
+
+                return new Tuple<usuario, bool>(usuario, false);
+            }
+            catch
+            {
+                return new Tuple<usuario, bool>(usuario, false);
+            }            
+        }
+
+        public bool ExisteUsername(string username)
+        {
+            var result = base.Obter(x => x.username == username).ToList();
+            return result.Count > 0 ? false : true;  
+        }
     }
 
     //CLASSE PARCIAL
