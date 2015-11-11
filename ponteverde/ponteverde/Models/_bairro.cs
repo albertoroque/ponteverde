@@ -31,7 +31,7 @@ namespace ponteverde.Models
              return base.Obter(x => x.idCidade.Equals(idCidade));             
          }
 
-         public bairro CriarBairro(string nomeBairro, string nomeCidade)
+         public bairro CriarBairro(string nomeCidade, string nomeBairro)
          {
              CidadeRepository iCidade = new CidadeRepository(this.bd);
              var _cidade = iCidade.CriarCidade(nomeCidade);
@@ -44,7 +44,7 @@ namespace ponteverde.Models
              return _bairro;
          }
 
-         public long ObterBairroCadastro(string nomeBairro, string nomeCidade)
+         public long ObterBairroCadastro(string nomeCidade, string nomeBairro)
          {             
             bairro _bairro = this.Obter(x => x.nome.Equals(nomeBairro) && x.cidade.nome.Equals(nomeCidade)).FirstOrDefault();
 
@@ -54,7 +54,7 @@ namespace ponteverde.Models
             }
             else
             {
-                var result = this.CriarBairro(nomeBairro, nomeCidade);
+                var result = this.CriarBairro(nomeCidade, nomeBairro);
                 return result.id;
             }
          }

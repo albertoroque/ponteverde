@@ -48,7 +48,7 @@ namespace ponteverde.Models
                     _cliente.lat = 0;
                     _cliente.@long = 0;                    
                     _cliente.logradouro = dadosCliente.Local.endereco;
-                    _cliente.numero = "nº 0";
+                    _cliente.numero = "nº 1";
                     _cliente.statusPublico = ((int)StatusPublicoCliente.PUBLICO).ToString();
                     _cliente.idUsername = resultUsuario.Item1.id;
 
