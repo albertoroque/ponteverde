@@ -12,6 +12,34 @@ namespace ponteverde.Models
     {
     }
 
+     public class CidadeRepository : Base<cidade, object>
+     {
+         public CidadeRepository(PvEntities bd)
+            : base(bd)
+        {
+
+        }
+
+       
+         public cidade CriarCidade(string nomecidade)
+         {
+             var _cidade = base.Obter(x => x.nome.Equals(nomecidade)).FirstOrDefault();
+
+             if (_cidade != null)
+             {
+                 return _cidade;
+             }
+             else
+             {
+                 _cidade.nome = nomecidade;
+                 _cidade.idPais = 1; //BRASIL
+                 base.Criar(_cidade);
+                 base.Persistir();
+                 return _cidade;
+             }             
+         }
+     }
+
     public class CidadeMetadata
     {
         [Key]

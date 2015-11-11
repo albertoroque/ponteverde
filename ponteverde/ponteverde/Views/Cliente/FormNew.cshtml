@@ -42,17 +42,19 @@
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.nomeCidade, new { @class = "mdl-textfield__input", id = "cidade" })
+        @Html.TextBoxFor(model => model.Local.cidade, new { @class = "mdl-textfield__input", id = "cidade" })
         <label class="mdl-textfield__label" for="sample7">Cidade</label>
-        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.nomeCidade)</span>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Local.cidade)</span>
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.nomeBairro, new { @class = "mdl-textfield__input", id = "bairro" })
+        @Html.TextBoxFor(model => model.Local.bairro, new { @class = "mdl-textfield__input", id = "bairro" })
         <label class="mdl-textfield__label" for="sample8">Bairro</label>
-        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.nomeBairro)</span>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Local.bairro)</span>
     </div>
-                    
+    
+    @Html.HiddenFor(model => model.Local.endereco, new { id = "endereco"})
+                                        
     <p style="color:#de3226;">@ViewBag.Error</p>
         <!-- ERRRMENSAGE -->
         <!-- <span class="mdl-textfield__error">Digits only</span> -->

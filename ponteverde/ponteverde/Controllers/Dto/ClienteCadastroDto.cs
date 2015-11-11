@@ -13,10 +13,6 @@ namespace ponteverde.Controllers.Dto
 
         public cliente Cliente { get; set; }
 
-        [Required(ErrorMessage = "cidade é obrigatória")]
-        public string nomeCidade { get; set; }
-
-        [Required(ErrorMessage = "bairro é obrigatório")]
-        public string nomeBairro { get; set; }
+        public LocalDto Local { get; set; }
     }
 }

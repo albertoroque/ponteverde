@@ -31,12 +31,32 @@ namespace ponteverde.Models
              return base.Obter(x => x.idCidade.Equals(idCidade));             
          }
 
-         public long ObterBairro(string bairro, string cidade)
+         public bairro CriarBairro(string nomeBairro, string nomeCidade)
+         {
+             CidadeRepository iCidade = new CidadeRepository(this.bd);
+             var _cidade = iCidade.CriarCidade(nomeCidade);
+             
+             bairro _bairro = new bairro();
+             _bairro.nome = nomeBairro;
+             _bairro.idCidade = _cidade.id;
+             base.Criar(_bairro);
+             base.Persistir();
+             return _bairro;
+         }
+
+         public long ObterBairroCadastro(string nomeBairro, string nomeCidade)
          {             
-             //var bairro = base.Obter(x => (x.nome.Contains(bairro)));
+            bairro _bairro = this.Obter(x => x.nome.Equals(nomeBairro) && x.cidade.nome.Equals(nomeCidade)).FirstOrDefault();
 
-             return bairro.id;
-
+            if (_bairro != null)
+            {
+                return _bairro.id;
+            }
+            else
+            {
+                var result = this.CriarBairro(nomeBairro, nomeCidade);
+                return result.id;
+            }
          }
     }
 

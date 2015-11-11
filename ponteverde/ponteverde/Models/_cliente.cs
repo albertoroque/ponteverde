@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ponteverde.Controllers.Dto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,36 +28,38 @@ namespace ponteverde.Models
             return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();
         }
 
-        public Tuple<cliente, bool, string> CriarCliente(usuario usuario, cliente cliente)
+        public Tuple<cliente, bool, string> CriarCliente(ClienteCadastroDto dadosCliente)
         {
 
             UsuarioRepository iUsuario = new UsuarioRepository(bd);
             BairroRepository iBairro = new BairroRepository(bd);
-            var resultUsuario = iUsuario.CriarConta(usuario, true);
+            var resultUsuario = iUsuario.CriarConta(dadosCliente.Usuario, true);
+
+            cliente _cliente = dadosCliente.Cliente;
+
             if(resultUsuario.Item2)
             {
                 try
                 {
-                    if()
+                    _cliente.idBairro = iBairro.ObterBairroCadastro(dadosCliente.Local.cidade, dadosCliente.Local.bairro);
+                
+                    _cliente.fotowall = "../Content/images/default/wall.jpg";
+                    _cliente.fotoperfil = "../Content/images/default/face.jpg";
+                    _cliente.lat = 0;
+                    _cliente.@long = 0;                    
+                    _cliente.logradouro = dadosCliente.Local.endereco;
+                    _cliente.numero = "nº 0";
+                    _cliente.statusPublico = ((int)StatusPublicoCliente.PUBLICO).ToString();
+                    _cliente.idUsername = resultUsuario.Item1.id;
 
-                    cliente.cep = "00000-000";
-                    cliente.fotowall = "../Content/images/default/wall.jpg";
-                    cliente.fotoperfil = "../Content/images/default/face.jpg";
-                    cliente.lat = 0;
-                    cliente.@long = 0;
-                    
-                    cliente.logradouro = "Seu endereço";
-                    cliente.numero = "nº 0";
-                    cliente.statusPublico = ((int)StatusPublicoCliente.PUBLICO).ToString();
-                    cliente.idUsername = resultUsuario.Item1.id;
-                    base.Criar(cliente);
+                    base.Criar(dadosCliente.Cliente);
                     base.Persistir();
 
-                    return new Tuple<cliente, bool, string>(cliente, true, "Bem-vindo ao Ponte Verde");
+                    return new Tuple<cliente, bool, string>(_cliente, true, "Bem-vindo ao Ponte Verde");
                 }
                 catch (Exception)
                 {
-                    return new Tuple<cliente, bool, string>(cliente, false, "Desculpe, tivemos um problema.");
+                    return new Tuple<cliente, bool, string>(_cliente, false, "Desculpe, tivemos um problema.");
                 }                
             }
             else

@@ -38,7 +38,7 @@ namespace ponteverde.Controllers
                 if (ModelState.IsValid)
                 {
                     ClienteRepository iCliente = new ClienteRepository(bd);
-                    var result = iCliente.CriarCliente(dadosCliente.Usuario, dadosCliente.Cliente);
+                    var result = iCliente.CriarCliente(dadosCliente);
 
                     if (result.Item2)
                     {
