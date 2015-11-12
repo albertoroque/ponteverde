@@ -1,0 +1,64 @@
+﻿@model ponteverde.Helpers.ViewModel.BuscaViewModel
+
+@{    
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+
+    var ajaxOptions = new AjaxOptions()
+   {
+       HttpMethod = "Get",
+       UpdateTargetId = "div-busca-result",
+       InsertionMode = InsertionMode.Replace,
+   };
+
+    
+}
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header  mdl-layout--fixed-tabs">
+    <header id="b-header" class="mdl-layout__header">
+        <div id="b-header-search">
+            <i id="b-header-icon" class="material-icons">search</i>            
+            @using (Ajax.BeginForm("BuscarNome", new { chave = "alberto" }, ajaxOptions, new { id = "b-header-form" }))
+            {               
+                @Html.TextBoxFor(model => model.chave, new { id = "b-h-search-input", placeholder = "Buscar por lojas, pessoas e serviços..." })
+            }                                        
+        </div>
+
+        <!-- MENU TAB -->
+        @if (Model.Loja == null && Model.Cliente == null)
+        {
+            <div id="b-h-tab" class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Lojas</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab">Clientes</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab">Serviços</a>
+            </div>
+        }
+        else
+        {
+            if (Model.Cliente.Count() >= Model.Loja.Count())
+            {
+                <div id="b-h-tab" class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    <a href="#fixed-tab-1" class="mdl-layout__tab">Lojas</a>
+                    <a href="#fixed-tab-2" class="mdl-layout__tab is-active">Clientes</a>
+                    <a href="#fixed-tab-3" class="mdl-layout__tab">Serviços</a>
+                </div>
+            }
+            else
+            {
+                <div id="b-h-tab" class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Lojas</a>
+                    <a href="#fixed-tab-2" class="mdl-layout__tab">Clientes</a>
+                    <a href="#fixed-tab-3" class="mdl-layout__tab">Serviços</a>
+                </div>
+            }
+        }
+        
+        
+    </header>
+    
+   <main id="div-busca-result" class="mdl-layout__content">
+       @Html.Partial("BuscaResult", Model)        
+    </main>
+
+
+</div>
+

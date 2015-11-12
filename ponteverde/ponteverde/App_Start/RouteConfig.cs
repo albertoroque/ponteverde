@@ -20,6 +20,12 @@ namespace ponteverde
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+               name: "Buscar",
+               url: "Buscar/{chave}",
+               defaults: new { controller = "Buscar", action = "BuscarNome", chave = UrlParameter.Optional }
+           );
         }
     }
 }

@@ -24,6 +24,11 @@ namespace ponteverde.Models
             return base.Obter(id);
         }
 
+        public IQueryable<cliente> BuscaCliente(string chave)
+        {
+            return base.Obter(x => x.nome.Contains(chave));
+        }
+
         public cliente ObterPerfilPorConta(long idConta)
         {
             return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();

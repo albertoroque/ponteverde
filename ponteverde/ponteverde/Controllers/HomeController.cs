@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ponteverde.Models;
+using ponteverde.Helpers.SessionController;
 
 namespace ponteverde.Controllers
 {  
@@ -24,16 +25,20 @@ namespace ponteverde.Controllers
 
             var usuario = iUsuario.ObterConta(username, password);
 
+            var session = new UserSession();
+
             if (usuario.Item2)
             {
                 if(usuario.Item3)
                 {
-                    Session["Userid"] = usuario.Item1.id;                    
+                    session.id = usuario.Item1.id;
+                   
+                    Session["UserSession"] = session;                    
                     return RedirectToAction("Perfil", "Cliente", new { idConta = usuario.Item1.id });
                 }
                 else
                 {
-                    Session["Userid"] = usuario.Item1.id;
+                    Session["UserSession"] = usuario.Item1.id;
                     return HttpNotFound();
                 }                
             }

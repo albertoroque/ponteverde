@@ -1,0 +1,103 @@
+﻿@model ponteverde.Helpers.ViewModel.BuscaViewModel
+@{
+    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;
+}
+<!-- BOTAO PARA RETORNAR -->
+<a href="">
+    <button id="b-back" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">arrow_back</i>
+    </button>
+</a>
+
+<!-- LOJAS ------------------------------------------------------------------------------ -->
+<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+    <div class="page-content">
+        <!-- Your content goes here -->
+        <div class="mdl-grid" id="perfil-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+
+                <!-- ação de busca por geo location-->
+                <br />
+                <button id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
+                    <i class="material-icons">room</i>lojas mais próximas
+                </button>
+
+                <br>
+                <!-- LISTA -->
+                <div id="b-list">
+                    @if (Model.Loja == null || Model.Loja.Count() <= 0)
+                    {
+                        <h5>A pesquisa não obteve resultados</h5>
+                    }
+                    else
+                    {
+                        foreach (var loja in Model.Loja)
+                        {
+                                    <!-- cards da busca -->
+                            <a href="~/Loja/Perfil/@loja.idUsername">
+                                <div class="b-list-card mdl-shadow--2dp">
+
+                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../@loja.fotoperfil')">
+                                    </div>
+                                    <div class="b-list-card-text">
+                                        <p class="b-list-card-text-1" style="color:#333;">@loja.nome</p>
+                                        <p class="b-list-card-text-2"><i class="material-icons">directions</i>@loja.logradouro, @loja.numero</p>
+                                    </div>
+                                    <div class="b-list-card-bt">
+
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PESSOAS ------------------------------------------------------------------------------------- -->
+<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+    <div class="page-content">
+        <!-- Your content goes here -->
+        <div class="mdl-grid" id="perfil-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div id="cliente-list">
+                    @if (Model.Cliente == null || Model.Cliente.Count() <= 0)
+                    {
+                        <h5>não existem clientes com esse nome</h5>
+                    }
+                    else
+                    {
+                        foreach (var cliente in Model.Cliente)
+                        {
+                                <!-- cards da busca -->
+                            <a href="~/Cliente/Perfil/@cliente.id">
+                                <div class="b-list-card mdl-shadow--2dp">
+                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../@cliente.fotoperfil')">
+                                    </div>
+                                    <div class="b-list-card-text">
+                                        <p class="b-list-card-text-1" style="color:#333;">@cliente.nome</p>
+                                        <p class="b-list-card-text-2"><i class="material-icons">face</i> @cliente.logradouro</p>
+                                    </div>
+                                    <div class="b-list-card-bt">
+
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--SERVIÇOS --------------------------------------------------------------------------------- -->
+<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+    <div class="page-content">
+        <!-- Your content goes here -->
+        <h2>Serviços</h2>
+    </div>
+</section>

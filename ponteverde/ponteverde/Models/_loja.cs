@@ -22,6 +22,11 @@ namespace ponteverde.Models
             return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();
         }
 
+        public IQueryable<loja> BuscaLoja(string chave)
+        {
+            return base.Obter(x => x.nome.Contains(chave));
+        }
+
         public Tuple<loja, bool, string> CriarLoja(LojaCadastroViewModel dadosLoja)
         {
             UsuarioRepository iUsuario = new UsuarioRepository(bd);
