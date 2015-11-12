@@ -28,8 +28,8 @@ namespace ponteverde.Models
         public string cep { get; set; }
         public string logradouro { get; set; }
         public string numero { get; set; }
-        public Nullable<decimal> lat { get; set; }
-        public Nullable<decimal> @long { get; set; }
+        public Nullable<decimal> latitude { get; set; }
+        public Nullable<decimal> longitude { get; set; }
         public long idBairro { get; set; }
         public string statusPublico { get; set; }
     

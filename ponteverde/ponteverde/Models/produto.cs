@@ -28,6 +28,7 @@ namespace ponteverde.Models
         public long idCategoria { get; set; }
         public decimal prioridade { get; set; }
         public int dataCriacao { get; set; }
+        public string linkfoto { get; set; }
     
         public virtual categoria categoria { get; set; }
         public virtual loja loja { get; set; }

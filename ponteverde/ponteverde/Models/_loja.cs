@@ -41,8 +41,8 @@ namespace ponteverde.Models
                     oLoja.idBairro = iBairro.ObterBairroCadastro(dadosLoja.Local.cidade, dadosLoja.Local.bairro);
                     oLoja.fotowall = "../Content/images/default/wall.jpg";
                     oLoja.fotoperfil = "../Content/images/default/face.jpg";
-                    oLoja.lat = 0;
-                    oLoja.@long = 0;
+                    oLoja.latitude = 0;
+                    oLoja.longitude = 0;
                     oLoja.logradouro = dadosLoja.Local.endereco;
                     oLoja.numero = "Nº 1";
                     oLoja.idUsername = resultUsuario.Item1.id;
@@ -94,10 +94,10 @@ namespace ponteverde.Models
         public string numero { get; set; }
 
         [Display(Name = "Latitude")]
-        public decimal lat { get; set; }
+        public decimal latitude { get; set; }
 
         [Display(Name = "Longitude")]
-        public decimal @long { get; set; }
+        public decimal longitude { get; set; }
 
         [Display(Name = "CNPJ")]
         public int? cnpj { get; set; }

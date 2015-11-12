@@ -41,8 +41,8 @@
           <Property Name="cep" Type="varchar" MaxLength="45" />
           <Property Name="logradouro" Type="varchar" MaxLength="100" />
           <Property Name="numero" Type="varchar" MaxLength="25" />
-          <Property Name="lat" Type="decimal" Precision="11" Scale="8" />
-          <Property Name="long" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="latitude" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="longitude" Type="decimal" Precision="11" Scale="8" />
           <Property Name="idBairro" Type="bigint" Nullable="false" />
           <Property Name="statusPublico" Type="enum" Nullable="false" />
         </EntityType>
@@ -58,8 +58,8 @@
           <Property Name="cep" Type="varchar" MaxLength="45" />
           <Property Name="logradouro" Type="varchar" MaxLength="100" />
           <Property Name="numero" Type="varchar" MaxLength="25" />
-          <Property Name="lat" Type="decimal" Precision="11" Scale="8" />
-          <Property Name="long" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="latitude" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="longitude" Type="decimal" Precision="11" Scale="8" />
           <Property Name="cnpj" Type="int" />
           <Property Name="idBairro" Type="bigint" Nullable="false" />
           <Property Name="telefone" Type="varchar" MaxLength="20" />
@@ -94,6 +94,7 @@
           <Property Name="idCategoria" Type="bigint" Nullable="false" />
           <Property Name="prioridade" Type="decimal" Precision="2" Scale="2" Nullable="false" />
           <Property Name="dataCriacao" Type="int" Nullable="false" />
+          <Property Name="linkfoto" Type="text" />
         </EntityType>
         <EntityType Name="produtofavorito">
           <Key>
@@ -453,8 +454,8 @@
           <Property Name="cep" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="logradouro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="numero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="lat" Type="Decimal" />
-          <Property Name="long" Type="Decimal" />
+          <Property Name="latitude" Type="Decimal" />
+          <Property Name="longitude" Type="Decimal" />
           <Property Name="idBairro" Type="Int64" Nullable="false" />
           <Property Name="statusPublico" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="bairro" Relationship="Self.fk_idBairro_id" FromRole="cliente" ToRole="bairro" />
@@ -474,8 +475,8 @@
           <Property Name="cep" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="logradouro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="numero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="lat" Type="Decimal" />
-          <Property Name="long" Type="Decimal" />
+          <Property Name="latitude" Type="Decimal" />
+          <Property Name="longitude" Type="Decimal" />
           <Property Name="cnpj" Type="Int32" />
           <Property Name="idBairro" Type="Int64" Nullable="false" />
           <Property Name="telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -520,6 +521,7 @@
           <Property Name="idCategoria" Type="Int64" Nullable="false" />
           <Property Name="prioridade" Type="Decimal" Nullable="false" />
           <Property Name="dataCriacao" Type="Int32" Nullable="false" />
+          <Property Name="linkfoto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="categoria" Relationship="Self.fk_Produto_Categoria1" FromRole="produto" ToRole="categoria" />
           <NavigationProperty Name="loja" Relationship="Self.FK_idLoja_Produto_id" FromRole="produto" ToRole="loja" />
           <NavigationProperty Name="produtofavorito" Relationship="Self.fk_idProduto_id" FromRole="produto" ToRole="produtofavorito" />
@@ -886,8 +888,8 @@
                 <ScalarProperty Name="cep" ColumnName="cep" />
                 <ScalarProperty Name="logradouro" ColumnName="logradouro" />
                 <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="lat" ColumnName="lat" />
-                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="idBairro" ColumnName="idBairro" />
                 <ScalarProperty Name="statusPublico" ColumnName="statusPublico" />
               </MappingFragment>
@@ -904,8 +906,8 @@
                 <ScalarProperty Name="cep" ColumnName="cep" />
                 <ScalarProperty Name="logradouro" ColumnName="logradouro" />
                 <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="lat" ColumnName="lat" />
-                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="cnpj" ColumnName="cnpj" />
                 <ScalarProperty Name="idBairro" ColumnName="idBairro" />
                 <ScalarProperty Name="telefone" ColumnName="telefone" />
@@ -943,6 +945,7 @@
                 <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
                 <ScalarProperty Name="prioridade" ColumnName="prioridade" />
                 <ScalarProperty Name="dataCriacao" ColumnName="dataCriacao" />
+                <ScalarProperty Name="linkfoto" ColumnName="linkfoto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

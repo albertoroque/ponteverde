@@ -10,10 +10,10 @@ using System.Web;
 namespace ponteverde.Models
 {
 
-
-    public class ClienteRepository : Base <cliente, object>
+    [MetadataType(typeof(ClienteMetadata))]
+    public class clienteBusinessModels : Base <cliente, object>
     {
-        public ClienteRepository(PvEntities bd)
+        public clienteBusinessModels(PvEntities bd)
             : base(bd)
         {
 
@@ -51,8 +51,8 @@ namespace ponteverde.Models
                 
                     _cliente.fotowall = "../Content/images/default/wall.jpg";
                     _cliente.fotoperfil = "../Content/images/default/face.jpg";
-                    _cliente.lat = 0;
-                    _cliente.@long = 0;                    
+                    _cliente.latitude = 0;
+                    _cliente.longitude = 0;                    
                     _cliente.logradouro = dadosCliente.Local.endereco;
                     _cliente.numero = "nº 1";
                     _cliente.statusPublico = ((int)StatusPublicoCliente.PUBLICO).ToString();
@@ -75,11 +75,7 @@ namespace ponteverde.Models
         }
     }
     
-    
-    [MetadataType(typeof(ClienteMetadata))]
-    public partial class cliente
-    {
-    }
+           
 
     public class ClienteMetadata
     {
@@ -110,10 +106,10 @@ namespace ponteverde.Models
         public string numero { get; set; }
 
         [Display(Name = "Latitude")]
-        public decimal lat { get; set; }
+        public decimal latitude { get; set; }
 
         [Display(Name = "Longitude")]
-        public decimal @long { get; set; }
+        public decimal longitude { get; set; }
 
         [Display(Name = "Status do perfil")]
         public string statusPublico { get; set; }

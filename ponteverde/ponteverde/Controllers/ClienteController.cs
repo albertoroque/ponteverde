@@ -18,7 +18,7 @@ namespace ponteverde.Controllers
         [Route("Perfil/{idConta:long:min(1)}")]
         public ActionResult Perfil(long idConta)
         {
-            ClienteRepository iCliente = new ClienteRepository(bd);
+            clienteBusinessModels iCliente = new clienteBusinessModels(bd);
 
             var cliente = iCliente.ObterPerfilPorConta(idConta);
             return View(cliente);
@@ -38,7 +38,7 @@ namespace ponteverde.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    ClienteRepository iCliente = new ClienteRepository(bd);
+                    clienteBusinessModels iCliente = new clienteBusinessModels(bd);
                     var result = iCliente.CriarCliente(dadosCliente);
 
                     if (result.Item2)

@@ -30,7 +30,7 @@ namespace ponteverde.Controllers
 
             dadosBusca.Loja = iLoja.BuscaLoja(chave).Take(30);
 
-            var iCliente = new ClienteRepository(bd);
+            var iCliente = new clienteBusinessModels(bd);
 
             dadosBusca.Cliente = iCliente.BuscaCliente(chave).Take(20);
 
