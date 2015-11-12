@@ -39,6 +39,8 @@ namespace ponteverde.Models
         [Display(Name = "Data/hora de criação")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         public System.DateTime dataCriacao { get; set; }
-      
+
+        [Display(Name = "Foto do Perfil")]
+        public string linkfoto { get; set; }
     }
 }

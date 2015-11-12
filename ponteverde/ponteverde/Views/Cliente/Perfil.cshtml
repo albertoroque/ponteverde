@@ -97,14 +97,16 @@
                         <div class="mdl-tabs__panel is-active" id="starks-panel">
                             <div class="mdl-grid">
 
+                                @foreach (var listaloja in @Model.lojafavorita)
+                                {
                                 <!-- loja -->
                                 <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
                                     <div class="p-prod-img">
-                                        <img src="images/loja2.jpg">
+                                        <img src="../@listaloja.loja.fotowall">
                                     </div>
                                     <div class="p-prod-desc">
                                         <h5>Portal Orgânicos</h5>
-                                        <a href="">
+                                        <a href="~/Loja/Perfil/@listaloja.loja.id">
                                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
                                                 <i class="material-icons">directions_car</i>
                                             </button>
@@ -116,125 +118,27 @@
                                         </a>
                                     </div>
                                 </div>
-
-                                <!-- loja -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
-                                    <div class="p-prod-img">
-                                        <img src="images/loja3.jpg">
-                                    </div>
-                                    <div class="p-prod-desc">
-                                        <h5>Portal Orgânicos</h5>
-                                        <a href="">
-                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                                <i class="material-icons">directions_car</i>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                                <i class="material-icons">book</i>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- loja -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
-                                    <div class="p-prod-img">
-                                        <img src="images/loja4.jpg">
-                                    </div>
-                                    <div class="p-prod-desc">
-                                        <h5>Portal Orgânicos</h5>
-                                        <a href="">
-                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                                <i class="material-icons">directions_car</i>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                                <i class="material-icons">book</i>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- loja -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp p-prod">
-                                    <div class="p-prod-img">
-                                        <img src="images/foto-loja.jpg">
-                                    </div>
-                                    <div class="p-prod-desc">
-                                        <h5>Portal Orgânicos</h5>
-                                        <a href="">
-                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                                <i class="material-icons">directions_car</i>
-                                            </button>
-                                        </a>
-                                        <a href="">
-                                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                                <i class="material-icons">book</i>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
+                                }
+                               
                             </div>
                         </div>
 
                         <!-- PRODUTOS --------------------------------------------------------------------------------------- -->
                         <div class="mdl-tabs__panel" id="lannisters-panel">
                             <div class="mdl-grid">
+                                @foreach (var listaprod in @Model.produtofavorito)
+                                {
                                 <!-- produto -->
                                 <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
                                     <div class="l-prod-img">
-                                        <img src="images/prod/prod1.jpg">
+                                        <img src="../@listaprod.produto.linkfoto">
                                     </div>
                                     <div class="l-prod-desc">
-                                        <h5>Tomate</h5>
-                                        <h6>R$ 3,99 Kg</h6>
+                                        <h5>@listaprod.produto.nome</h5>
+                                        <h6>R$ @listaprod.produto.preco</h6>
                                     </div>
-                                </div>
-
-                                <!-- produto -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
-                                    <div class="l-prod-img">
-                                        <img src="images/prod/prod2.jpg">
-                                    </div>
-                                    <div class="l-prod-desc">
-                                        <h5>Tomate</h5>
-                                        <h6>R$ 3,99 Kg</h6>
-                                    </div>
-                                </div>
-
-                                <!-- produto -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
-                                    <div class="l-prod-img">
-                                        <img src="images/prod/prod3.jpg">
-                                    </div>
-                                    <div class="l-prod-desc">
-                                        <h5>Tomate</h5>
-                                        <h6>R$ 3,99 Kg</h6>
-                                    </div>
-                                </div>
-
-                                <!-- produto -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
-                                    <div class="l-prod-img">
-                                        <img src="images/prod/prod4.jpg">
-                                    </div>
-                                    <div class="l-prod-desc">
-                                        <h5>Tomate</h5>
-                                        <h6>R$ 3,99 Kg</h6>
-                                    </div>
-                                </div>
-                                <!-- produto -->
-                                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
-                                    <div class="l-prod-img">
-                                        <img src="images/prod/prod5.jpg">
-                                    </div>
-                                    <div class="l-prod-desc">
-                                        <h5>Tomate</h5>
-                                        <h6>R$ 3,99 Kg</h6>
-                                    </div>
-                                </div>
+                                </div>    
+                                }                                
                             </div>
                         </div>
 

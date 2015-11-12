@@ -39,7 +39,7 @@ namespace ponteverde.Controllers
                 else
                 {
                     Session["UserSession"] = usuario.Item1.id;
-                    return HttpNotFound();
+                    return RedirectToAction("Perfil", "Loja", new { idConta = usuario.Item1.id });                    
                 }                
             }
             else

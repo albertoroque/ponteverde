@@ -31,7 +31,7 @@ namespace ponteverde.Models
         {
             UsuarioRepository iUsuario = new UsuarioRepository(bd);
             BairroRepository iBairro = new BairroRepository(bd);
-            var resultUsuario = iUsuario.CriarConta(dadosLoja.Usuario, true);
+            var resultUsuario = iUsuario.CriarConta(dadosLoja.Usuario, false);
             loja oLoja = dadosLoja.Loja;
 
             if (resultUsuario.Item2)

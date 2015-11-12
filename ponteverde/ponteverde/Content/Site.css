@@ -304,29 +304,29 @@ footer{
 		margin: 0 auto;
 		z-index: 2;	
 		position: relative;
-		top: -30;
-		left: -180;
+		top: -30px;
+		left: -180px;
 		background-size:100% 100%;
 	}
 	
 	#form-modal h4{
 		float: left;
 		position: absolute;
-		top: -10;
-		right: 130;
+		top: -10px;
+		right: 130px;
 	}
 	#form-modal h6{
 		float: left;
 		position: absolute;
-		top: 30;
-		right: 150;
+		top: 30px;
+		right: 150px;
 	}
 
 	#form-modal button{
 		float: right;
 		position: absolute;
-		right: 8;
-		bottom: 8;
+		right: 8px;
+		bottom: 8px;
 	}
 
 	#form-modal button > i{
@@ -358,21 +358,21 @@ footer{
 		position: relative;		
 		left: 0;
 		right: 0;
-		top: -55;
+		top: -55px;
 		background-size:100% 100%;
 	}
 	
 	#form-modal h4{
 		float: left;
 		position: absolute;
-		top: 30;
+		top: 30px;
 		right:0;
 		left: 0;
 		text-align: center;
 	}
 	#form-modal h6{		
 		position: absolute;
-		top: 60;
+		top: 60px;
 		right:0;
 		left: 0;
 		text-align: center;
@@ -381,8 +381,8 @@ footer{
 	#form-modal button{
 		float: right;
 		position: absolute;
-		right: 8;
-		bottom: 8;
+		right: 8px;
+		bottom: 8px;
 	}
 
 	#form-modal button > i{
