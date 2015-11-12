@@ -118,13 +118,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\Dto\ClienteCadastroDto.cs" />
-    <Compile Include="Controllers\Dto\LocalDto.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ViewModel\ClienteCadastroViewModel.cs" />
+    <Compile Include="Helpers\ViewModel\LocalViewModel.cs" />
+    <Compile Include="Helpers\ViewModel\LojaCadastroViewModel.cs" />
     <Compile Include="Models\bairro.cs">
       <DependentUpon>PvModel.tt</DependentUpon>
     </Compile>
@@ -270,11 +271,11 @@
     <Content Include="Views\Cliente\Perfil.cshtml" />
     <Content Include="Views\Cliente\New.cshtml" />
     <Content Include="Views\Cliente\FormNew.cshtml" />
+    <Content Include="Views\Loja\New.cshtml" />
+    <Content Include="Views\Loja\FormNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\NewFolder1\" />
-    <Folder Include="Views\Loja\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

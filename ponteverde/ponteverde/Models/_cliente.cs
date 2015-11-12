@@ -1,4 +1,5 @@
-﻿using ponteverde.Controllers.Dto;
+﻿using ponteverde.Helpers;
+using ponteverde.Helpers.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -28,7 +29,7 @@ namespace ponteverde.Models
             return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();
         }
 
-        public Tuple<cliente, bool, string> CriarCliente(ClienteCadastroDto dadosCliente)
+        public Tuple<cliente, bool, string> CriarCliente(ClienteCadastroViewModel dadosCliente)
         {
 
             UsuarioRepository iUsuario = new UsuarioRepository(bd);

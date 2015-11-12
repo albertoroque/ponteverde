@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ponteverde.Controllers.Dto
+namespace ponteverde.Helpers.ViewModel
 {
-    public class LocalDto
+    public class LocalViewModel
     {
         [Required(ErrorMessage = "nome da cidade é obrigatório")]
         public string cidade { get; set; }
