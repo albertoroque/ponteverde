@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ponteverde.Helpers.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,9 +9,55 @@ using System.Web;
 namespace ponteverde.Models
 {
     [MetadataType(typeof(LojaMetadata))]
-    public partial class loja
+    public partial class lojaBusinessModels : Base<loja, object>
     {
+        public lojaBusinessModels(PvEntities bd)
+            : base(bd)
+        {
 
+        }
+
+        public loja ObterPerfilPorConta(long idConta)
+        {
+            return base.Obter(x => x.idUsername.Equals(idConta)).FirstOrDefault();
+        }
+
+        public Tuple<loja, bool, string> CriarLoja(LojaCadastroViewModel dadosLoja)
+        {
+            UsuarioRepository iUsuario = new UsuarioRepository(bd);
+            BairroRepository iBairro = new BairroRepository(bd);
+            var resultUsuario = iUsuario.CriarConta(dadosLoja.Usuario, true);
+            loja oLoja = dadosLoja.Loja;
+
+            if (resultUsuario.Item2)
+            {
+                try
+                {
+                    oLoja.idBairro = iBairro.ObterBairroCadastro(dadosLoja.Local.cidade, dadosLoja.Local.bairro);
+                    oLoja.fotowall = "../Content/images/default/wall.jpg";
+                    oLoja.fotoperfil = "../Content/images/default/face.jpg";
+                    oLoja.lat = 0;
+                    oLoja.@long = 0;
+                    oLoja.logradouro = dadosLoja.Local.endereco;
+                    oLoja.numero = "Nº 1";
+                    oLoja.idUsername = resultUsuario.Item1.id;
+
+                    base.Criar(oLoja);
+                    base.Persistir();
+
+                    return new Tuple<loja, bool, string>(oLoja, true, "Bem-vindo ao Ponte Verde!");
+                }
+                catch (Exception)
+                {
+                    return new Tuple<loja, bool, string>(oLoja, false, "Desculpe o transtorno, ocorreu algum erro!");
+                }
+            }
+            else
+            {
+                return new Tuple<loja, bool, string>(null, false, "Desculpe o transtorno, ocorreu algum erro!"); 
+            }
+
+        }
     }
 
     public class LojaMetadata
@@ -47,7 +94,7 @@ namespace ponteverde.Models
         [Display(Name = "Longitude")]
         public decimal @long { get; set; }
 
-        [Display(Name = "Status do perfil")]
+        [Display(Name = "CNPJ")]
         public int cnpj { get; set; }
 
         [Display(Name="Telefone")]

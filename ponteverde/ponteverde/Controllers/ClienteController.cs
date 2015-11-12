@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ponteverde.Models;
-using ponteverde.Controllers.Dto;
+using ponteverde.Helpers;
+using ponteverde.Helpers.ViewModel;
 
 namespace ponteverde.Controllers
 {
@@ -31,7 +32,7 @@ namespace ponteverde.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public ActionResult Create(ClienteCadastroDto dadosCliente)
+        public ActionResult Create(ClienteCadastroViewModel dadosCliente)
         {
             try
             {

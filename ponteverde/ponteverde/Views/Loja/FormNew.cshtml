@@ -1,0 +1,97 @@
+﻿
+@model ponteverde.Helpers.ViewModel.LojaCadastroViewModel
+@{
+    
+    ViewBag.Title = "New";
+    
+    var ajaxOptions = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "login-form",
+        InsertionMode = InsertionMode.Replace
+
+    };
+}
+@using (Ajax.BeginForm("Create", "Loja", ajaxOptions, new { id = "form-loja-new", role = "form" }))
+{
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Usuario.username, new { @class = "mdl-textfield__input", id = "UsuarioUsername" })
+        <label class="mdl-textfield__label" for="UsuarioUsername">Login (sem espaços ou caractéres especiais)</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.username)</span>
+    </div>
+    
+    @*<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label for="password" class="mdl-textfield__label">Password </label>
+        @Html.TextBoxFor(model => model.Usuario.username, new { @class = "mdl-textfield__input", id = "password", type = "password" })
+        <span class="mdl-textfield__error">Html.ValidationMessageFor(model => model.Usuario.password)</span>
+    </div>*@
+    
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Usuario.password, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
+        <label class="mdl-textfield__label" for="sample2">Senha</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.password)</span>
+    </div>
+   
+    
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Loja.nome, new { @class = "mdl-textfield__input", id = "LojaNome" })
+        <label class="mdl-textfield__label" for="LojaNome">Nome da Loja</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Loja.nome)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Usuario.email, new { @class = "mdl-textfield__input", id = "UsuarioEmail" })
+        <label class="mdl-textfield__label" for="UsuarioEmail">Email</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.email)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Loja.telefone, new { @class = "mdl-textfield__input", id = "LojaTelefone" })
+        <label class="mdl-textfield__label" for="LojaTelefone">Telefone</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Loja.telefone)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Loja.linkface, new { @class = "mdl-textfield__input", id = "LojaLinkFace" })
+        <label class="mdl-textfield__label" for="LojaLinkFace">Link do Facebook</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Loja.linkface)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Loja.cnpj, new { @class = "mdl-textfield__input", id = "LojaCnpj" })
+        <label class="mdl-textfield__label" for="LojaCnpj">CNPJ</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Loja.cnpj)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Loja.cep, new { @class = "mdl-textfield__input", id = "cep" })
+        <label class="mdl-textfield__label" for="cep">CEP</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Loja.cep)</span>
+    </div>
+    
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Local.cidade, new { @class = "mdl-textfield__input", id = "cidade" })
+        <label class="mdl-textfield__label" for="cidade">Cidade</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Local.cidade)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.Local.bairro, new { @class = "mdl-textfield__input", id = "bairro" })
+        <label class="mdl-textfield__label" for="bairro">Bairro</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Local.bairro)</span>
+    </div>
+
+    @Html.HiddenFor(model => model.Local.endereco, new { id = "endereco" })
+
+    <p style="color:#de3226;">@ViewBag.Error</p>
+        <!-- ERRRMENSAGE -->
+        <!-- <span class="mdl-textfield__error">Digits only</span> -->
+    <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+        CADASTRAR
+    </button>
+    <a href="~/Views/Home/Index" type="submit" id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">keyboard_arrow_left</i> VOLTAR PARA LOGIN
+    </a>
+
+
+}
