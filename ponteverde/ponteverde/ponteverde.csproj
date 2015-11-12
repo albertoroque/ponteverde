@@ -278,6 +278,7 @@
     <Content Include="Views\Loja\FormNew.cshtml" />
     <Content Include="Views\Busca\Busca.cshtml" />
     <Content Include="Views\Busca\BuscaResult.cshtml" />
+    <Content Include="Views\Loja\Perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
