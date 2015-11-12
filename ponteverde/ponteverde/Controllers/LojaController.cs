@@ -37,7 +37,8 @@ namespace ponteverde.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    lojaBusinessModels iLoja = new lojaBusinessModels(bd);
+
+                    lojaBusinessModels iLoja = new lojaBusinessModels(bd);                    
                     var result = iLoja.CriarLoja(dadosLoja);
                     if (result.Item2)
                     {

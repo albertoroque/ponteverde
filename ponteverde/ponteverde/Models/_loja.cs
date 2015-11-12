@@ -100,7 +100,7 @@ namespace ponteverde.Models
         public decimal @long { get; set; }
 
         [Display(Name = "CNPJ")]
-        public int cnpj { get; set; }
+        public int? cnpj { get; set; }
 
         [Display(Name="Telefone")]
         public string telefone { get; set; }
