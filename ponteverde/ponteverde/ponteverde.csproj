@@ -273,6 +273,7 @@
     <Content Include="Views\Cliente\FormNew.cshtml" />
     <Content Include="Views\Loja\New.cshtml" />
     <Content Include="Views\Loja\FormNew.cshtml" />
+    <Content Include="Views\Loja\Perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
