@@ -12,9 +12,15 @@ namespace ponteverde.Controllers
     public class HomeController : Controller
     {        
         PvEntities bd = new PvEntities();
-        
-
+       
         public ActionResult Index()
+        {
+            return View();
+        }
+
+
+        [Route("entrar")]
+        public ActionResult Entrar()
         {
             return View();
         }

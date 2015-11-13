@@ -1,73 +1,67 @@
-﻿@model ponteverde.Models.usuario
-
-@{
-    ViewBag.Title = "Login";
-    
-    var ajaxOptions = new AjaxOptions()
-    {       
-        HttpMethod = "POST",                  
-    };
+﻿@{
+    Layout = "";
 }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-green.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Ponte Verde</title>
 
-<body id="login-body">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-       <!-- Title -->
-        <span id="login-title" class="mdl-layout-title">PonteVerde<img src="~/Content/images/logo.png"></span>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <div class="mdl-layout-spacer"></div>
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="~/Content/images/favicon.ico">
 
-        <!-- SOBRE NÓS -->
-        <a href="perfil.html">
-           <button class="mdl-button mdl-js-button" style="color:white;">
-            SOBRE NÓS         
-            </button>
-          </a>
-      </div>
-    </header>
-    
-    <main class="mdl-layout__content">
-     <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">    
-        <div id="login-form">
-          <h5>Entrar no PonteVerde</h5>          
-           @using (Ajax.BeginForm("Logar", "Home", ajaxOptions, new { @class = "", role = "form"}))
-           {                          
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">              
-              @Html.TextBoxFor(model => model.username, new { @class = "mdl-textfield__input", id = "sample1 login-input" })
-              <label class="mdl-textfield__label" for="sample1">email ou username</label>                                             
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">              
-              @Html.PasswordFor(model => model.password, new { @class = "mdl-textfield__input", @type="password", id = "sample2 login-input" })
-              <label class="mdl-textfield__label" for="sample2">senha</label>
-            </div>   
-               
-            <p style="color:#ED0021;">@ViewBag.Login</p>     
-            <button id="login-button" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-            ENTRAR
-            </button>
-           }
-        </div>
-      </section>
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PonteVerde">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
 
-      <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">        
-          <div id="login-form">              
-            <a href="~/Cliente/Cadastro" id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-              <i class="material-icons">account_circle</i> CADASTRAR COMO CLIENTE
-            </a>                                              
-              <a href="~/Loja/Cadastro" id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                  <i class="material-icons">store</i> CADASTRAR SUA LOJA
-              </a>            
-          </div>        
-      </section>
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="~/Content/images/busca.jpg">
+    <meta name="msapplication-TileColor" content="#3372DF">
 
-      <!-- RODAPE -->
-      <footer class="footer">
-        <div class="footer-title">
-          <h6 style="color:#666;">- 2015 PONTEVERDE</h6>          
-        </div>
-      </footer>
+    <!-- for FF, Chrome, Opera -->
+    <link rel="icon" type="image/png" href="~/Content/images/favicon.ico" sizes="16x16">
+    <link rel="icon" type="image/png" href="~/Content/images/favicon.ico" sizes="32x32">
 
-    </main>
-  </div>
+    <!-- for IE -->
+    <link rel="icon" type="image/x-icon" href="~/Content/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/images/favicon.ico" />
+
+    <link rel="stylesheet" href="~/Content/Site.css" content="text/css">
+</head>
+<body id="wc-body">
+    <div id="welcome">
+        <img id="welcome-img" src=" ~/Content/images/logo-trans.png" />
+        <h2>Bem-vindo ao Ponte Verde</h2>
+        <br />
+        <center>
+            <a href="~/home">
+                <button id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised ">
+                    <i class="material-icons">insert_emoticon</i> sou visitante
+                </button>
+            </a>
+
+            <br />
+
+            <a href="~/entrar">
+                <button id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised ">
+                    <i class="material-icons">account_box</i> entrar
+                </button>
+            </a>
+        </center>
+    </div>
 </body>
+</html>
+
+
+
+

@@ -247,6 +247,7 @@
       <DependentUpon>PvModel.edmx</DependentUpon>
       <LastGenOutput>PvModel.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\roboto-regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel\jquery.bpopup.min.js" />
     <Content Include="Scripts\carousel\owl-carousel\AjaxLoader.gif" />
@@ -278,7 +279,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Entrar.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Cliente\Perfil.cshtml" />
     <Content Include="Views\Cliente\New.cshtml" />
@@ -290,6 +291,8 @@
     <Content Include="Views\Loja\Perfil.cshtml" />
     <Content Include="Views\Shared\Drawer.cshtml" />
     <Content Include="Views\LojaFavorita\Favoritas.cshtml" />
+    <Content Include="Views\Welcome\Welcome.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

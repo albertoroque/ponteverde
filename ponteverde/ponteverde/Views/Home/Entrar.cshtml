@@ -1,0 +1,73 @@
+﻿@model ponteverde.Models.usuario
+
+@{
+    ViewBag.Title = "Login";
+    
+    var ajaxOptions = new AjaxOptions()
+    {       
+        HttpMethod = "POST",                  
+    };
+}
+
+<body id="login-body">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+       <!-- Title -->
+        <span id="login-title" class="mdl-layout-title">PonteVerde<img src="~/Content/images/logo.png"></span>
+
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- SOBRE NÓS -->
+        <a href="perfil.html">
+           <button class="mdl-button mdl-js-button" style="color:white;">
+            SOBRE NÓS         
+            </button>
+          </a>
+      </div>
+    </header>
+    
+    <main class="mdl-layout__content">
+     <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">    
+        <div id="login-form">
+          <h5>Entrar no PonteVerde</h5>          
+           @using (Ajax.BeginForm("Logar", "Home", ajaxOptions, new { @class = "", role = "form"}))
+           {                          
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">              
+              @Html.TextBoxFor(model => model.username, new { @class = "mdl-textfield__input", id = "sample1 login-input" })
+              <label class="mdl-textfield__label" for="sample1">email ou username</label>                                             
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">              
+              @Html.PasswordFor(model => model.password, new { @class = "mdl-textfield__input", @type="password", id = "sample2 login-input" })
+              <label class="mdl-textfield__label" for="sample2">senha</label>
+            </div>   
+               
+            <p style="color:#ED0021;">@ViewBag.Login</p>     
+            <button id="login-button" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            ENTRAR
+            </button>
+           }
+        </div>
+      </section>
+
+      <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">        
+          <div id="login-form">              
+            <a href="~/Cliente/Cadastro" id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+              <i class="material-icons">account_circle</i> CADASTRAR COMO CLIENTE
+            </a>                                              
+              <a href="~/Loja/Cadastro" id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                  <i class="material-icons">store</i> CADASTRAR SUA LOJA
+              </a>            
+          </div>        
+      </section>
+
+      <!-- RODAPE -->
+      <footer class="footer">
+        <div class="footer-title">
+          <h6 style="color:#666;">- 2015 PONTEVERDE</h6>          
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
