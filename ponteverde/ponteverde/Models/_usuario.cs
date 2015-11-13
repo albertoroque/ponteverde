@@ -66,7 +66,6 @@ namespace ponteverde.Models
                     }
 
                     base.Criar(usuario);
-                    base.Persistir();
 
                     return new Tuple<usuario,bool>(usuario, true);
                 }
@@ -108,12 +107,12 @@ namespace ponteverde.Models
         [Display(Name = "Login")]
         [Required(ErrorMessage = "LogIn é obrigatório")]
         [RegularExpression(@"^(?=[A-Za-z0-9])(?!.*[._()\[\]-]{2})[A-Za-z0-9._()\[\]-]{2,30}$", ErrorMessage = "login inválido")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "digite um username com 3 caracteres no mínimo!")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Digite um username com 3 caracteres no mínimo!")]
         public string username { get; set; }
         
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "senha é obrigatória")]
-        [StringLength(32, MinimumLength = 6, ErrorMessage = "digite uma senha de 6 caracteres no mínimo!")]
+        [StringLength(32, MinimumLength = 6, ErrorMessage = "Digite uma senha de 6 caracteres no mínimo!")]
         public string password { get; set; }
 
         [Display(Name = "Email")]  
