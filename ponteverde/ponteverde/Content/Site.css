@@ -313,13 +313,13 @@ footer{
 		float: left;
 		position: absolute;
 		top: -10px;
-		right: 130px;
+		left: 150px;
 	}
 	#form-modal h6{
 		float: left;
 		position: absolute;
 		top: 30px;
-		right: 150px;
+		left: 150px;
 	}
 
 	#form-modal button{
@@ -335,7 +335,7 @@ footer{
 
 	#form-modal-cancela{
 		position: absolute;
-		margin-right: 170px;
+		margin-right: 110px;
 		color: rgb(0,150,136);
 	}
 
@@ -391,7 +391,7 @@ footer{
 
 	#form-modal-cancela{
 		position: absolute;
-		margin-right: 170px;
+		margin-right: 100px;
 	}
 	}
 
@@ -1069,6 +1069,18 @@ login-form span{
 	}
 
     #login-form > form > div:nth-child(7){
+		width: 90%;
+	}
+
+    #login-form > form > div:nth-child(8){
+		width: 90%;
+	}
+
+	#login-form > form > div:nth-child(9){
+		width: 90%;
+	}
+
+    #login-form > form > div:nth-child(10){
 		width: 90%;
 	}
 	

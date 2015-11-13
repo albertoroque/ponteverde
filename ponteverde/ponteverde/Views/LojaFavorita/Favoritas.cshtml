@@ -1,4 +1,4 @@
-﻿@model ponteverde.Models.lojafavorita
+﻿@model ICollection<ponteverde.Models.lojafavorita>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";   
@@ -50,20 +50,22 @@
                         </div>
                         <!-- end filtro dos dados -->
                         <!-- cards da busca -->
-                        <div class="b-list-card ml-list-card">
-                            <a href="loja.html">
-                                <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/logo-loja1.jpg')">
+                        @foreach (var lojas in Model)
+                        {
+                            <div class="b-list-card ml-list-card">
+                                <a href="~/Loja/Perfil/@lojas.loja.idUsername">
+                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../@lojas.loja.fotoperfil')">
+                                    </div>
+                                </a>
+                                <div class="b-list-card-text">
+                                    <p class="b-list-card-text-1 ml-list-card-text-1">@lojas.loja.nome</p>
                                 </div>
-                            </a>
-                            <div class="b-list-card-text">
-                                <p class="b-list-card-text-1 ml-list-card-text-1">Portal dos Orgânicos</p>
+                                <div class="b-list-card-bt">
+                                                                        
+                                </div>
                             </div>
-                            <div class="b-list-card-bt">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                    Ir até a página
-                                </button>
-                            </div>
-                        </div>                        
+                        }                        
+                        <!-- END cards da busca -->                        
                     </div>
                 </div>
 

@@ -92,12 +92,13 @@
                                     </div>
                                     <div class="p-prod-desc">
                                         <h5>Portal Orgânicos</h5>
-                                        <a href="~/Loja/Perfil/@listaloja.loja.id">
+                                        <a target="_blank" 
+                                           href="http://@String.Format("{0}{1},{2}-{3},{4}","www.google.com.br/maps/place/",@listaloja.loja.logradouro,@listaloja.loja.numero,@listaloja.loja.bairro.nome,@listaloja.loja.bairro.cidade.nome)">
                                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
                                                 <i class="material-icons">directions_car</i>
                                             </button>
                                         </a>
-                                        <a href="">
+                                        <a href="~/Loja/Perfil/@listaloja.loja.idUsername">
                                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
                                                 <i class="material-icons">book</i>
                                             </button>
