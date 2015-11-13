@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ponteverde.Models;
 using ponteverde.Helpers;
 using ponteverde.Helpers.ViewModel;
+using ponteverde.Helpers.SessionController;
 
 namespace ponteverde.Controllers
 {
@@ -21,6 +22,19 @@ namespace ponteverde.Controllers
             clienteBusinessModels iCliente = new clienteBusinessModels(bd);
 
             var cliente = iCliente.ObterPerfilPorConta(idConta);
+                       
+            var session = Session["UserSession"] as UserSession;
+            if (cliente.idUsername == session.idConta)
+            {
+                session.idConta = cliente.idUsername;
+                session.meuPerfil = "Cliente/Perfil/" + cliente.idUsername;
+                session.idBairro = cliente.idBairro;
+                session.nome = cliente.nome;
+                session.email = cliente.usuario.email;               
+            }
+
+            Session["UserSession"] = session;   
+            
             return View(cliente);
         }
 

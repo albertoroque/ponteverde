@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Perfil";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;
 }
 
 
@@ -28,39 +30,25 @@
                     <i class="material-icons">more_vert</i>
                 </button>
 
-                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                    for="demo-menu-lower-right">
-                    <li class="mdl-menu__item">Meu Perfil</li>
-                    <li class="mdl-menu__item">Logout</li>
-                    <a href="config/config-loja.html"><li class="mdl-menu__item">Configurações</li></a>
-                    <li class="mdl-menu__item">Notificações</li>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">                    
+                    <li class="mdl-menu__item"><a href="">Logout</a></li>
+                    @if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}                    
                 </ul>
             </div>
         </header>
-
-        <!-- MENU GAVETA -->
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title" id="p-layout-title">
-                <h3 id="p-nome"> <i class="material-icons">arrow_back</i> Nome Sessão</h3>
-                <h6>Email da Sessão</h6>
-            </span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html"><i class="material-icons" role="presentation">home</i>Buscar</a>
-                <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons" role="presentation">account_circle</i> Meu Perfil</a>
-                <a class="mdl-navigation__link" href="mylojas.html"><i class="material-icons" role="presentation">store</i>Lojas Favoritas</a>
-                <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">notifications</i> Notificações</a>
-                <a class="mdl-navigation__link" href="busca.html"><i class="material-icons" role="presentation">find_in_page</i> Pesquisar</a>
-            </nav>
-        </div>
-
+     
+        <!-- MENU GAVETA-->
+        @Html.Partial("~/Views/Shared/Drawer.cshtml")
+        
         <!-- CONTEÚDO -->
         <main class="mdl-layout__content ">
 
-            <!-- BOTAO PARA RETORNAR -->
-            <button id="b-top" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                <i class="material-icons">thumb_up</i>
-            </button>
-
+            @if (oUserSession.isCliente)
+            {                                  
+               <button id="b-top" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                   <i class="material-icons">thumb_up</i>
+               </button>                
+            }
             <div class="mdl-grid" id="perfil-grid">
                 <div class="mdl-cell mdl-cell--12-col" id="perfil-col-12">
                     <div id="wallpaper-perfil" style="background-image: url(../@Model.fotowall);" class="mdl-shadow--4dp">

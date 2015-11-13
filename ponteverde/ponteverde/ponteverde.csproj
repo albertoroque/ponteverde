@@ -121,6 +121,7 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
+    <Compile Include="Controllers\LojaFavoritaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,6 +289,7 @@
     <Content Include="Views\Busca\BuscaResult.cshtml" />
     <Content Include="Views\Loja\Perfil.cshtml" />
     <Content Include="Views\Shared\Drawer.cshtml" />
+    <Content Include="Views\LojaFavorita\Favoritas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -31,14 +31,16 @@ namespace ponteverde.Controllers
             {
                 if(usuario.Item3)
                 {
-                    session.id = usuario.Item1.id;
-                   
-                    Session["UserSession"] = session;                    
+                    session.idConta = usuario.Item1.id;
+                    session.isCliente = true;
+                    Session["UserSession"] = session;
                     return RedirectToAction("Perfil", "Cliente", new { idConta = usuario.Item1.id });
                 }
                 else
                 {
-                    Session["UserSession"] = usuario.Item1.id;
+                    session.idConta = usuario.Item1.id;
+                    session.isCliente = false;
+                    Session["UserSession"] = session;
                     return RedirectToAction("Perfil", "Loja", new { idConta = usuario.Item1.id });                    
                 }                
             }

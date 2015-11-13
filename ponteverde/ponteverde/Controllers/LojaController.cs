@@ -1,4 +1,5 @@
-﻿using ponteverde.Helpers.ViewModel;
+﻿using ponteverde.Helpers.SessionController;
+using ponteverde.Helpers.ViewModel;
 using ponteverde.Models;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,19 @@ namespace ponteverde.Controllers
         public ActionResult Perfil(long idConta)
         {
             var iLoja = new lojaBusinessModels(bd);
-
+            
             var loja = iLoja.ObterPerfilPorConta(idConta);
+
+            var session = Session["UserSession"] as UserSession;
+            if (loja.idUsername == session.idConta)
+            {
+                session.idConta = loja.idUsername;
+                session.meuPerfil = "Loja/Perfil/" + loja.idUsername;
+                session.idBairro = loja.idBairro;
+                session.nome = loja.nome;
+                session.email = loja.usuario.email;
+            }
+            
             return View(loja);
         }
 
@@ -56,6 +68,6 @@ namespace ponteverde.Controllers
                 ViewBag.Error = ex;
             }
             return PartialView("New", dadosLoja);
-        }
+        }     
     }
 }

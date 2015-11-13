@@ -1,0 +1,82 @@
+﻿@model ponteverde.Models.lojafavorita
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";   
+}
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span id="logo" class="mdl-layout-title">Minhas Lojas</span>
+
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+
+                <!-- BOTAO BOLINHA -->
+                <!-- Right aligned menu below button -->
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">more_vert</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item"><a href="">Logout</a></li>                   
+                </ul>
+            </div>
+        </header>
+
+        <!-- MENU GAVETA-->
+        @Html.Partial("~/Views/Shared/Drawer.cshtml")
+        
+        <!-- CONTEÚDO -->
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <!-- Your content goes here -->
+                <div class="mdl-grid" id="perfil-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+
+                        <!-- FILTRO DOS DADOS -->
+                        <div id="content-filter" class="mdl-cell mdl-cell--12-col mdl-layout__header-row mdl-typography--display-4">
+                            <div class="mdl-layout-spacer"></div>
+                            <h6>Na minha cidade</h6>
+                            <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+                                <i class="material-icons" style="margin-top:5px;">keyboard_arrow_down</i>
+                            </button>
+                            <ul id="content-filter-menu" class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                                <a href=""><li class="mdl-menu__item "><i class="material-icons" role="presentation">gps_fixed</i> Lojas mais próximas</li></a>
+                                <a href=""><li class="mdl-menu__item"><i class="material-icons" role="presentation">hdr_weak</i> No meu bairro</li></a>
+                                <a href=""><li class="mdl-menu__item"><i class="material-icons" role="presentation">lens</i> Na minhas cidade</li></a>
+                            </ul>
+                        </div>
+                        <!-- end filtro dos dados -->
+                        <!-- cards da busca -->
+                        <div class="b-list-card ml-list-card">
+                            <a href="loja.html">
+                                <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('images/logo-loja1.jpg')">
+                                </div>
+                            </a>
+                            <div class="b-list-card-text">
+                                <p class="b-list-card-text-1 ml-list-card-text-1">Portal dos Orgânicos</p>
+                            </div>
+                            <div class="b-list-card-bt">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                    Ir até a página
+                                </button>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <br>
+                <center>
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                        <i class="material-icons">home</i>
+                    </button>
+                </center>
+
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>
