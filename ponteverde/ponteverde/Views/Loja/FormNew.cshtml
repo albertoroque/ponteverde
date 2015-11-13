@@ -20,14 +20,8 @@
         <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.username)</span>
     </div>
     
-    @*<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label for="password" class="mdl-textfield__label">Password </label>
-        @Html.TextBoxFor(model => model.Usuario.username, new { @class = "mdl-textfield__input", id = "password", type = "password" })
-        <span class="mdl-textfield__error">Html.ValidationMessageFor(model => model.Usuario.password)</span>
-    </div>*@
-    
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.Usuario.password, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
+        @Html.PasswordFor(model => model.Usuario.password, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
         <label class="mdl-textfield__label" for="sample2">Senha</label>
         <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.password)</span>
     </div>
@@ -59,7 +53,7 @@
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         @Html.TextBoxFor(model => model.Loja.cnpj, new { @class = "mdl-textfield__input", id = "LojaCnpj" })
-        <label class="mdl-textfield__label" for="LojaCnpj">CNPJ</label>
+        <label class="mdl-textfield__label" for="LojaCnpj">CNPJ (Informe apenas números!)</label>
         <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Loja.cnpj)</span>
     </div>
 

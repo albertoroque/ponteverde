@@ -100,6 +100,8 @@ namespace ponteverde.Models
         public decimal longitude { get; set; }
 
         [Display(Name = "CNPJ")]
+        [StringLength(14, MinimumLength = 0, ErrorMessage = "CNPJ tem no máximo 14 caracteres!")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage="Informe apenas números!")]
         public int? cnpj { get; set; }
 
         [Display(Name="Telefone")]
