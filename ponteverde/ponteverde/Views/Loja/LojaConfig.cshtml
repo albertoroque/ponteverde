@@ -1,0 +1,98 @@
+﻿@model ponteverde.Models.loja
+@{
+    Layout = "~/Views/Shared/_LayoutConfig.cshtml";
+
+    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;  
+}
+  
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span id="title-config" class="mdl-layout-title"> <a href="~/@oUserSession.meuPerfil"><i class="material-icons">arrow_back</i></a> Editar Perfil</span>
+
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+
+            <!-- PESQUISA BOX -->
+            <a href="config/produtos">
+                <button class="mdl-button mdl-js-button" style="color:white;">
+                    <i class="material-icons">add</i> ADD PROD
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="mdl-layout__content">
+
+        <div class="mdl-grid" id="perfil-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div id="wallpaper-perfil" style="background-image: url(../@Model.fotowall);" class="mdl-shadow--4dp">
+                </div>
+                <div id="foto-perfil" style="background-image: url(../@Model.fotoperfil); " class="mdl-shadow--6dp"></div>
+                <div id="actions-perfil">
+                    <button id="loja-change-perfil" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        TROCAR FOTO PERFIL
+                    </button>
+                    <button id="loja-change-wall" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        TROCAR WALLPAPER
+                    </button>
+                </div>
+            </div>
+
+            <br><br><br><br>
+
+            <!-- MENU PAGES -->
+            <div id="p-pages-menu">
+                <br><br><br>
+
+                <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                    <div class="mdl-tabs__tab-bar">
+                        <a href="#lannisters-panel" class="mdl-tabs__tab is-active">
+                            Produtos
+                        </a>
+                        <a href="#targaryens-panel" class="mdl-tabs__tab">
+                            Dados
+                        </a>
+                    </div>
+
+                    <!-- PRODUTOS --------------------------------------------------------------------------------------- -->
+                    <div class="mdl-tabs__panel is-active" id="lannisters-panel">
+                        <div class="mdl-grid">
+                            <!-- produto -->
+                            @foreach (var produtos in Model.produto)
+                            {                                                            
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-card mdl-shadow--3dp l-prod">
+                                <div class="l-prod-img">
+                                    <img src="../@produtos.linkfoto">
+                                </div>
+                                <div class="l-prod-desc">
+                                    <h5>@produtos.nome</h5>
+                                    <p>R$ @produtos.preco</p>
+                                </div>
+                                <!-- button crud de produto-->                                
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="@produtos.id">
+                                    <i class="material-icons">more_vert</i>
+                                </button>
+                                <ul class="mdl-menu mdl-js-menu mdl-menu--top-right" for="@produtos.id">                            
+                                    <li class="mdl-menu__item">Deletar</li>
+                                    <li class="mdl-menu__item">Editar</li>
+                                    <li class="mdl-menu__item">Detalhes...</li>
+                                </ul>
+                            </div>
+                            }                            
+                        </div>
+                    </div>
+
+                    <!-- PROMOS --------------------------------------------------------------------------------------- -->
+                    <div class="mdl-tabs__panel" id="targaryens-panel">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+

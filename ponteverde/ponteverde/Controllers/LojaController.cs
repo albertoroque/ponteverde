@@ -9,19 +9,19 @@ using System.Web.Mvc;
 
 namespace ponteverde.Controllers
 {
-    [RoutePrefix("Loja")]
+    [RoutePrefix("loja")]
     public class LojaController : Controller
     {
         PvEntities bd = new PvEntities();
 
-        [Route("Cadastro")]
+        [Route("cadastro")]
         public ActionResult New()
         {
             return View();
         }
 
         [HttpGet]
-        [Route("Perfil/{idConta:long:min(1)}")]
+        [Route("perfil/{idConta:long:min(1)}")]
         public ActionResult Perfil(long idConta)
         {
             var iLoja = new lojaBusinessModels(bd);
@@ -42,7 +42,7 @@ namespace ponteverde.Controllers
         }
 
         [HttpPost]
-        [Route("Create")]
+        [Route("create")]
         public ActionResult Create(LojaCadastroViewModel dadosLoja)
         {
             try
@@ -68,6 +68,88 @@ namespace ponteverde.Controllers
                 ViewBag.Error = ex;
             }
             return PartialView("New", dadosLoja);
-        }     
+        }
+
+        [Route("config")]
+        public ActionResult LojaConfig()
+        {
+            var session = Session["UserSession"] as UserSession;
+            if (session.isCliente)
+            {
+                ViewBag.ErrorMsg = "Você não tem acesso a essa página.";
+                return View("Erro");
+            }
+            else
+            {
+                var iLoja = new lojaBusinessModels(bd);
+                var loja = iLoja.ObterPerfilPorConta(session.idConta);
+                return View(loja);
+            }            
+        }
+
+        [Route("config/produtos")]
+        public ActionResult NewProduto(string cam)
+        {
+            var session = Session["UserSession"] as UserSession;
+            if (session.isCliente)
+            {
+                ViewBag.ErrorMsg = "Você não tem acesso a essa página.";
+                return View("Erro");
+            }
+            else
+            {
+                if (cam == null)
+                {
+                    ViewBag.Image = "http://www.datastax.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png";
+                }
+                else
+                {
+                    ViewBag.Image = cam;
+                }
+                
+                return View();
+            }             
+        }
+
+        [HttpPost]
+        [Route("config/produtos/criar")]
+        public ActionResult CreateProduto(produto dadosProduto)
+        {
+            return View();
+        }
+
+        
+        [HttpPost]
+        public ActionResult FileUpload(HttpPostedFileBase file)
+        {
+            string cam = null;            
+            if (file != null)
+            {
+                //ERRO SE FOTO MAIOR QUE 3 mbytes
+                if (file.ContentLength > 3200000)
+                {
+
+                    return RedirectToAction("Index", "Home", new { cam = String.Empty, msg = "Imagem maior que 3mbs" });
+                }
+
+                string extension = System.IO.Path.GetExtension(file.FileName);
+
+                if (!extension.Equals(".jpg") && !extension.Equals(".png"))
+                {
+                    return RedirectToAction("Index", "Home", new { cam = String.Empty, msg = "Tipo de arquivo não suportado" });
+                }
+
+                string g = Guid.NewGuid().ToString("N");
+
+                string filename = g + extension;
+                string path = System.IO.Path.Combine(Server.MapPath("~/images/profile"), filename);
+                cam = ("../images/profile/" + filename);
+
+                file.SaveAs(path);
+            }
+
+            return RedirectToAction("New", "Produto", new { cam = cam});
+        }
+
     }
 }

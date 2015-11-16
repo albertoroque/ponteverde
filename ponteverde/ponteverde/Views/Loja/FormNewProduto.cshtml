@@ -1,0 +1,125 @@
+﻿
+@model ponteverde.Models.produto
+
+@{
+
+    ViewBag.Title = "New";
+
+    var ajaxOptions = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "form-produto-new",
+        InsertionMode = InsertionMode.Replace
+
+    };
+
+
+    AjaxOptions ajaxOptionsFile = new AjaxOptions()
+    {
+        HttpMethod = "Post",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "foto-partial-img",
+    };
+}
+
+@using (Ajax.BeginForm("FileUpload", "Loja", ajaxOptionsFile, new { enctype = "multipart/form-data" }))
+{
+    <div class="upload">
+        <br />
+
+        <div id="ativa" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            SELECIONAR FOTO
+        </div>
+
+        <input id="esconde" type="file" name="file" />
+        <br />
+
+        <button id="envia" style="display:none;"></button>
+    </div>
+        }
+    <div id="foto-partial-img">
+        @Html.Partial("~/Views/Loja/PreviewPhoto.cshtml")
+        @*<div id="upload-foto-load" class="mdl-spinner mdl-js-spinner is-active"></div>*@
+    </div>  
+}
+
+@using (Ajax.BeginForm("CreateProduto", "Loja", ajaxOptions, new { id = "form-prod-new", role = "form" }))
+{                  
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.nome, new { @class = "mdl-textfield__input", id = "ProdNome" })
+        <label class="mdl-textfield__label" for="ProdNome">título</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.nome)</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.PasswordFor(model => model.preco, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
+        <label class="mdl-textfield__label" for="sample2">preço</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.preco)</span>
+    </div>
+
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.TextBoxFor(model => model.descricao, new { @class = "mdl-textfield__input", id = "ProdDescricao" })
+        <label class="mdl-textfield__label" for="ProdDescricao">descrição breve</label>
+        <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.descricao)</span>
+    </div>
+
+    <!-- Default Slider -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div id="tt1" style="color:#ccc;">prioridade</div>
+        <div class="mdl-tooltip" for="tt1">Prioridade na ordem de apresentação dos produtos na página da loja</div>
+        <br />
+        @Html.TextBoxFor(model => model.prioridade, new { @class="mdl-slider mdl-js-slider", @type = "range", @min="0", @max="100", @value="50", @tabindex="0"})        
+    </div>
+           
+    <p style="color:#de3226;">@ViewBag.Error</p>
+       
+    <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+        REGISTRAR
+    </button>    
+}
+<style>
+    div.upload {
+        width: 90%;
+        color: white;
+        z-index: -4;        
+    }
+
+    #ativa {
+        z-index: 1 !important;
+        width: 80%;
+        cursor: pointer;
+    }
+
+    #esconde {
+        z-index: 2;
+        font-size: 20px; /* Aumenta tamanho do campo */
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+        position: absolute;
+        top: -30px;
+        position: relative;
+    }
+
+    #upload-foto {
+        z-index: 99;
+        position: relative;
+    }
+
+    #upload-foto-load {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        margin-top: 50px;
+        z-index: 2;
+    }
+</style>
+<script>
+    $("#esconde").change(function ()
+    {
+        $("#path").html($(this).val());
+        $("#envia").trigger('click');
+    });
+</script>

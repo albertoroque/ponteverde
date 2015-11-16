@@ -18,11 +18,8 @@ namespace ponteverde.Controllers
         public ActionResult Favoritas()
         {                
             var iLojaFav = new lojaFavoritaBusinessModels(bd);
-
             var session = Session["UserSession"] as UserSession;
-
-            var listaLojas = iLojaFav.ObterPorCliente(session.idConta);
-              
+            var listaLojas = iLojaFav.ObterPorCliente(session.idConta);              
             return View(listaLojas);
         }
     }

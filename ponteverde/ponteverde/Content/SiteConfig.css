@@ -1,0 +1,441 @@
+*{
+
+}
+
+.mdl-layout .mdl-layout__drawer .mdl-navigation__link {
+	  display: -webkit-box !important;
+	  display: -webkit-flex !important;
+	  display: -ms-flexbox !important;
+	  display: flex !important;
+	  -webkit-box-orient: horizontal;
+	  -webkit-box-direction: normal;
+	  -webkit-flex-direction: row;
+	      -ms-flex-direction: row;
+	          flex-direction: row;
+	  	-webkit-box-align: center;
+	  -webkit-align-items: center;
+	      -ms-flex-align: center;
+	          align-items: center;	  
+	  font-weight: 500;
+	}
+
+	.mdl-layout__header .mdl-layout-title{		
+		font-weight: 300;		
+		margin-top: 3px;
+		left: -50px;			
+	}
+
+	.mdl-layout__header .mdl-layout-title img{		
+		margin-bottom: 6px;
+		margin-left: 3px;	
+	}
+
+	#title-config a{
+		color: white;		
+	}
+
+	#title-config a i{
+		vertical-align: middle;
+		margin-bottom: 4px;		
+	}
+
+	/* VISUAL PARA CELULAR*/
+	@media screen and (max-width: 480px){
+		
+		.mdl-layout__header .mdl-layout-title{		
+			margin-left:0px;					
+		}
+		
+	}
+
+/*-------------------------------------------FOOTER*/
+footer{
+	clear: both;
+	width: 100%;
+	margin-top: 100px;	
+}
+
+.footer-title{
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*------------------------------------------ PERFIL*/
+
+#logo{
+	margin-left: 20px;
+}
+
+#p-nome{
+	margin-bottom: -20px;
+	background-color: ;
+}
+
+#p-layout-title{
+	height: 170px;
+}
+
+#perfil-grid{
+	background-color:;	
+	padding: 0;
+	margin:0;
+	text-align: center;	
+}
+
+#perfil-grid i{
+	vertical-align: sub;
+}
+
+#perfil-col-12{
+	margin: 0 0 ;
+	width: 100%;
+	background-color:;
+	height: 400px;
+}
+
+header > div.mdl-layout__drawer-button > i{
+	margin-top: 12px;	
+}
+
+#wallpaper-perfil{
+	width: 100%;
+	height: 500px;	
+	-webkit-filter: brightness(0.7);
+	position: relative;
+	top: 0;
+	left: 0;
+	background-color:;
+	background-size:100% 135%;
+	z-index: 1;		
+}	
+
+#foto-perfil{
+	height: 200px;
+	width: 200px;
+	border-radius: 100px;	
+	margin: 0 auto;
+	z-index: 2;	
+	position: relative;
+	top: -380px;
+	left: 0;
+	background-size:100% 100%;
+}
+
+#actions-perfil{	
+	background-color:;		
+	margin-top: -300px;	
+	position: relative;
+	z-index: 4;
+	color: red;
+}
+
+#p-pages-menu{
+	background-color:;
+	width: 100%;	
+	top: 0px;
+	margin: 0 auto;
+	padding: 0;		
+}
+
+.p-prod{
+	background-color: #f6f6f6;	
+	height: 220px;
+}
+	.p-prod-img{
+		height: 130px;
+		width: 100%;
+		background-color: #f6f6f6;
+		display: block;
+	}
+
+		.p-prod-img img{
+			width: 100%;
+			height: 100%;			
+		}
+
+	.p-prod-desc{
+		height: 70px;
+		width: 100%;
+		background-color:;	
+	}	
+	.p-prod-desc h5{
+			margin: 0;
+			padding: 0;
+			margin-top: 10px;
+			margin-bottom: 8px;
+			font-size: 14px;
+		}
+
+	.p-prod-desc > a {
+		text-decoration: none;	
+	}
+	.p-prod-desc > a > button{
+		background-color: rgb(0,150,136);	
+		font-size: 13px;
+		position: relative;
+		z-index: 999;
+		margin-top: 5px;
+	}
+
+	.p-prod-desc > a > button > i{		
+	}
+
+
+/*LOJAS --------------- */
+.l-green{
+	color: rgb(0, 150, 136);
+}
+
+.l-yellow{
+	color: rgba(255, 227, 12, 1);
+}
+
+.l-prod{
+	background-color: #f4f4f4;
+}
+
+.l-prod > button{
+	position: absolute;
+	z-index: 99;
+	top: 165px;
+	right: 5px;	
+	color: #444;
+}
+
+
+	.l-prod-img{
+		height: 130px;
+		width: 100%;
+		background-color: #f6f6f6;
+	}
+
+		.l-prod-img img{
+			width: 100%;
+			height: 100%;			
+		}
+
+	.l-prod-desc{
+		height: 70px;
+		width: 100%;
+		background-color:;	
+	}	
+		.l-prod-desc h6{
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+			margin-top: 5px;			
+		}
+		.l-prod-desc h5{
+			margin: 0;
+			padding: 0;
+			margin-top: 10px;			
+			font-size: 14px;
+		}
+
+@media screen and (max-width: 720px){
+		#wallpaper-perfil{
+			width: 100%;
+			height: 300px;			
+			background-size:100% 100%;			
+		}
+
+		#foto-perfil{
+			top: -150px;		
+		}
+
+		#title-perfil{	
+			color: #333;	
+			text-align: center;
+			top: -150px;
+			font-weight: 400;			
+		}
+
+		#actions-perfil{
+			top: 180px;	
+		}
+
+		.p-control{
+			top:-200px;
+			height: 30px;
+		}
+
+		.p-control-hide{
+			background-color:;
+			height: 30px;
+		}
+
+		#p-pages-menu{
+			top: 180px;			
+			min-height: 200px;
+			margin: 0 auto;
+			margin-top: 130px;
+		}
+
+		.p-pages-menu-loja{
+			top: -180px !important;
+		}
+	}
+
+@media screen and (max-width: 420px){
+	#actions-perfil > button:nth-child(1){
+		margin-bottom: 10px;
+	}	
+	#actions-perfil > button:nth-child(2){
+		margin-bottom: 10px;
+	}	
+}			
+
+	/******************* PRODUTO DETALHE *****/
+
+	#prod-content{
+		width: 100%;
+	}
+	#prod-images{
+		width: 50%;
+		height: 500px;
+		background-color:;
+		margin: 0 auto;
+	}
+
+	#owl-demo .item{
+	  margin: 0px;
+	}
+
+	#owl-demo .item img{
+	  display: block;
+	  width: 100%;
+	  height: 100%;
+	}
+
+	#perfil-grid{
+		width: 100%;
+		min-height: 400px;	
+	}
+
+	#perfil-grid h6{
+		margin: 15px 50px;
+		text-transform: uppercase;
+	}
+
+	.buttom-googleplay-category{
+		margin: 10px;
+		padding: 2px 10px;
+		border-radius: 15px;
+		background-color: rgb(0,150,136);
+		color: white;
+		width: auto;
+		display: inline-block;	
+	}
+
+	@media screen and (max-width: 1324px){
+		#prod-images{
+			width: 70%;
+			height: 500px;			
+		}
+	}
+	@media screen and (max-width: 720px){
+		#prod-images{
+			width: 100%;
+			height: 300px;			
+		}
+	}
+
+/* ADIÇÃO DE PRODUTO */
+
+#login-content{	
+	width: 470px;
+	height: auto;
+	background-color: white;
+	/*box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);	*/
+	margin-top: 20px;
+	padding-bottom: 50px;
+}
+
+#login-form{		
+	margin-left: 80px;
+	margin-top: 30px;
+	background-color:; 
+	width: 520px;
+}
+
+
+#login-button{
+	clear: both;
+	width: 300px;
+	margin-top: 20px;
+}
+
+.error.field-validation-error{
+    visibility:visible !important;
+    z-index:99;
+    display:block;
+    color: red !important;       
+}
+#form-cliente-new > div:nth-child(2) > span{
+    visibility:visible !important;
+}
+span.field-validation-error{
+    visibility:visible;
+    color: #de3226;
+    margin-bottom:10px;
+}
+
+login-form span{
+    visibility:visible;
+}
+
+
+
+@media screen and (max-width: 720px){	
+	#login-content{	
+		width: 90%;		
+	}
+
+	#login-form{		
+		margin-left: 30px;		
+		width: 100%;
+	}
+
+	#login-form input{
+		width: 100% !important;
+	}
+
+	#login-form > form > div{
+		width: 90%;
+	}	
+
+	#login-button{	
+		width: 90%;		
+	}
+
+	#login-form h4{
+		text-align: center;
+		color: #444;
+	}
+
+}
+
+@media screen and (max-width: 500px){
+
+	#login-content{	
+		width: 95%;		
+	}
+
+	#login-form{		
+		margin-left: 27px;		
+		width: 100%;
+	}
+
+	#login-form input{
+		width: 100% !important;
+	}
+		
+	#login-button{	
+		width: 90%;		
+	}
+
+	#login-form h4{
+		text-align: center;
+		color: #444;
+	}
+}

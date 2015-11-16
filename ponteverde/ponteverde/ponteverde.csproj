@@ -224,6 +224,7 @@
     <Content Include="Content\images\prod\tomate3.jpg" />
     <Content Include="Content\images\wall-loja.jpg" />
     <Content Include="Content\images\wall2.jpg" />
+    <Content Include="Content\SiteConfig.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -277,7 +278,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Entrar.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -293,6 +293,12 @@
     <Content Include="Views\LojaFavorita\Favoritas.cshtml" />
     <Content Include="Views\Welcome\Welcome.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutConfig.cshtml" />
+    <Content Include="Views\Loja\LojaConfig.cshtml" />
+    <Content Include="Views\Shared\Erro.cshtml" />
+    <Content Include="Views\Loja\NewProduto.cshtml" />
+    <Content Include="Views\Loja\FormNewProduto.cshtml" />
+    <Content Include="Views\Loja\PreviewPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

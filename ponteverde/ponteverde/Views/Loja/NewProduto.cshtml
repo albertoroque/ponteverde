@@ -1,0 +1,36 @@
+﻿@model ponteverde.Models.produto
+
+@{
+    Layout = "~/Views/Shared/_LayoutConfig.cshtml";
+
+    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;    
+}
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span id="title-config" class="mdl-layout-title"> <a href="~/loja/config"><i class="material-icons">arrow_back</i></a> Gerenciar Produtos</span>
+
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+
+            <!-- PESQUISA BOX -->
+            <a href="config-prod.html">
+                <button class="mdl-button mdl-js-button" style="color:white;">
+                    <i class="material-icons">reorder</i> LISTAR
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="mdl-layout__content">
+        <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div id="login-form">
+                @Html.Partial("~/Views/Loja/FormNewProduto.cshtml")
+            </div>
+        </section>
+    </main>
+</div>
+

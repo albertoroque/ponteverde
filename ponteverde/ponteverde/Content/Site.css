@@ -865,8 +865,8 @@ div#desc-perfil{
 	height: 30px;
     background-color:;
 	padding-left: 45px;	
-    border-radius:3px;
-	box-shadow: 0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2);	
+    border-radius:3px;	
+    box-shadow:none;
 }
 
 #b-h-tab{	
@@ -968,10 +968,7 @@ div#desc-perfil{
 		#b-h-search-input{	
 			width: 900px;
 		}
-
-		#b-header-form{
-			border-style: 10px;			
-		}
+		
 
 	}
 
@@ -1142,46 +1139,9 @@ login-form span{
 		width: 100% !important;
 	}
 
-	#login-form > form > div:nth-child(1){
+	#login-form > form > div{
 		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(2){
-		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(3){
-		width: 90%;
-	}
-
-    #login-form > form > div:nth-child(4){
-		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(5){
-		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(6){
-		width: 90%;
-	}
-
-    #login-form > form > div:nth-child(7){
-		width: 90%;
-	}
-
-    #login-form > form > div:nth-child(8){
-		width: 90%;
-	}
-
-	#login-form > form > div:nth-child(9){
-		width: 90%;
-	}
-
-    #login-form > form > div:nth-child(10){
-		width: 90%;
-	}
-	
+	}	
 
 	#login-button{	
 		width: 250px;		
