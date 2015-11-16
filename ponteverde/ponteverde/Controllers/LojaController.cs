@@ -128,27 +128,30 @@ namespace ponteverde.Controllers
                 //ERRO SE FOTO MAIOR QUE 3 mbytes
                 if (file.ContentLength > 3200000)
                 {
-
-                    return RedirectToAction("Index", "Home", new { cam = String.Empty, msg = "Imagem maior que 3mbs" });
+                    ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
+                    ViewBag.Error = "Imagem muito grande";
+                    return PartialView("~/Views/Loja/PreviewPhoto.cshtml");
                 }
 
                 string extension = System.IO.Path.GetExtension(file.FileName);
 
                 if (!extension.Equals(".jpg") && !extension.Equals(".png"))
                 {
-                    return RedirectToAction("Index", "Home", new { cam = String.Empty, msg = "Tipo de arquivo não suportado" });
+                    ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
+                    ViewBag.Error = "Tipo de arquivo não suportado";       
+                    return PartialView("~/Views/Loja/PreviewPhoto.cshtml");
                 }
 
                 string g = Guid.NewGuid().ToString("N");
 
                 string filename = g + extension;
-                string path = System.IO.Path.Combine(Server.MapPath("~/images/profile"), filename);
-                cam = ("../images/profile/" + filename);
+                string path = System.IO.Path.Combine(Server.MapPath("../Content/images/prod"), filename);
+                cam = ("../Content/images/prod/" + filename);
 
                 file.SaveAs(path);
             }
-
-            return RedirectToAction("New", "Produto", new { cam = cam});
+            ViewBag.Image = cam;
+            return PartialView("~/Views/Loja/PreviewPhoto.cshtml");
         }
 
     }

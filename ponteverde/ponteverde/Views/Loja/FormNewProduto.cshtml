@@ -26,22 +26,16 @@
 {
     <div class="upload">
         <br />
-
         <div id="ativa" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
             SELECIONAR FOTO
         </div>
-
-        <input id="esconde" type="file" name="file" />
-        <br />
-
+        <input id="esconde" type="file" name="file" /><br />
         <button id="envia" style="display:none;"></button>
-    </div>
-        }
+    </div> 
+ }       
     <div id="foto-partial-img">
-        @Html.Partial("~/Views/Loja/PreviewPhoto.cshtml")
-        @*<div id="upload-foto-load" class="mdl-spinner mdl-js-spinner is-active"></div>*@
+        @Html.Partial("~/Views/Loja/PreviewPhoto.cshtml")                
     </div>  
-}
 
 @using (Ajax.BeginForm("CreateProduto", "Loja", ajaxOptions, new { id = "form-prod-new", role = "form" }))
 {                  
@@ -71,6 +65,8 @@
         <br />
         @Html.TextBoxFor(model => model.prioridade, new { @class="mdl-slider mdl-js-slider", @type = "range", @min="0", @max="100", @value="50", @tabindex="0"})        
     </div>
+    
+    @Html.HiddenFor(model => model.linkfoto, new { id = "link-foto"})
            
     <p style="color:#de3226;">@ViewBag.Error</p>
        
@@ -120,6 +116,7 @@
     $("#esconde").change(function ()
     {
         $("#path").html($(this).val());
+        
         $("#envia").trigger('click');
     });
 </script>
