@@ -130,7 +130,7 @@ namespace ponteverde.Controllers
                 {
                     ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
                     ViewBag.Error = "Imagem muito grande";
-                    return PartialView("~/Views/Loja/PreviewPhoto.cshtml");
+                    return PartialView("~/Views/Loja/NewProduto.cshtml");
                 }
 
                 string extension = System.IO.Path.GetExtension(file.FileName);
@@ -138,8 +138,8 @@ namespace ponteverde.Controllers
                 if (!extension.Equals(".jpg") && !extension.Equals(".png"))
                 {
                     ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
-                    ViewBag.Error = "Tipo de arquivo não suportado";       
-                    return PartialView("~/Views/Loja/PreviewPhoto.cshtml");
+                    ViewBag.Error = "Tipo de arquivo não suportado";
+                    return PartialView("~/Views/Loja/NewProduto.cshtml");
                 }
 
                 string g = Guid.NewGuid().ToString("N");
@@ -151,7 +151,7 @@ namespace ponteverde.Controllers
                 file.SaveAs(path);
             }
             ViewBag.Image = cam;
-            return PartialView("~/Views/Loja/PreviewPhoto.cshtml");
+            return PartialView("~/Views/Loja/NewProduto.cshtml");
         }
 
     }

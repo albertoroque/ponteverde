@@ -298,7 +298,7 @@
     <Content Include="Views\Shared\Erro.cshtml" />
     <Content Include="Views\Loja\NewProduto.cshtml" />
     <Content Include="Views\Loja\FormNewProduto.cshtml" />
-    <Content Include="Views\Loja\PreviewPhoto.cshtml" />
+    <Content Include="Views\Loja\PrevFotoProduto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

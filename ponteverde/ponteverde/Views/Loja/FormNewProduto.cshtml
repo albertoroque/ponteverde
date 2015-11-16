@@ -16,13 +16,14 @@
 
     AjaxOptions ajaxOptionsFile = new AjaxOptions()
     {
-        HttpMethod = "Post",
+        HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = "foto-partial-img",
+        
     };
 }
 
-@using (Ajax.BeginForm("FileUpload", "Loja", ajaxOptionsFile, new { enctype = "multipart/form-data" }))
+@using (Ajax.BeginForm("FileUpload", "Loja", ajaxOptionsFile, new { id="form-new-upload-prod", enctype = "multipart/form-data" }))
 {
     <div class="upload">
         <br />
@@ -33,9 +34,9 @@
         <button id="envia" style="display:none;"></button>
     </div> 
  }       
-    <div id="foto-partial-img">
-        @Html.Partial("~/Views/Loja/PreviewPhoto.cshtml")                
-    </div>  
+ <div id="foto-partial-img">
+    @Html.Partial("~/Views/Loja/PrevFotoProduto.cshtml")                
+</div>  
 
 @using (Ajax.BeginForm("CreateProduto", "Loja", ajaxOptions, new { id = "form-prod-new", role = "form" }))
 {                  
