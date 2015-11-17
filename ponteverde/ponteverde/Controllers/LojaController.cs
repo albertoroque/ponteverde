@@ -27,17 +27,7 @@ namespace ponteverde.Controllers
             var iLoja = new lojaBusinessModels(bd);
             
             var loja = iLoja.ObterPerfilPorConta(idConta);
-
-            var session = Session["UserSession"] as UserSession;
-            if (loja.idUsername == session.idConta)
-            {
-                session.idConta = loja.idUsername;
-                session.meuPerfil = "Loja/Perfil/" + loja.idUsername;
-                session.idBairro = loja.idBairro;
-                session.nome = loja.nome;
-                session.email = loja.usuario.email;
-            }
-            
+                        
             return View(loja);
         }
 
@@ -100,7 +90,7 @@ namespace ponteverde.Controllers
             {
                 if (cam == null)
                 {
-                    ViewBag.Image = "http://www.datastax.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png";
+                    ViewBag.Image = "../../Content/images/busca.jpg";
                 }
                 else
                 {
@@ -115,7 +105,25 @@ namespace ponteverde.Controllers
         [Route("config/produtos/criar")]
         public ActionResult CreateProduto(produto dadosProduto)
         {
-            return View();
+            try
+            {
+                var session = Session["UserSession"] as UserSession;
+                var iLoja = new lojaBusinessModels(bd);
+                var iProduto = new ProdutoRepository(bd);
+
+                var loja = iLoja.ObterPerfilPorConta(session.idConta);
+
+                dadosProduto.idLoja = loja.id;
+                dadosProduto.idCategoria = loja.categoria.FirstOrDefault().id;
+                dadosProduto.prioridade = dadosProduto.prioridade / 100;
+                iProduto.CriarProduto(dadosProduto);
+
+                return RedirectToAction("LojaConfig");
+            }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }                        
         }
 
         

@@ -4,15 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
-<div id="login-body">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div>
+    <div id="login-body" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
                 <span id="login-title" class="mdl-layout-title">Cadastro <i class="material-icons">done</i></span>
             </div>
         </header>
-
         <main class="mdl-layout__content">
             <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                 <div id="login-form">
@@ -21,7 +20,6 @@
                     @Html.Partial("~/Views/Cliente/FormNew.cshtml", Model)
                 </div>
             </section>
-
             <section id="login-content" class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                 <div id="login-form">
                     <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
@@ -29,14 +27,12 @@
                     </button>
                 </div>
             </section>
-
             <!-- RODAPE -->
             <footer class="footer">
                 <div class="footer-title">
                     <h6 style="color:#666;">+ 2015 PONTEVERDE</h6>
                 </div>
             </footer>
-
         </main>
     </div>
 </div>

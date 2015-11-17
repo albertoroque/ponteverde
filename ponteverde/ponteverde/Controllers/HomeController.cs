@@ -37,15 +37,33 @@ namespace ponteverde.Controllers
             {
                 if(usuario.Item3)
                 {
+                    clienteBusinessModels iCliente = new clienteBusinessModels(bd);
+                    
                     session.idConta = usuario.Item1.id;
+                    var cliente = iCliente.ObterPerfilPorConta(session.idConta);
                     session.isCliente = true;
+                    session.idConta = cliente.idUsername;
+                    session.meuPerfil = "Cliente/Perfil/" + cliente.idUsername;
+                    session.idBairro = cliente.idBairro;
+                    session.nome = cliente.nome;
+                    session.email = cliente.usuario.email;          
+
                     Session["UserSession"] = session;
                     return RedirectToAction("Perfil", "Cliente", new { idConta = usuario.Item1.id });
                 }
                 else
                 {
+                    var iLoja = new lojaBusinessModels(bd);
+                    
                     session.idConta = usuario.Item1.id;
-                    session.isCliente = false;
+                    session.isCliente = false;                    
+                    var loja = iLoja.ObterPerfilPorConta(session.idConta);                    
+                    session.idConta = loja.idUsername;
+                    session.meuPerfil = "Loja/Perfil/" + loja.idUsername;
+                    session.idBairro = loja.idBairro;
+                    session.nome = loja.nome;
+                    session.email = loja.usuario.email;
+
                     Session["UserSession"] = session;
                     return RedirectToAction("Perfil", "Loja", new { idConta = usuario.Item1.id });                    
                 }                

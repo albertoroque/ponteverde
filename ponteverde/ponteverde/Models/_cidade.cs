@@ -31,11 +31,12 @@ namespace ponteverde.Models
              }
              else
              {
-                 _cidade.nome = nomecidade;
-                 _cidade.idPais = 1; //BRASIL
-                 base.Criar(_cidade);
+                 var _novacidade = new cidade();
+                 _novacidade.nome = nomecidade;
+                 _novacidade.idPais = 1; //BRASIL
+                 base.Criar(_novacidade);
                  base.Persistir();
-                 return _cidade;
+                 return _novacidade;
              }             
          }
      }

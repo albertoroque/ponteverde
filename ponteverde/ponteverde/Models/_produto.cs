@@ -12,6 +12,22 @@ namespace ponteverde.Models
     {
     }
 
+    public class ProdutoRepository : Base<produto, object>
+    {
+         public ProdutoRepository(PvEntities bd)
+            : base(bd)
+        {
+
+        }
+
+         public produto CriarProduto(produto dadosProduto)
+         {
+             base.Criar(dadosProduto);
+             base.Persistir();
+             return dadosProduto;
+         }
+    }
+
     public class ProdutoMetadata
     {
         [Key]

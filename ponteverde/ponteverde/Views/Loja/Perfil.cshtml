@@ -32,7 +32,9 @@
 
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">                    
                     <li class="mdl-menu__item"><a href="">Logout</a></li>
-                    @if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="~/loja/config">Configurações</a></li>}                    
+                    @if(oUserSession.idConta > 0){
+                        if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="~/loja/config">Configurações</a></li>}                    
+                    }                      
                 </ul>
             </div>
         </header>

@@ -20,21 +20,7 @@ namespace ponteverde.Controllers
         public ActionResult Perfil(long idConta)
         {
             clienteBusinessModels iCliente = new clienteBusinessModels(bd);
-
-            var cliente = iCliente.ObterPerfilPorConta(idConta);
-                       
-            var session = Session["UserSession"] as UserSession;
-            if (cliente.idUsername == session.idConta)
-            {
-                session.idConta = cliente.idUsername;
-                session.meuPerfil = "Cliente/Perfil/" + cliente.idUsername;
-                session.idBairro = cliente.idBairro;
-                session.nome = cliente.nome;
-                session.email = cliente.usuario.email;               
-            }
-
-            Session["UserSession"] = session;   
-            
+            var cliente = iCliente.ObterPerfilPorConta(idConta);                                             
             return View(cliente);
         }
 

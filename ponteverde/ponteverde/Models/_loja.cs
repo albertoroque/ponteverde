@@ -29,8 +29,10 @@ namespace ponteverde.Models
 
         public Tuple<loja, bool, string> CriarLoja(LojaCadastroViewModel dadosLoja)
         {
-            UsuarioRepository iUsuario = new UsuarioRepository(bd);
-            BairroRepository iBairro = new BairroRepository(bd);
+            var iUsuario = new UsuarioRepository(bd);
+            var iBairro = new BairroRepository(bd);
+            var iCategoria = new CategoriaRepository(bd);
+
             var resultUsuario = iUsuario.CriarConta(dadosLoja.Usuario, false);
             loja oLoja = dadosLoja.Loja;
 
@@ -49,6 +51,9 @@ namespace ponteverde.Models
 
                     base.Criar(oLoja);
                     base.Persistir();
+
+                    //Criar Categoria Padrão
+                    iCategoria.CriarCategoria(oLoja.id, "Todos");                    
 
                     return new Tuple<loja, bool, string>(oLoja, true, "Bem-vindo ao Ponte Verde!");
                 }

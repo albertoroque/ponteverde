@@ -9,8 +9,10 @@
     {
         HttpMethod = "POST",
         UpdateTargetId = "form-produto-new",
-        InsertionMode = InsertionMode.Replace
-
+        InsertionMode = InsertionMode.Replace,
+        OnSuccess = "OnSuccess",
+        OnFailure = "OnError"
+        
     };
 
 
@@ -19,6 +21,7 @@
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = "foto-partial-img",
+        OnSuccess = "OnFileSuccess"
         
     };
 }
@@ -31,12 +34,14 @@
             SELECIONAR FOTO
         </div>
         <input id="esconde" type="file" name="file" /><br />
-        <button id="envia" style="display:none;"></button>
+        <button id="envia" style="display:none;"></button>        
     </div> 
  }       
  <div id="foto-partial-img">
     @Html.Partial("~/Views/Loja/PrevFotoProduto.cshtml")                
-</div>  
+</div>
+
+  
 
 @using (Ajax.BeginForm("CreateProduto", "Loja", ajaxOptions, new { id = "form-prod-new", role = "form" }))
 {                  
@@ -47,7 +52,7 @@
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.PasswordFor(model => model.preco, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
+        @Html.TextBoxFor(model => model.preco, new { @class = "mdl-textfield__input", id = "ProdPreco" })
         <label class="mdl-textfield__label" for="sample2">preço</label>
         <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.preco)</span>
     </div>
@@ -67,11 +72,14 @@
         @Html.TextBoxFor(model => model.prioridade, new { @class="mdl-slider mdl-js-slider", @type = "range", @min="0", @max="100", @value="50", @tabindex="0"})        
     </div>
     
-    @Html.HiddenFor(model => model.linkfoto, new { id = "link-foto"})
-           
+    <!--Link da Foto-->
+    <div style="display:none;">
+        @Html.TextBoxFor(model => model.linkfoto, new {id = "ProdLink" })
+    </div>
+
     <p style="color:#de3226;">@ViewBag.Error</p>
        
-    <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+    <button id="cad-prod-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
         REGISTRAR
     </button>    
 }
@@ -116,8 +124,15 @@
 <script>
     $("#esconde").change(function ()
     {
-        $("#path").html($(this).val());
-        
-        $("#envia").trigger('click');
+        $("#path").html($(this).val());                
+        $("#envia").trigger('click');        
     });
+    
+    var cadastrar = document.getElementById("ProdNome");
+    cadastrar.onfocus = function () {        
+        var caminho = $("#upload-foto").attr("src");       
+        $("#ProdLink").val(caminho);
+        var teste = $("#ProdLink").val();
+        console.log(teste);
+    };   
 </script>

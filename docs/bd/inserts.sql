@@ -39,6 +39,9 @@ VALUES
 -- CATEGORIA
 INSERT INTO `ponteverde`.`categoria` (`id`, `descricao`, `idLoja`) VALUES (1, 'Novidades', 1);
 INSERT INTO `ponteverde`.`categoria` (`id`, `descricao`, `idLoja`) VALUES (2, 'Orgânicos', 1);
+INSERT INTO `ponteverde`.`categoria` (`id`, `descricao`, `idLoja`) VALUES (3, 'Todos Produtos', 2);
+INSERT INTO `ponteverde`.`categoria` (`id`, `descricao`, `idLoja`) VALUES (4, 'Todos produtos', 3);
+
 
 -- PRODUTO
 INSERT INTO `ponteverde`.`produto` (`id`, `nome`, `descricao`, `preco`, `idLoja`, `idCategoria`, `prioridade`, `dataCriacao`, `linkfoto`) 
@@ -64,6 +67,7 @@ INSERT INTO `ponteverde`.`produtofavorito` (`id`, `idProduto`, `idLojaFavorita`,
 INSERT INTO `ponteverde`.`produtofavorito` (`id`, `idProduto`, `idLojaFavorita`, `idCliente`) VALUES (5, 5, 1, 1);
 INSERT INTO `ponteverde`.`produtofavorito` (`id`, `idProduto`, `idLojaFavorita`, `idCliente`) VALUES (6, 6, 1, 1);
 INSERT INTO `ponteverde`.`produtofavorito` (`id`, `idProduto`, `idLojaFavorita`, `idCliente`) VALUES (7, 7, 1, 1);
+
 
 
 

@@ -11,6 +11,32 @@ namespace ponteverde.Models
     {
     }
 
+    public class CategoriaRepository : Base<categoria, object>
+    {
+        public CategoriaRepository(PvEntities bd)
+            : base(bd)
+        {
+
+        }
+
+        public categoria CriarCategoria(long idLoja, string categoria)
+        {
+            try
+            {
+                var _categoria = new categoria();
+                _categoria.idLoja = idLoja;
+                _categoria.descricao = categoria;
+                base.Criar(_categoria);
+                base.Persistir();
+                return _categoria;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+
     public class CategoriaMetadata
     {
         public long id { get; set; }
