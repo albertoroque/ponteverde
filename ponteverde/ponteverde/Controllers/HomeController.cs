@@ -19,13 +19,14 @@ namespace ponteverde.Controllers
         }
 
 
-        [Route("entrar")]
-        public ActionResult Entrar()
+        [Route("entrar/{msg?}")]
+        public ActionResult Entrar(string msg)
         {
+            ViewBag.Login = msg;
             return View();
         }
                 
-        public ActionResult Logar(string username, string password)
+        public ActionResult Logar(string username, string password, string msg)
         {
             UsuarioRepository iUsuario = new UsuarioRepository(bd);            
 

@@ -30,7 +30,8 @@
 
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <li class="mdl-menu__item"><a href="">Logout</a></li>
-                    @if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}
+                    
+                    @if (oUserSession != null && oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}
                 </ul>
             </div>
         </header>
@@ -42,7 +43,7 @@
         <main class="mdl-layout__content">
 
             <!-- BOTAO PARA CONFIGURAR -->
-            @if (oUserSession.idConta == Model.idUsername)
+            @if (oUserSession != null && oUserSession.idConta == Model.idUsername)
             {                            
             <a href="#">
                 <button id="b-back" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">

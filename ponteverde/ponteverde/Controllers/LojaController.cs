@@ -44,7 +44,7 @@ namespace ponteverde.Controllers
                     var result = iLoja.CriarLoja(dadosLoja);
                     if (result.Item2)
                     {
-                        return RedirectToAction("Perfil", new { idConta = result.Item1.usuario.id });
+                        return RedirectToAction("Entrar","Home", new { msg = "Agora é só logar com sua conta criada!" });
                     }
                     else
                     {
