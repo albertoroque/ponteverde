@@ -93,6 +93,44 @@
                 </div>
             </div>
         </div>
+
+        <!-- FORM FAVORITAR -->
+        <div id="form-modal-foto" class="mdl-shadow--3dp">
+            <center>
+                
+            </center>
+        </div>
+
+        <div id="form-modal-wall" class="mdl-shadow--3dp">
+            <center>
+
+            </center>
+        </div>
+
     </main>
 </div>
+
+<script src="~/Scripts/carousel/jquery.bpopup.min.js"></script>
+
+<script> 
+    var bPopup1; //PERFIL
+    var bPopup2; //WALL
+
+    $('#loja-change-perfil').click(function () {
+        bPopup1 = $('#form-modal-perfil').bPopup1();
+    });
+
+    $('#loja-change-wall').click(function () {
+        bPopup2 = $('#form-modal-wall').bPopup2();
+    });
+
+    $('#form-modal-perfil-cancela').click(function () {
+        bPopup1.close();
+    });
+
+    $('#form-modal-wall-cancela').click(function () {
+        bPopup2.close();
+    });
+       
+</script>
 
