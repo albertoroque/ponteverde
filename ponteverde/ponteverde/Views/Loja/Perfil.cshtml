@@ -136,12 +136,13 @@
                 <div class="form-modal-text">
                     <h4>@Model.nome</h4>
                     <h6>Deseja favoritar essa loja?</h6>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
+                    <button id="favoritar-loja-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
                         favoritar
                     </button>
                     <button id="form-modal-cancela" class="mdl-button mdl-js-button mdl-js-ripple-effect">
                         cancelar
                     </button>
+                    <center><p id="favoritar-msg" style="color:red; display:none;"></p></center>
                 </div>
             </div>
 
@@ -158,15 +159,56 @@
 <script src="~/Scripts/carousel/jquery.bpopup.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-        var bPopup;
-        $('#b-top').click(function () {
+    var bPopup;
+    
+    $(document).ready(function () {       
+
+        $('#b-top').click(function () {           
             bPopup = $('#form-modal').bPopup();
         });
 
         $('#form-modal-cancela').click(function () {
             bPopup.close();
         });
+        
+    // END FORM MODAL
     });
+
+    function fecharmodal(){
+        bPopup.close();
+    }
+
+    var btnFavoritar = document.getElementById("favoritar-loja-button");
+    btnFavoritar.onclick = function()
+    {                
+
+        var idloja = @Model.id;
+        var path = window.location.hostname;
+        var port = window.location.port;     
+            
+        $.ajax
+         ({
+             method: "POST",
+             url: "http://"+ path + ":" + port + "/loja/favoritarloja",	             
+             data: {idLoja : idloja},			
+             dataType: "json",                 
+         }) 
+        .success(function(response) 	 	
+        {
+            $("#favoritar-msg").toggle("slow");
+            $("#favoritar-msg").empty();
+            $("#favoritar-msg").append(response);
+            $("#favoritar-loja-button").toggle("fast");
+            $("#form-modal-cancela").css("margin-right","20px");
+        })
+
+        .error(function(response)
+        {
+            $("#favoritar-msg").toggle("slow");
+            $("#favoritar-msg").empty();
+            $("#favoritar-msg").append(response);
+            $("#favoritar-loja-button").toggle("fast");            
+        });
+    };
 </script>
 

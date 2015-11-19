@@ -161,6 +161,51 @@ namespace ponteverde.Controllers
             ViewBag.Image = cam;
             return PartialView("~/Views/Loja/NewProduto.cshtml");
         }
+        
+        [HttpPost]
+        [Route("favoritarloja")]
+        public ActionResult Favoritar(int idLoja)
+        {
+            try
+            {
+                var iConta = new UsuarioRepository(bd);
+                var session = Session["UserSession"] as UserSession;
+
+                var conta = iConta.Obter(session.idConta);
+
+                var dadosFavoritar = new lojafavorita();
+
+                if (conta == null || !conta.IsCliente)
+                {
+                    return Json("Erro ao favoritar!");
+                }
+                else
+                {
+                    var iLojaFavorita = new lojaFavoritaBusinessModels(bd);
+
+                    dadosFavoritar.idCliente = session.idCliente;
+                    dadosFavoritar.idLoja = idLoja;
+
+                    var evento = iLojaFavorita.CriarFavorito(dadosFavoritar);
+
+                    if (evento.Item2)
+                    {
+                        return Json(evento.Item1);
+                    }
+                    else
+                    {
+                        return Json(evento.Item1);
+                    }
+
+                }
+            }
+            catch
+            {
+
+                return Json(null, "Erro ao favoritar!");
+            }
+                        
+        }
 
     }
 }

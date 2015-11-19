@@ -43,6 +43,7 @@ namespace ponteverde.Controllers
                     session.idConta = usuario.Item1.id;
                     var cliente = iCliente.ObterPerfilPorConta(session.idConta);
                     session.isCliente = true;
+                    session.idCliente = cliente.id;
                     session.idConta = cliente.idUsername;
                     session.meuPerfil = "Cliente/Perfil/" + cliente.idUsername;
                     session.idBairro = cliente.idBairro;
@@ -60,6 +61,7 @@ namespace ponteverde.Controllers
                     session.isCliente = false;                    
                     var loja = iLoja.ObterPerfilPorConta(session.idConta);                    
                     session.idConta = loja.idUsername;
+                    session.idCliente = 0;
                     session.meuPerfil = "Loja/Perfil/" + loja.idUsername;
                     session.idBairro = loja.idBairro;
                     session.nome = loja.nome;

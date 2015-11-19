@@ -83,6 +83,7 @@ namespace ponteverde.Models
             var result = base.Obter(x => x.username == username).ToList();
             return result.Count > 0 ? false : true;  
         }
+        
     }
 
     //CLASSE PARCIAL
