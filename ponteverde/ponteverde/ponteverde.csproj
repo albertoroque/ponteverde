@@ -122,6 +122,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Controllers\LojaFavoritaController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +200,7 @@
   <ItemGroup>
     <Content Include="Content\images\busca.jpg" />
     <Content Include="Content\images\default.jpg" />
+    <Content Include="Content\images\default\face.jpg" />
     <Content Include="Content\images\default\face.png" />
     <Content Include="Content\images\default\wall.jpg" />
     <Content Include="Content\images\favicon.ico" />
@@ -207,19 +209,12 @@
     <Content Include="Content\images\foto2.jpg" />
     <Content Include="Content\images\logo-loja1.jpg" />
     <Content Include="Content\images\logo-small.png" />
+    <Content Include="Content\images\logo-trans.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\loja.jpg" />
     <Content Include="Content\images\loja2.jpg" />
     <Content Include="Content\images\loja3.jpg" />
     <Content Include="Content\images\loja4.jpg" />
-    <Content Include="Content\images\prod\prod1.jpg" />
-    <Content Include="Content\images\prod\prod2.jpg" />
-    <Content Include="Content\images\prod\prod3.jpg" />
-    <Content Include="Content\images\prod\prod4.jpg" />
-    <Content Include="Content\images\prod\prod5.jpg" />
-    <Content Include="Content\images\prod\prod6.jpg" />
-    <Content Include="Content\images\prod\prod7.jpg" />
-    <Content Include="Content\images\prod\tomate1.jpg" />
     <Content Include="Content\images\prod\tomate2.jpg" />
     <Content Include="Content\images\prod\tomate3.jpg" />
     <Content Include="Content\images\wall-loja.jpg" />
@@ -249,6 +244,7 @@
       <LastGenOutput>PvModel.cs</LastGenOutput>
     </Content>
     <Content Include="fonts\roboto-regular.ttf" />
+    <None Include="Properties\PublishProfiles\ponteverde.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\carousel\jquery.bpopup.min.js" />
     <Content Include="Scripts\carousel\owl-carousel\AjaxLoader.gif" />
@@ -265,6 +261,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\material.css" />
+    <Content Include="Scripts\material.js" />
+    <Content Include="Scripts\material.min.css" />
+    <Content Include="Scripts\material.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -299,6 +299,7 @@
     <Content Include="Views\Loja\NewProduto.cshtml" />
     <Content Include="Views\Loja\FormNewProduto.cshtml" />
     <Content Include="Views\Loja\PrevFotoProduto.cshtml" />
+    <Content Include="Views\Principal\Principal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

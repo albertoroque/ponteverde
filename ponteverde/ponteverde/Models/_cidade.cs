@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ponteverde.Models
 {
-     [MetadataType(typeof(CidadeMetadata))]
+    [MetadataType(typeof(CidadeMetadata))]
     public partial class cidade
     {
     }

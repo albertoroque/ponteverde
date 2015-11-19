@@ -3,17 +3,35 @@
 }
 
 <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title" id="p-layout-title">        
-        <h3 id="p-nome"> <i class="material-icons">arrow_back</i>@if(oUserSession != null){@oUserSession.nome}</h3>
-        <h6>@if(oUserSession != null){@oUserSession.email}</h6>
+    <span class="mdl-layout-title" id="p-layout-title">                
+        @if(oUserSession != null)
+        {
+            <h3 id="p-nome"><i class="material-icons">arrow_back</i>@oUserSession.nome</h3>
+            <h6>@oUserSession.email</h6>
+        }
+        else
+        {
+            <h3 id="p-nome">Visitante</h3>
+
+        <a href="~/entrar">
+            <button style="margin-top:40px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                criar conta
+            </button>
+        </a>
+        }                    
     </span>
     <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="#"><i class="material-icons" role="presentation">home</i>Buscar</a>
-        @if(oUserSession != null){
+        <a class="mdl-navigation__link" href="~/lojas"><i class="material-icons" role="presentation">home</i>Navegar</a>
+        @if(oUserSession != null)
+        {
             <a class="mdl-navigation__link" href="~/@oUserSession.meuPerfil"><i class="material-icons" role="presentation">account_circle</i> Meu Perfil</a>
-            if (oUserSession.isCliente){<a class="mdl-navigation__link" href="~/LojasFavoritas"><i class="material-icons" role="presentation">store</i>Lojas Favoritas</a> 
+            
+            if (oUserSession.isCliente)
+            {
+                <a class="mdl-navigation__link" href="~/LojasFavoritas"><i class="material-icons" role="presentation">store</i>Lojas Favoritas</a> 
+            }                            
+            <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">notifications</i> Notificações</a>
         }        
-        <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">notifications</i> Notificações</a>}        
         <a class="mdl-navigation__link" href="~/Busca"><i class="material-icons" role="presentation">find_in_page</i> Pesquisar</a>
     </nav>
 </div>

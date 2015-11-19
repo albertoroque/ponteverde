@@ -30,12 +30,22 @@
                     <i class="material-icons">more_vert</i>
                 </button>
 
-                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">                    
+                @if (oUserSession != null)
+                {
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <li class="mdl-menu__item"><a href="">Logout</a></li>
-                    @if(oUserSession.idConta > 0){
-                        if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="~/loja/config">Configurações</a></li>}                    
-                    }                      
+                    @if (oUserSession.idConta == Model.idUsername)
+                    {
+                    <li class="mdl-menu__item"><a href="~/loja/config">Configurações</a></li>
+                    }
                 </ul>
+                }
+                else
+                {
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">                    
+                    <li class="mdl-menu__item"><a href="~/entrar">Logar</a></li>                                        
+                </ul>
+                }             
             </div>
         </header>
      
@@ -45,11 +55,14 @@
         <!-- CONTEÚDO -->
         <main class="mdl-layout__content ">
 
-            @if (oUserSession.isCliente)
-            {                                  
-               <button id="b-top" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            @if (oUserSession != null)
+            {
+                if (oUserSession.isCliente)
+                {
+                <button id="b-top" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                    <i class="material-icons">thumb_up</i>
-               </button>                
+               </button>                     
+                }                                                 
             }
             <div class="mdl-grid" id="perfil-grid">
                 <div class="mdl-cell mdl-cell--12-col" id="perfil-col-12">

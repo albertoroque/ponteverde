@@ -28,11 +28,20 @@
                     <i class="material-icons">more_vert</i>
                 </button>
 
+                @if (oUserSession != null)
+                {
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <li class="mdl-menu__item"><a href="">Logout</a></li>
                     
-                    @if (oUserSession != null && oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}
-                </ul>
+                    @if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}
+                </ul>    
+                }
+                else
+                {
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item"><a href="~/entrar">Logar</a></li>                                        
+                </ul>    
+                }                
             </div>
         </header>
                 
