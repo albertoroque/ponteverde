@@ -70,9 +70,13 @@ namespace ponteverde.Controllers
                 return View("Erro");
             }
             else
-            {
+            {                
                 var iLoja = new lojaBusinessModels(bd);
                 var loja = iLoja.ObterPerfilPorConta(session.idConta);
+                
+                ViewBag.ImageWall = loja.fotowall;
+                ViewBag.ImagePerfil = loja.fotoperfil;
+                
                 return View(loja);
             }            
         }

@@ -315,10 +315,11 @@
     <Content Include="Views\Loja\FormNewProduto.cshtml" />
     <Content Include="Views\Loja\PrevFotoProduto.cshtml" />
     <Content Include="Views\Principal\Principal.cshtml" />
+    <Content Include="Views\Foto\FotoPerfil.cshtml" />
+    <Content Include="Views\Foto\FotoWall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Foto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

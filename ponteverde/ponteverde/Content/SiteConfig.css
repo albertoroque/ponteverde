@@ -60,6 +60,117 @@ footer{
 	text-align: center;
 }
 
+
+
+/*-------------------------------------------------FORM MODAL*/
+
+.form-modal{
+	display: none;
+	width: 500px;
+	height: 300px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+	.foto-modal{		
+		height: 130px;
+		width: 130px;
+		border-radius: 65px;	
+		margin: 0 auto;
+		z-index: 2;	
+		position: relative;
+		top: -30px;
+		left: -180px;
+		background-size:100% 100%;
+	}
+	
+	.form-modal h4{
+		float: left;
+		position: absolute;
+		top: -10px;
+		left: 150px;
+	}
+	.form-modal h6{
+		float: left;
+		position: absolute;
+		top: 30px;
+		left: 150px;
+	}
+
+	.form-modal button{
+		float: right;
+		position: absolute;
+		right: 8px;
+		bottom: 8px;
+	}
+
+	.form-modal button > i{
+		margin-right: 5px;
+	}
+
+	.form-modal-cancela{
+		position: absolute;
+		margin-right: 110px;
+		color: rgb(0,150,136);
+	}
+
+@media screen and (max-width: 700px){		
+
+    .form-modal{
+	    display: none;
+	    width: 90%;
+	    height: 300px;
+	    background-color: white;
+	    border-radius: 3px;
+    }
+
+	.foto-modal{		
+		height: 110px;
+		width: 110px;
+		border-radius: 55px;	
+		margin: 0 auto;
+		z-index: 2;	
+		position: relative;		
+		left: 0;
+		right: 0;
+		top: -55px;
+		background-size:100% 100%;
+	}
+	
+	.form-modal h4{
+		float: left;
+		position: absolute;
+		top: 30px;
+		right:0;
+		left: 0;
+		text-align: center;
+	}
+	.form-modal h6{		
+		position: absolute;
+		top: 60px;
+		right:0;
+		left: 0;
+		text-align: center;
+	}
+
+	.form-modal button{
+		float: right;
+		position: absolute;
+		right: 8px;
+		bottom: 8px;
+	}
+
+	.form-modal button > i{
+		margin-right: 5px;
+	}
+
+	.form-modal-cancela{
+		position: absolute;
+		margin-right: 100px;
+	}
+}
+
+
 /*------------------------------------------ PERFIL*/
 
 #logo{
@@ -179,6 +290,47 @@ header > div.mdl-layout__drawer-button > i{
 
 	.p-prod-desc > a > button > i{		
 	}
+
+/* ------------------------------------- TROCAR FOTO MODAL*/
+
+ div.upload {
+        width: 90%;
+        color: white;
+        z-index: -4;        
+    }
+
+    #ativa {
+        z-index: 1 !important;        
+        cursor: pointer;
+    }
+
+    #esconde {
+        z-index: 2;
+        font-size: 20px; /* Aumenta tamanho do campo */
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+        position: absolute;
+        top: -30px;
+        position: relative;
+        background-color: red;
+    }      
+    #esconde-wall {
+        z-index: 2;
+        font-size: 20px; /* Aumenta tamanho do campo */
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer;
+        position: absolute;
+        top: -30px;
+        position: relative;
+        background-color: red;
+    }
+
+    #upload-foto {
+        z-index: 99;
+        position: relative;
+    }    
 
 
 /*LOJAS --------------- */

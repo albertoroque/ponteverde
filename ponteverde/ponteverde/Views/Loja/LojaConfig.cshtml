@@ -2,7 +2,23 @@
 @{
     Layout = "~/Views/Shared/_LayoutConfig.cshtml";
 
-    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;  
+    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;
+               
+    AjaxOptions ajaxOptionsFilePerfil = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "foto-partial-img-perfil" 
+
+    };
+
+    AjaxOptions ajaxOptionsFileWall = new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "foto-partial-img-wall"     
+
+    };
 }
   
 
@@ -94,16 +110,45 @@
             </div>
         </div>
 
-        <!-- FORM FAVORITAR -->
-        <div id="form-modal-foto" class="mdl-shadow--3dp">
+        <!-- FORM TROCAR FOTO PERFIL -->
+        <div id="form-modal-perfil" class="mdl-shadow--3dp form-modal">
             <center>
-                
+                <div id="foto-partial-img-perfil">
+                   @Html.Partial("~/Views/Foto/FotoPerfil.cshtml")
+                </div>
+
+                @using (Ajax.BeginForm("FileUpload", "Foto", new {isCliente = false, isPerfil = true}, ajaxOptionsFilePerfil, new { id = "form-new-upload-perfil", enctype = "multipart/form-data" }))
+                {
+                    <div class="upload">
+                        <br />
+                        <div id="ativa" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                            TROCAR FOTO PERFIL
+                        </div>
+                        <input id="esconde" type="file" name="file" /><br />
+                        <button id="envia" style="display:none;"></button>
+                    </div>
+                }                                          
             </center>
         </div>
 
-        <div id="form-modal-wall" class="mdl-shadow--3dp">
+        <!-- FORM TROCAR FOTO PERFIL -->
+        <div id="form-modal-wall" class="mdl-shadow--3dp form-modal">
             <center>
+                <div id="foto-partial-img-wall">
+                   @Html.Partial("~/Views/Foto/FotoWall.cshtml")
+                </div>
 
+                @using (Ajax.BeginForm("FileUpload", "Foto", new { isCliente = false, isPerfil = false }, ajaxOptionsFileWall, new { id = "form-new-upload-wall", enctype = "multipart/form-data" }))
+                {
+                    <div class="upload">
+                        <br />
+                        <div id="ativa" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                            TROCAR WALLPAPER
+                        </div>
+                        <input id="esconde-wall" type="file" name="file" /><br />
+                        <button id="envia-wall" style="display:none;"></button>
+                    </div>
+                }
             </center>
         </div>
 
@@ -117,20 +162,30 @@
     var bPopup2; //WALL
 
     $('#loja-change-perfil').click(function () {
-        bPopup1 = $('#form-modal-perfil').bPopup1();
+        bPopup1 = $('#form-modal-perfil').bPopup();
     });
 
     $('#loja-change-wall').click(function () {
-        bPopup2 = $('#form-modal-wall').bPopup2();
+        bPopup2 = $('#form-modal-wall').bPopup();
     });
 
     $('#form-modal-perfil-cancela').click(function () {
-        bPopup1.close();
+        bPopup.close();
     });
 
     $('#form-modal-wall-cancela').click(function () {
-        bPopup2.close();
+        bPopup.close();
+    });
+    
+    $("#esconde").change(function ()
+    {                        
+        $("#envia").trigger('click');        
+    });
+
+    $("#esconde-wall").change(function () {       
+        $("#envia-wall").trigger('click');
     });
        
 </script>
+
 
