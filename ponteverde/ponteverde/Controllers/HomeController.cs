@@ -77,5 +77,12 @@ namespace ponteverde.Controllers
                 return View("Entrar");
             }            
         }
+
+        [Route("~/logout")]
+        public ActionResult Logout()
+        {
+            Session.RemoveAll();
+            return RedirectToAction("Entrar", "Home", new { msg = "Você saiu da sua sessão"});
+        }
     }
 }

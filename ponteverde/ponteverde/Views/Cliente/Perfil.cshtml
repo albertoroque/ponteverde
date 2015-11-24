@@ -31,7 +31,7 @@
                 @if (oUserSession != null)
                 {
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                    <li class="mdl-menu__item"><a href="">Logout</a></li>
+                    <li class="mdl-menu__item"><a href="~/logout">Logout</a></li>
                     
                     @if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}
                 </ul>    
@@ -101,7 +101,7 @@
                                         <img src="../@listaloja.loja.fotowall">
                                     </div>
                                     <div class="p-prod-desc">
-                                        <h5>Portal Orgânicos</h5>
+                                        <h5>@listaloja.loja.nome</h5>
                                         <a target="_blank" 
                                            href="http://@String.Format("{0}{1},{2}-{3},{4}","www.google.com.br/maps/place/",@listaloja.loja.logradouro,@listaloja.loja.numero,@listaloja.loja.bairro.nome,@listaloja.loja.bairro.cidade.nome)">
                                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">

@@ -17,7 +17,7 @@ namespace ponteverde.Controllers
         public ActionResult FileUpload(HttpPostedFileBase file, bool isCliente, bool isPerfil)
         {
             string path;
-            Tuple<bool, string> success =  null;
+            bool success;
 
             if (file != null)
             {
@@ -26,7 +26,7 @@ namespace ponteverde.Controllers
                 {
                     ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
                     ViewBag.Error = "Imagem muito grande";
-                    return PartialView();
+                    return RedirectToAction("LojaConfig", "Loja");
                 }
 
                 string extension = System.IO.Path.GetExtension(file.FileName);
@@ -35,7 +35,7 @@ namespace ponteverde.Controllers
                 {
                     ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
                     ViewBag.Error = "Tipo de arquivo não suportado";
-                    return PartialView();
+                    return RedirectToAction("LojaConfig", "Loja");
                 }
 
                 string g = Guid.NewGuid().ToString("N");
@@ -50,7 +50,7 @@ namespace ponteverde.Controllers
                 //ATUALIZA PERFIL COM IMAGEM 
                 success = this.AtualizaPerfil(cam, isCliente, isPerfil);
 
-                if (success.Item1)
+                if (success)
                 {
                     ViewBag.Image = cam;
                 }
@@ -59,15 +59,13 @@ namespace ponteverde.Controllers
                     ViewBag.Image = "http://www.powertime.co.za/en/blog/wp-content/uploads/2014/03/error-mesage.png";
                     ViewBag.Error = "Ocorreu algum erro!";
                 }
-            }           
-            return PartialView("~/Views/Loja/LojaConfig.cshtml");
+            }
+            return RedirectToAction("LojaConfig", "Loja");
         }
 
 
-        public Tuple<bool, string> AtualizaPerfil(string cam, bool isCliente, bool isPerfil)
-        {
-            string partialRender;
-            
+        public bool AtualizaPerfil(string cam, bool isCliente, bool isPerfil)
+        {                      
             try
             {
                 var session = Session["UserSession"] as UserSession;
@@ -80,13 +78,11 @@ namespace ponteverde.Controllers
                     var loja = iLoja.ObterPerfilPorConta(session.idConta);
 
                     if(isPerfil)
-                    {
-                        partialRender = "~/Views/Foto/FotoPerfil.cshtml";
+                    {        
                         loja.fotoperfil = cam;
                     }
                     else
-                    {
-                        partialRender = "~/Views/Foto/FotoWall.cshtml";
+                    {                     
                         loja.fotowall = cam;
                     }
 
@@ -100,13 +96,11 @@ namespace ponteverde.Controllers
                     var cliente = iCliente.ObterPerfilPorConta(session.idConta);
 
                     if (isPerfil)
-                    {
-                        partialRender = "~/Views/Foto/FotoPerfil.cshtml";
+                    {                     
                         cliente.fotoperfil = cam;
                     }
                     else
-                    {
-                        partialRender = "~/Views/Foto/FotoWall.cshtml";
+                    {                     
                         cliente.fotowall = cam;
                     }
 
@@ -114,11 +108,11 @@ namespace ponteverde.Controllers
                     iCliente.Persistir();
                 }
 
-                return new Tuple<bool,string>(true, partialRender);
+                return true;
             }
             catch 
             {
-                return new Tuple<bool, string>(false, "");
+                return false;
             }
         }
 

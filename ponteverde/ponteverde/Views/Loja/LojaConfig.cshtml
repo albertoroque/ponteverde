@@ -2,23 +2,7 @@
 @{
     Layout = "~/Views/Shared/_LayoutConfig.cshtml";
 
-    var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;
-               
-    AjaxOptions ajaxOptionsFilePerfil = new AjaxOptions()
-    {
-        HttpMethod = "POST",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "foto-partial-img-perfil" 
-
-    };
-
-    AjaxOptions ajaxOptionsFileWall = new AjaxOptions()
-    {
-        HttpMethod = "POST",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "foto-partial-img-wall"     
-
-    };
+   var oUserSession = Session["UserSession"] as ponteverde.Helpers.SessionController.UserSession;                
 }
   
 
@@ -117,7 +101,11 @@
                    @Html.Partial("~/Views/Foto/FotoPerfil.cshtml")
                 </div>
 
-                @using (Ajax.BeginForm("FileUpload", "Foto", new {isCliente = false, isPerfil = true}, ajaxOptionsFilePerfil, new { id = "form-new-upload-perfil", enctype = "multipart/form-data" }))
+                @using (Ajax.BeginForm("FileUpload", "Foto", new { isCliente = false, isPerfil = true }, 
+                
+                new AjaxOptions{HttpMethod = "POST",InsertionMode = InsertionMode.Replace, UpdateTargetId = "foto-partial-img-perfil"}, 
+                
+                new { id = "form-new-upload-perfil", enctype = "multipart/form-data" }))
                 {
                     <div class="upload">
                         <br />
@@ -131,14 +119,18 @@
             </center>
         </div>
 
-        <!-- FORM TROCAR FOTO PERFIL -->
+        <!-- FORM TROCAR FOTO WALL -->
         <div id="form-modal-wall" class="mdl-shadow--3dp form-modal">
             <center>
                 <div id="foto-partial-img-wall">
                    @Html.Partial("~/Views/Foto/FotoWall.cshtml")
                 </div>
 
-                @using (Ajax.BeginForm("FileUpload", "Foto", new { isCliente = false, isPerfil = false }, ajaxOptionsFileWall, new { id = "form-new-upload-wall", enctype = "multipart/form-data" }))
+                @using (Ajax.BeginForm("FileUpload", "Foto", new { isCliente = false, isPerfil = false }, 
+                
+                new AjaxOptions{HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "foto-partial-img-wall"}
+                
+                , new { id = "form-new-upload-wall", enctype = "multipart/form-data" }))
                 {
                     <div class="upload">
                         <br />
