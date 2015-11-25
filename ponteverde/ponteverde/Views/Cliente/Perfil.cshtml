@@ -33,7 +33,12 @@
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <li class="mdl-menu__item"><a href="~/logout">Logout</a></li>
                     
-                    @if (oUserSession.idConta == Model.idUsername){<li class="mdl-menu__item"><a href="">Configurações</a></li>}
+                    @if (oUserSession.idConta == Model.idUsername)
+                    {
+                        <li id="loja-change-perfil" class="mdl-menu__item"><a href="#">Trocar foto do perfil</a></li>
+                        <li id="loja-change-wall" class="mdl-menu__item"><a href="#">Trocar wallpaper</a></li>
+                        <li class="mdl-menu__item"><a href="#">Configurações</a></li>
+                    }
                 </ul>    
                 }
                 else
@@ -152,7 +157,92 @@
                     <h6 style="color:#666;">+ 2015 PONTEVERDE</h6>
                 </div>
             </footer>
+
+            <!-- FORM TROCAR FOTO PERFIL -->
+            <div id="form-modal-perfil" class="mdl-shadow--3dp form-modal2">
+                <center>
+                    <div id="foto-partial-img-perfil">
+                        @Html.Partial("~/Views/Foto/FotoPerfil.cshtml")
+                    </div>
+
+                    @using (Ajax.BeginForm("FileUpload", "Foto", new { isCliente = true, isPerfil = true,idConta = oUserSession.idConta},
+
+                    new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "foto-partial-img-perfil" },
+
+                    new { id = "form-new-upload-perfil", enctype = "multipart/form-data" }))
+                    {
+                        <div class="upload">
+                            <br />
+                            <div id="ativa" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                TROCAR FOTO PERFIL
+                            </div>
+                            <input id="esconde" type="file" name="file" /><br />
+                            <button id="envia" style="display:none;"></button>
+                        </div>
+                    }
+                </center>
+            </div>
+
+            <!-- FORM TROCAR FOTO WALL -->
+            <div id="form-modal-wall" class="mdl-shadow--3dp form-modal2">
+                <center>
+                    <div id="foto-partial-img-wall">
+                        @Html.Partial("~/Views/Foto/FotoWall.cshtml")
+                    </div>
+
+                    @using (Ajax.BeginForm("FileUpload", "Foto", new { isCliente = true, isPerfil = false, idConta = oUserSession.idConta },
+
+                    new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "foto-partial-img-wall" }
+
+                    , new { id = "form-new-upload-wall", enctype = "multipart/form-data" }))
+                    {
+                        <div class="upload">
+                            <br />
+                            <div id="ativa" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                TROCAR WALLPAPER
+                            </div>
+                            <input id="esconde-wall" type="file" name="file" /><br />
+                            <button id="envia-wall" style="display:none;"></button>
+                        </div>
+                    }
+                </center>
+            </div>
+
         </main>
     </div>
 </body>
+
+<script src="~/Scripts/carousel/jquery.bpopup.min.js"></script>
+
+<script>
+
+    var bPopup1; //PERFIL
+    var bPopup2; //WALL
+
+    $('#loja-change-perfil').click(function () {
+        bPopup1 = $('#form-modal-perfil').bPopup();
+    });
+
+    $('#loja-change-wall').click(function () {
+        bPopup2 = $('#form-modal-wall').bPopup();
+    });
+
+    $('#form-modal-perfil-cancela').click(function () {
+        bPopup.close();
+    });
+
+    $('#form-modal-wall-cancela').click(function () {
+        bPopup.close();
+    });
+
+    $("#esconde").change(function ()
+    {
+        $("#envia").trigger('click');
+    });
+
+    $("#esconde-wall").change(function () {
+        $("#envia-wall").trigger('click');
+    });
+
+</script>
 

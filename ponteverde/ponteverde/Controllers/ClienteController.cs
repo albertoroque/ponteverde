@@ -10,17 +10,21 @@ using ponteverde.Helpers.SessionController;
 
 namespace ponteverde.Controllers
 {
-    [RoutePrefix("Cliente")]
+    [RoutePrefix("cliente")]
     public class ClienteController : Controller
     {
         PvEntities bd = new PvEntities();
         
         [HttpGet]
-        [Route("Perfil/{idConta:long:min(1)}")]
+        [Route("perfil/{idConta:long:min(1)}")]
         public ActionResult Perfil(long idConta)
         {
             clienteBusinessModels iCliente = new clienteBusinessModels(bd);
-            var cliente = iCliente.ObterPerfilPorConta(idConta);                                             
+            var cliente = iCliente.ObterPerfilPorConta(idConta);
+
+            ViewBag.ImageWall = "../" + cliente.fotowall;
+            ViewBag.ImagePerfil = "../" + cliente.fotoperfil;
+                     
             return View(cliente);
         }
 
