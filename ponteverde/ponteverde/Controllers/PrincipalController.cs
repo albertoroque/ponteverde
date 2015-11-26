@@ -25,12 +25,17 @@ namespace ponteverde.Controllers
         {
             var iCidade = new CidadeRepository(bd);            
             var cidade = iCidade.ObterLojas(nomeCidade);
-            IQueryable<loja> dadosloja = null;
-            foreach (var i in cidade.bairro)
+
+            if (cidade == null)
             {
-                dadosloja = dadosloja.Concat(i.loja);
+                return View();
             }
-            return View(dadosloja);
+            
+            var _bairro = cidade.bairro.Select(model => model.loja);
+
+            var lojas = _bairro.SelectMany(model => model.AsQueryable()).AsQueryable();
+                      
+            return View(lojas);
         }
 
         [Route("lojas/{nomeCidade}/{nomeBairro}")]
@@ -39,6 +44,11 @@ namespace ponteverde.Controllers
             var iBairro = new BairroRepository(bd);
             var bairro = iBairro.ObterLojas(nomeCidade, nomeBairro);
 
+            if (bairro == null)
+            {
+                return RedirectToAction("Principal", new { nomeCidade = nomeCidade });
+            }
+    
             var iLoja = new lojaBusinessModels(bd);
             var dadosLojas = iLoja.ObterPorBairro(bairro.id);
             
