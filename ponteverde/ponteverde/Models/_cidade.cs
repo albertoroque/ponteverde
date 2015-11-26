@@ -39,6 +39,11 @@ namespace ponteverde.Models
                  return _novacidade;
              }             
          }
+
+         public cidade ObterLojas(string nomeCidade)
+         {
+             return base.Obter(x => x.nome.Equals(nomeCidade)).FirstOrDefault();
+         }
      }
 
     public class CidadeMetadata

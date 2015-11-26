@@ -67,39 +67,46 @@
             </div>
 
             <!-- CARD -->
-            @foreach (var loja in Model)
+            @if(Model == null)
             {
-                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-                    <!-- logo -->
-                    <a href="~/loja/perfil/@loja.idUsername">
-                        <center>
-                            <div class="home-card-logo mdl-button--icon mdl-js-ripple-effect"
-                                 style="background-image: url(../@loja.fotoperfil);"
-                                 class="mdl-shadow--6dp">
-                            </div>
-                        </center>
-                    </a>
-                    <!-- media -->
-                    <div class="mdl-card__media">
-                        <img src="../@loja.fotowall">
+                <h5>Não existem lojas especializadas ao seu redor.</h5>
+            }
+            else
+            {                            
+                foreach (var loja in Model)
+                {
+                    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                        <!-- logo -->
+                        <a href="~/loja/perfil/@loja.idUsername">
+                            <center>
+                                <div class="home-card-logo mdl-button--icon mdl-js-ripple-effect"
+                                     style="background-image: url(../@loja.fotoperfil);"
+                                     class="mdl-shadow--6dp">
+                                </div>
+                            </center>
+                        </a>
+                        <!-- media -->
+                        <div class="mdl-card__media">
+                            <img src="../@loja.fotowall">
+                        </div>
+                        <!-- titulo -->
+                        <div class="mdl-card__title">
+                            <h4 class="mdl-card__title-text">@loja.nome</h4>
+                        </div>
+                        <!-- texto -->
+                        <div class="mdl-card__supporting-text">
+                            <i class="material-icons">room</i>
+                            <span class="mdl-typography--font-light mdl-typography--subhead"> @loja.logradouro, @loja.numero</span>
+                            <br>
+                            <p class="mdl-typography--font-light mdl-typography--subhead">
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                            </p>
+                        </div>
                     </div>
-                    <!-- titulo -->
-                    <div class="mdl-card__title">
-                        <h4 class="mdl-card__title-text">@loja.nome</h4>
-                    </div>
-                    <!-- texto -->
-                    <div class="mdl-card__supporting-text">
-                        <i class="material-icons">room</i>
-                        <span class="mdl-typography--font-light mdl-typography--subhead"> @loja.logradouro, @loja.numero</span>
-                        <br>
-                        <p class="mdl-typography--font-light mdl-typography--subhead">
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i>
-                            <i class="material-icons">star</i>
-                        </p>
-                    </div>
-                </div>
-            }            
+                }  
+            }          
             <!-- CARREGAR MAIS -->
             <div id="index-load">
                 <center>

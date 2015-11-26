@@ -58,6 +58,12 @@ namespace ponteverde.Models
                 return result.id;
             }
          }
+
+         public bairro ObterLojas(string nomeCidade, string nomeBairro)
+         {
+             var _bairro = base.Obter(x => x.nome.Contains(nomeBairro)).Where(c => c.cidade.nome.Contains(nomeCidade)).FirstOrDefault();
+             return _bairro;
+         }
     }
 
     public class BairroMetadata
