@@ -22,7 +22,7 @@
 
                 <!-- ação de busca por geo location-->
                 <br />
-                <button id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
+                <button onclick="getLocation()" id="b-lojas-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored ">
                     <i class="material-icons">room</i>lojas mais próximas
                 </button>
 
@@ -41,7 +41,7 @@
                             <a href="~/Loja/Perfil/@loja.idUsername">
                                 <div class="b-list-card mdl-shadow--2dp">
 
-                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../@loja.fotoperfil')">
+                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../../@loja.fotoperfil')">
                                     </div>
                                     <div class="b-list-card-text">
                                         <p class="b-list-card-text-1" style="color:#333;">@loja.nome</p>
@@ -78,7 +78,7 @@
                                 <!-- cards da busca -->
                             <a href="~/Cliente/Perfil/@cliente.idUsername">
                                 <div class="b-list-card mdl-shadow--2dp">
-                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../@cliente.fotoperfil')">
+                                    <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../../@cliente.fotoperfil')">
                                     </div>
                                     <div class="b-list-card-text">
                                         <p class="b-list-card-text-1" style="color:#333;">@cliente.nome</p>

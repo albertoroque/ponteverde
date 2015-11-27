@@ -91,6 +91,7 @@
                     var cidade = extractFromAddress(results[0].address_components, "locality");
                     var bairro = extractFromAddress(results[0].address_components, "sublocality_level_1");
 
+                    console.log(cidade, bairro);
                     mostraPrincipalBairro(cidade, bairro);
 
                     //x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
@@ -124,13 +125,13 @@
     function mostraPrincipalCidade(cidade) {        
                 
         var url = "http://" + path + ":" + port + "/lojas/" + cidade;
-        location.href = url;
+        window.location.href = url;
     }
 
     function mostraPrincipalBairro(cidade, bairro) {
        
         var url = "http://" + path + ":" + port + "/lojas/" + cidade + "/" + bairro;
-        location.href = url;
+        window.location.href = url;
     }
 </script>
 

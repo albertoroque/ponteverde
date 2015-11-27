@@ -18,7 +18,7 @@
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        @Html.TextBoxFor(model => model.Usuario.password, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
+        @Html.PasswordFor(model => model.Usuario.password, new { @class = "mdl-textfield__input", id = "sample2 login-input" })
         <label class="mdl-textfield__label" for="sample2">Senha</label>
         <span class="mdl-textfield__error">@Html.ValidationMessageFor(model => model.Usuario.password)</span>
     </div>

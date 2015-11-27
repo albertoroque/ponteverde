@@ -19,12 +19,12 @@ namespace ponteverde.Models
 
         public IQueryable<loja> ObterPorBairro(long idBairro)
         {
-            var _bairro = base.Obter(x => x.idBairro.Equals(idBairro));
+            var lojas = base.Obter(x => x.idBairro.Equals(idBairro));
 
-            if (_bairro == null)
+            if (lojas == null)
                 return null;
 
-            return _bairro;
+            return lojas;
         }
 
         public loja ObterPerfilPorConta(long idConta)

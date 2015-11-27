@@ -1,4 +1,5 @@
-﻿using ponteverde.Models;
+﻿using ponteverde.Helpers.SessionController;
+using ponteverde.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,20 @@ namespace ponteverde.Controllers
         public ActionResult Principal()
         {
             var iLoja = new lojaBusinessModels(bd);
-            var dadosLojas = iLoja.Obter();
+            
+            var session = Session["UserSession"] as UserSession;
+
+            IQueryable<loja> dadosLojas = null;
+            
+            if (session != null)
+            {
+                dadosLojas = iLoja.ObterPorBairro((long)session.idBairro);
+            }
+            else
+            {
+                dadosLojas = iLoja.Obter();
+            }
+                        
             return View(dadosLojas);
         }
 
@@ -46,7 +60,7 @@ namespace ponteverde.Controllers
 
             if (bairro == null)
             {
-                return RedirectToAction("Principal", new { nomeCidade = nomeCidade });
+                return Redirect(("~/lojas/" + nomeCidade).ToLowerInvariant());
             }
     
             var iLoja = new lojaBusinessModels(bd);

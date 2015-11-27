@@ -43,8 +43,38 @@ namespace ponteverde.Controllers
             {
                 ViewBag.LojaBuscaMsg = "Sem resultado";
             }
-
             return PartialView("Busca",dadosBusca);
+        }
+
+        [Route("local/{nomeCidade}/{nomeBairro}")]
+        public ActionResult BuscarLocation(string nomeCidade, string nomeBairro)
+        {
+            var iLoja = new lojaBusinessModels(bd);
+            var dadosBusca = new BuscaViewModel();
+            var ibairro = new BairroRepository(bd);
+            var iCliente = new clienteBusinessModels(bd);
+
+            var _bairro = ibairro.ObterLojas(nomeCidade, nomeBairro);
+
+            if (_bairro == null)
+            {
+                return PartialView("Busca", dadosBusca);
+            }
+
+            dadosBusca.Loja = iLoja.ObterPorBairro(_bairro.id).Take(20);
+            
+            dadosBusca.Cliente = iCliente.ObterClientePorBairro(_bairro.id).Take(20);
+
+            if (dadosBusca.Cliente == null)
+            {
+                ViewBag.ClienteBuscaMsg = "Sem resultados";
+            }
+            if (dadosBusca.Loja == null)
+            {
+                ViewBag.LojaBuscaMsg = "Sem resultados";
+            }
+
+            return PartialView("Busca", dadosBusca);
         }
     }
 }
