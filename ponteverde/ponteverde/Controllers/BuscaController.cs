@@ -19,6 +19,7 @@ namespace ponteverde.Controllers
         public ActionResult Busca()
         {
             var dadosBusca = new BuscaViewModel();
+
             return View(dadosBusca);
         }
      
@@ -33,6 +34,15 @@ namespace ponteverde.Controllers
             var iCliente = new clienteBusinessModels(bd);
 
             dadosBusca.Cliente = iCliente.BuscaCliente(chave).Take(20);
+
+            if (dadosBusca.Cliente == null)
+            {
+                ViewBag.ClienteBuscaMsg = "Sem resultado";
+            }
+            if (dadosBusca.Loja == null)
+            {
+                ViewBag.LojaBuscaMsg = "Sem resultado";
+            }
 
             return PartialView("Busca",dadosBusca);
         }

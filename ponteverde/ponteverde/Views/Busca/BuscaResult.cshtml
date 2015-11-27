@@ -31,7 +31,7 @@
                 <div id="b-list">
                     @if (Model.Loja == null || Model.Loja.Count() <= 0)
                     {
-                        <h5>A pesquisa não obteve resultados</h5>
+                        @ViewBag.LojaBuscaMsg
                     }
                     else
                     {
@@ -69,14 +69,14 @@
                 <div id="cliente-list">
                     @if (Model.Cliente == null || Model.Cliente.Count() <= 0)
                     {
-                        <h5>não existem clientes com esse nome</h5>
+                        @ViewBag.ClienteBuscaMsg
                     }
                     else
                     {
                         foreach (var cliente in Model.Cliente)
                         {
                                 <!-- cards da busca -->
-                            <a href="~/Cliente/Perfil/@cliente.id">
+                            <a href="~/Cliente/Perfil/@cliente.idUsername">
                                 <div class="b-list-card mdl-shadow--2dp">
                                     <div class="b-list-card-img mdl-shadow--2dp" style="background-image:url('../@cliente.fotoperfil')">
                                     </div>
