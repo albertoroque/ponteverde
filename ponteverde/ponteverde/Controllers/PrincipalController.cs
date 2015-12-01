@@ -25,6 +25,12 @@ namespace ponteverde.Controllers
             if (session != null)
             {
                 dadosLojas = iLoja.ObterPorBairro((long)session.idBairro);
+                if (dadosLojas.Count() <= 0)
+                {
+                    var iBairro = new BairroRepository(bd);
+                    string nomeCidade = iBairro.ObterBairro(session.idBairro).cidade.nome;
+                    return Redirect("~/lojas/" + nomeCidade);
+                }
             }
             else
             {
@@ -48,7 +54,8 @@ namespace ponteverde.Controllers
             var _bairro = cidade.bairro.Select(model => model.loja);
 
             var lojas = _bairro.SelectMany(model => model.AsQueryable()).AsQueryable();
-                      
+
+            ViewBag.RefLocation = (string)nomeCidade;          
             return View(lojas);
         }
 
@@ -60,12 +67,13 @@ namespace ponteverde.Controllers
 
             if (bairro == null)
             {
-                return Redirect(("~/lojas/" + nomeCidade).ToLowerInvariant());
+                return Redirect("~/lojas/" + nomeCidade);
             }
     
             var iLoja = new lojaBusinessModels(bd);
             var dadosLojas = iLoja.ObterPorBairro(bairro.id);
-            
+
+            ViewBag.RefLocation = (string)nomeBairro;            
             return View(dadosLojas);
         }
     }
